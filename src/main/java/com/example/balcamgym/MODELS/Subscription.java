@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Subscriptions {
+public class Subscription {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,10 +19,9 @@ public class Subscriptions {
     @OneToOne
     private Account account;
 
-    @OneToMany(mappedBy = "subscriptions" , fetch = FetchType.EAGER)
-    Set<Workout> workouts = new HashSet<>();
 
-    private SubscriptionsTypes subscriptionsTypes;
+
+    private SubscriptionTypes subscriptionTypes;
 
     private double amount;
 
@@ -30,10 +29,10 @@ public class Subscriptions {
 
 
 
-    public Subscriptions(){}
+    public Subscription(){}
 
-    public Subscriptions(SubscriptionsTypes subscriptionsTypes, double amount, LocalDate fromDate, LocalDate toDate, Account account) {
-        this.subscriptionsTypes = subscriptionsTypes;
+    public Subscription(SubscriptionTypes subscriptionTypes, double amount, LocalDate fromDate, LocalDate toDate, Account account) {
+        this.subscriptionTypes = subscriptionTypes;
         this.amount = amount;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -42,11 +41,11 @@ public class Subscriptions {
 
 
 
-    public SubscriptionsTypes getSubscriptionsTypes() {
-        return subscriptionsTypes;
+    public SubscriptionTypes getSubscriptionsTypes() {
+        return subscriptionTypes;
     }
-    public void setSubscriptionsTypes(SubscriptionsTypes subscriptionsTypes) {
-        this.subscriptionsTypes = subscriptionsTypes;
+    public void setSubscriptionsTypes(SubscriptionTypes subscriptionTypes) {
+        this.subscriptionTypes = subscriptionTypes;
     }
 
 
@@ -87,7 +86,5 @@ public class Subscriptions {
     }
 
 
-    public Set<Workout> getWorkouts() {
-        return workouts;
-    }
+
 }
