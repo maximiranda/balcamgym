@@ -1,11 +1,9 @@
 package com.example.balcamgym.Models;
 
-
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,77 +14,60 @@ public class Subscription {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @OneToOne
-    private Account account;
-
-    /*@OneToMany(mappedBy = "subscriptions", fetch = FetchType.EAGER)
-    private Set<Order> orders = new HashSet<>();*/
-
 
     private SubscriptionTypes subscriptionTypes;
 
     private double amount;
 
-    private LocalDate fromDate, toDate;
-
-
+    private LocalDate fromdate, toDate;
 
     public Subscription(){}
 
-    public Subscription(SubscriptionTypes subscriptionTypes, double amount, LocalDate fromDate, LocalDate toDate, Account account) {
+
+    public Subscription(SubscriptionTypes subscriptionTypes, double amount, LocalDate fromdate, LocalDate toDate) {
         this.subscriptionTypes = subscriptionTypes;
         this.amount = amount;
-        this.fromDate = fromDate;
+        this.fromdate = fromdate;
         this.toDate = toDate;
-        this.account = account;
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
-    public SubscriptionTypes getSubscriptionsTypes() {
+    public SubscriptionTypes getSubscriptionTypes() {
         return subscriptionTypes;
     }
-    public void setSubscriptionsTypes(SubscriptionTypes subscriptionTypes) {
+
+    public void setSubscriptionTypes(SubscriptionTypes subscriptionTypes) {
         this.subscriptionTypes = subscriptionTypes;
     }
-
-
 
     public double getAmount() {
         return amount;
     }
+
     public void setAmount(double amount) {
         this.amount = amount;
     }
 
-
-
-    public LocalDate getFromDate() {
-        return fromDate;
-    }
-    public void setFromDate(LocalDate fromDate) {
-        this.fromDate = fromDate;
+    public LocalDate getFromdate() {
+        return fromdate;
     }
 
-
+    public void setFromdate(LocalDate fromdate) {
+        this.fromdate = fromdate;
+    }
 
     public LocalDate getToDate() {
         return toDate;
     }
+
     public void setToDate(LocalDate toDate) {
         this.toDate = toDate;
     }
-
-
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-
-
 }

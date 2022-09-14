@@ -4,36 +4,41 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Product {
+public class Bill {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ps_id")
     private ProductStorage productStorage;
 
     private String name;
 
-    private ProductCategory productCategory;
+    private double amount;
 
-    private double price;
+    public Bill(){}
 
-    private int stock;
-
-
-    public Product (){}
-
-    public Product(String name, ProductCategory productCategory, double price, int stock) {
+    public Bill(Client client, String name, double amount) {
+        this.client = client;
         this.name = name;
-        this.productCategory = productCategory;
-        this.price = price;
-        this.stock = stock;
+        this.amount = amount;
+    }
+
+    public Bill(Client client, ProductStorage productStorage, String name, double amount) {
+        this.client = client;
+        this.productStorage = productStorage;
+        this.name = name;
+        this.amount = amount;
     }
 
     public long getId() {
@@ -52,29 +57,14 @@ public class Product {
         this.name = name;
     }
 
-    public ProductCategory getProductCategory() {
-        return productCategory;
+    public Client getClient() {
+        return client;
     }
 
-    public void setProductCategory(ProductCategory productCategory) {
-        this.productCategory = productCategory;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
 
     public ProductStorage getProductStorage() {
         return productStorage;
@@ -82,5 +72,13 @@ public class Product {
 
     public void setProductStorage(ProductStorage productStorage) {
         this.productStorage = productStorage;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 }
