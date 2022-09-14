@@ -1,4 +1,4 @@
-package com.example.balcamgym.MODELS;
+package com.example.balcamgym.Models;
 
 import org.hibernate.annotations.GenericGenerator;
 

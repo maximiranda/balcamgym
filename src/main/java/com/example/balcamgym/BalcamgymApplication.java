@@ -1,11 +1,11 @@
 package com.example.balcamgym;
 
 
-import com.example.balcamgym.MODELS.*;
-import com.example.balcamgym.REPOSITORIES.AccountRepositories;
-import com.example.balcamgym.REPOSITORIES.ClientRepositories;
-import com.example.balcamgym.REPOSITORIES.SubscriptionsRepositories;
-import com.example.balcamgym.REPOSITORIES.WorkoutRepositories;
+import com.example.balcamgym.Models.*;
+import com.example.balcamgym.Repositories.AccountRepositories;
+import com.example.balcamgym.Repositories.ClientRepositories;
+import com.example.balcamgym.Repositories.SubscriptionsRepositories;
+import com.example.balcamgym.Repositories.WorkoutRepositories;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

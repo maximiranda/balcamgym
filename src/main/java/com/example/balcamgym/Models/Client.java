@@ -1,4 +1,4 @@
-package com.example.balcamgym.MODELS;
+package com.example.balcamgym.Models;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -17,6 +17,8 @@ public class Client {
 
     private String firstName, lastName, email, password;
     private int dni;
+/*    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private Set<Order> orders = new HashSet<>();*/
 
 
     public Client() {}

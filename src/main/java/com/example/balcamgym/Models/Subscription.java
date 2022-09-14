@@ -1,4 +1,4 @@
-package com.example.balcamgym.MODELS;
+package com.example.balcamgym.Models;
 
 
 import org.hibernate.annotations.GenericGenerator;
@@ -19,6 +19,8 @@ public class Subscription {
     @OneToOne
     private Account account;
 
+    /*@OneToMany(mappedBy = "subscriptions", fetch = FetchType.EAGER)
+    private Set<Order> orders = new HashSet<>();*/
 
 
     private SubscriptionTypes subscriptionTypes;
