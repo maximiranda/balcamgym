@@ -25,6 +25,10 @@ public class ProductStorage {
 
     public ProductStorage(){}
 
+    public long getId() {
+        return id;
+    }
+
     public ProductStorage(Set<Product> products) {
         this.products = products;
     }
