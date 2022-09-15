@@ -3,6 +3,7 @@ package com.example.balcamgym;
 
 import com.example.balcamgym.Models.*;
 import com.example.balcamgym.Repositories.*;
+import com.example.balcamgym.Services.ImgFIleServices;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,9 +20,10 @@ public class BalcamgymApplication {
 
 	@Bean
 	public CommandLineRunner initData (ClientRepository clientRepository, ProductStorageRepository productStorageRepository, ProductRepository productRepository, BillRepository billRepository,
-									   BillSubscriptionRepository billSubscriptionRepository, SubscriptionRepository subscriptionRepository){
+									   BillSubscriptionRepository billSubscriptionRepository, SubscriptionRepository subscriptionRepository, ImgFIleServices imgFIleServices){
 	return (args) -> {
-
+		imgFIleServices.deleteAll();
+		imgFIleServices.init();
 		Client client = new Client("hola","hola","hola@hola","hola123",true);
 
 		Product p1 = new Product("pantalon",ProductCategory.CLOTHES,1000,10);
