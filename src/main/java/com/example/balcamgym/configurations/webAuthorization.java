@@ -21,7 +21,7 @@ public class webAuthorization extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/h2-console").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/clients").permitAll();
+                .antMatchers(HttpMethod.POST,"/api/**").permitAll();
 
         http.formLogin()
                 .usernameParameter("email")

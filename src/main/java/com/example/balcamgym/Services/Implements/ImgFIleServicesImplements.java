@@ -32,7 +32,6 @@ public class ImgFIleServicesImplements implements ImgFIleServices {
     public void init() {
         try {
             Files.createDirectory(root);
-            System.out.println("hola");
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize folder for upload!");
         }

@@ -22,9 +22,9 @@ public class BalcamgymApplication {
 	public CommandLineRunner initData (ClientRepository clientRepository, ProductStorageRepository productStorageRepository, ProductRepository productRepository, BillRepository billRepository,
 									   BillSubscriptionRepository billSubscriptionRepository, SubscriptionRepository subscriptionRepository, ImgFIleServices imgFIleServices){
 	return (args) -> {
-
+		imgFIleServices.deleteAll();
+		imgFIleServices.init();
 		Client Admin = new Client("Admin","Admin","admin@balcamgym.com","balcamgym",false);
-
 
 		Client client = new Client("hola","hola","hola@hola","hola123",true);
 
