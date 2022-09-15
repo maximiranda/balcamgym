@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="assets/images/favicon-16x16.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/shop.css">
+</head>
+
+<body id="app">
+    <!-- NAV -->
+    <div class="flex flex-wrap ">
+        <!-- navbar -->
+        <nav class="flex justify-between bg-gray-900 text-white w-screen">
+            <div class="px-5 xl:px-12 py-6 flex w-full items-center">
+                <a class="text-3xl font-bold font-heading" href="#">
+                    <!-- <img class="h-9" src="logo.png" alt="logo"> -->
+                    Logo Here.
+                </a>
+                <!-- Nav Links -->
+                <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
+                    <li><a class="hover:text-gray-200" href="#">Home</a></li>
+                    <li><a class="hover:text-gray-200" href="#">Lessons</a></li>
+                    <li><a class="hover:text-gray-200" href="#">About</a></li>
+                    <li><a class="hover:text-gray-200" href="#">Shop</a></li>
+                    <li><a class="hover:text-gray-200" href="#">Membership</a></li>
+                    <li><a class="hover:text-gray-200" href="#">Contact</a></li>
+                </ul>
+                <!-- Header Icons -->
+                <div class="hidden xl:flex items-center space-x-5 items-center">
+                    <a class="hover:text-gray-200" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </a>
+                    <a class="flex items-center hover:text-gray-200" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span class="flex absolute -mt-5 ml-4">
+                            <span
+                                class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500">
+                            </span>
+                        </span>
+                    </a>
+                    <!-- Sign In / Register      -->
+                    <a class="flex items-center hover:text-gray-200" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+            <!-- Responsive navbar -->
+            <a class="xl:hidden flex mr-6 items-center" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="flex absolute -mt-5 ml-4">
+                    <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500">
+                    </span>
+                </span>
+            </a>
+            <a class="navbar-burger self-center mr-12 xl:hidden" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <div class="w-full h-[15vh] bg-sky-500 flex flex-col items-center justify-center">
+        <h1 class="text-3xl font-bold text-white">Power Shop</h1>
+        <h3 class="text-xl text-white font-thin">check out <span class="font-medium">products</span></h3>
+    </div>
+    <section class="flex  w-full flex-row flex-wrap justify-center gap-10">
+        <div class="h-full w-[30vh]">
+            <div class="p-5">
+                <div class=" flex flex-col gap-5 ">
+                    <h2 class="font-bold text-2xl cursor-default">
+                        Categories
+                    </h2>
+                    <select @change="selectFilter()" v-model="selectedCategory" class="cursor-pointer">
+                        <option selected value="all">All</option>
+                        <option v-for="category in categories" :value="category">{{category}}</option>
+                    </select>
+                    <div v-if="selectedCategory == 'Clothes'" class="cursor-pointer flex flex-col gap-3">
+                        <h4 v-for="cloth in clothes">{{cloth}}</h4>
+                    </div>
+                    <div v-if="selectedCategory == 'Suplements'" class="cursor-pointer flex flex-col gap-3">
+                        <h4 v-for="suplement in suplements">{{suplement}}</h4>
+                    </div>
+                </div>
+                <div class="pt-5">
+                    <h2 class="font-bold text-2xl cursor-default">
+                        Price
+                    </h2>
+                    <input @input="rangePriceFilter(inputRange)" v-model="inputRange" type="range" name="priceRange"
+                        id="priceRange">
+                    <h4 class="text-red-600 text-xl font-bold">hasta: ${{inputRange}}</h4>
+                </div>
+            </div>
+
+        </div>
+        <div class="min-h-full w-[120vh]">
+            <div class="p-5 flex flex-col">
+                <div class="flex justify-between w-[84%]">
+                    <h2 class="font-bold text-4xl cursor-default ">
+                        Sale Off
+                    </h2>
+                    <div class="flex items-center justify-center gap-2 border p-2">
+                        <ion-icon class="text-2xl" name="search-outline"></ion-icon>
+                        <input @keyup="searchFilter" v-model="searchFilterInput" class="py-2 focus:outline-none" type="search" name="search" id="search" placeholder="What do you need?">
+                    </div>
+                </div>
+                <div id="card-container" class="flex gap-5 flex-wrap pt-5">
+                    <div v-for="(product, i) in filteredProducts"
+                        class="overflow-hidden rounded shadow flex flex-col gap-2 w-[290px] h-[320px]">
+                        <div class="flex items-center shadow-lg justify-center">
+                            <img :src="product.thumbnailUrl"
+                                class="hover:rotate-12 object-contain h-[170px] transition-all duration-150 hover:scale-[1.4] absolute"
+                                alt="product.id">
+                            <img v-if="i % 2 == 0" class="object-cover w-full h-full h-48" :src="productsBg[2]"
+                                alt="NIKE AIR">
+                            <img v-else class="object-cover w-full h-full h-48" :src="productsBg[1]" alt="NIKE AIR">
+                        </div>
+                        <div class="mt-3 flex flex-col gap-2">
+                            <h2 class="text-xl font-medium text-gray-700">Whey protein z-10 aguante river</h2>
+                            <h3 class="font-medium text-xl text-green-600">$49.99</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="../path/to/flowbite/dist/flowbite.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="/assets/js/shop.js"></script>
+</body>
+
+</html>
