@@ -3,6 +3,7 @@ package com.example.balcamgym.Controllers;
 import com.example.balcamgym.DTO.ClientDTO;
 import com.example.balcamgym.Models.Client;
 import com.example.balcamgym.Repositories.ClientRepository;
+import com.example.balcamgym.Services.ClientServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,19 +16,21 @@ import java.util.stream.Collectors;
 @RequestMapping("/api")
 public class ClientController {
     @Autowired
-    ClientRepository clientRepository;
+    ClientServices clientServices;
 
     @GetMapping("clients")
     public List<ClientDTO> getClient(){
-        return clientRepository.findAll().stream().map(ClientDTO::new).collect(Collectors.toList());
+        return clientServices.getAllClients().stream().map(ClientDTO::new).collect(Collectors.toList());
     }
     @PostMapping("/clients")
     public ResponseEntity<Object> register(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String password){
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty()){
-            return new ResponseEntity<>("", HttpStatus.FORBIDDEN);
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()){
+            return new ResponseEntity<>("Missing Data", HttpStatus.FORBIDDEN);
+        }if (clientServices.findByEmail(email) != null){
+            return new ResponseEntity<>("This email already use",HttpStatus.FORBIDDEN);
         }
         Client client = new Client(firstName, lastName, email, password, false);
-        clientRepository.save(client);
-        return new ResponseEntity<>("", HttpStatus.CREATED);
+        clientServices.saveClient(client);
+        return new ResponseEntity<>("Create", HttpStatus.CREATED);
     }
 }

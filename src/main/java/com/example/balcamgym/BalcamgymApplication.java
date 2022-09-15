@@ -22,6 +22,8 @@ public class BalcamgymApplication {
 									   BillSubscriptionRepository billSubscriptionRepository, SubscriptionRepository subscriptionRepository){
 	return (args) -> {
 
+		Client Admin = new Client("Admin","Admin","admin@balcamgym.com","balcamgym",false);
+
 		Client client = new Client("hola","hola","hola@hola","hola123",true);
 
 		Product p1 = new Product("pantalon",ProductCategory.CLOTHES,1000,10);
@@ -41,6 +43,7 @@ public class BalcamgymApplication {
 
 		BillSubscription bils1 = new BillSubscription(client,sub1, sub1.getAmount(),sub1.getFromdate(),sub1.getToDate());
 
+		clientRepository.save(Admin);
 		clientRepository.save(client);
 		productRepository.save(p1);
 		productRepository.save(p2);

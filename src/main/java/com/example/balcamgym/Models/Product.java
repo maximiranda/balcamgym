@@ -15,7 +15,7 @@ public class Product {
     @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
     private Set<ProductStorage> productsStorage;
 
-    private String name;
+    private String name,description;
 
     private ProductCategory productCategory;
 
@@ -31,6 +31,21 @@ public class Product {
         this.productCategory = productCategory;
         this.price = price;
         this.stock = stock;
+    }
+
+    public Product(String name, String description, ProductCategory productCategory, double price, int stock) {
+        this.name = name;
+        this.description = description;
+        this.productCategory = productCategory;
+        this.price = price;
+        this.stock = stock;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public long getId() {

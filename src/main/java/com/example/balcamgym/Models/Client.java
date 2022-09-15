@@ -18,7 +18,8 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private Set<Bill> bills = new HashSet<>();
 
-
+    @OneToMany(mappedBy = "client")
+    private Set<Workout> workouts = new HashSet<>();
 
     private String firstName, lastName, email, password;
 
@@ -86,5 +87,7 @@ public class Client {
         return bills;
     }
 
-
+    public Set<Workout> getWorkouts() {
+        return workouts;
+    }
 }

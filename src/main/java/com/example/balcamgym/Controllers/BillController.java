@@ -31,12 +31,11 @@ public class BillController {
     public ResponseEntity<Object> makeBuy (@RequestParam Set<ProductStorage> productStorage, @RequestParam String email){
         Client client = clientRepository.findByEmail(email);
         if(client == null){
-            return new ResponseEntity("", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("", HttpStatus.FORBIDDEN);
         }
         double amount = 0;
+        //productStorage.stream().map(ProductStorage::getProduct).forEach(price -> amount = amount+ price);
 
-                //productStorage.stream().map(productStorage -> productStorage.getProduct().getPrice()).forEach(price -> amount = amount + price);
-
-        return new ResponseEntity("", HttpStatus.OK);
+        return new ResponseEntity<>("", HttpStatus.OK);
     }
 }
