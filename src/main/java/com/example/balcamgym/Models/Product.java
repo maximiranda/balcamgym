@@ -3,8 +3,6 @@ package com.example.balcamgym.Models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,9 +12,8 @@ public class Product {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "product_id")
-    private ProductStorage productStorage;
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
+    private Set<ProductStorage> productsStorage;
 
     private String name;
 
@@ -76,11 +73,12 @@ public class Product {
         this.stock = stock;
     }
 
-    public ProductStorage getProductStorage() {
-        return productStorage;
+    public Set<ProductStorage> getProductsStorage() {
+        return productsStorage;
     }
 
-    public void setProductStorage(ProductStorage productStorage) {
-        this.productStorage = productStorage;
+    public void setProductsStorage(ProductStorage productStorage) {
+        productStorage.setProduct(this);
+        this.productsStorage.add(productStorage);
     }
 }

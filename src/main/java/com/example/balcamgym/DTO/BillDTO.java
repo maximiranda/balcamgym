@@ -2,16 +2,19 @@ package com.example.balcamgym.DTO;
 
 import com.example.balcamgym.Models.Bill;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 public class BillDTO {
     private long id;
-    private String name;
+    private Set<ProductStorageDTO> productStorage;
     private double amount;
 
     public BillDTO(){}
 
     public BillDTO (Bill bill){
         this.id = bill.getId();
-        this.name = bill.getName();
+        this.productStorage= bill.getProductStorage().stream().map(ProductStorageDTO::new).collect(Collectors.toSet());
         this.amount = bill.getAmount();
     }
 
@@ -19,8 +22,9 @@ public class BillDTO {
         return id;
     }
 
-    public String getName() {
-        return name;
+
+    public Set<ProductStorageDTO> getProducts() {
+        return productStorage;
     }
 
     public double getAmount() {

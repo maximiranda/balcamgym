@@ -18,28 +18,20 @@ public class Bill {
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ps_id")
-    private ProductStorage productStorage;
+    @OneToMany(mappedBy = "bill",fetch = FetchType.EAGER)
+    private Set<ProductStorage> productStorages;
 
-    private String name;
+
 
     private double amount;
 
     public Bill(){}
 
-    public Bill(Client client, String name, double amount) {
+    public Bill(Client client, double amount ) {
         this.client = client;
-        this.name = name;
         this.amount = amount;
     }
 
-    public Bill(Client client, ProductStorage productStorage, String name, double amount) {
-        this.client = client;
-        this.productStorage = productStorage;
-        this.name = name;
-        this.amount = amount;
-    }
 
     public long getId() {
         return id;
@@ -49,13 +41,7 @@ public class Bill {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Client getClient() {
         return client;
@@ -66,12 +52,12 @@ public class Bill {
     }
 
 
-    public ProductStorage getProductStorage() {
-        return productStorage;
+    public Set<ProductStorage> getProductStorage() {
+        return productStorages;
     }
 
     public void setProductStorage(ProductStorage productStorage) {
-        this.productStorage = productStorage;
+        this.productStorages = productStorages;
     }
 
     public double getAmount() {

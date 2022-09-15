@@ -15,37 +15,38 @@ public class ProductStorage {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @OneToMany(mappedBy = "productStorage",fetch = FetchType.EAGER)
-    private Set<Product> products = new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Product product;
 
-    @OneToMany(mappedBy = "productStorage")
-    private Set<Bill> bills = new HashSet<>();
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Bill bill;
 
 
     public ProductStorage(){}
+    public ProductStorage(Product product, Bill bill){
+        this.product = product;
+        this.bill = bill;
+    }
+
 
     public long getId() {
         return id;
     }
 
-    public ProductStorage(Set<Product> products) {
-        this.products = products;
+    public Product getProduct() {
+        return product;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public Bill getBill() {
+        return bill;
     }
 
-    public Set<Bill> getBills() {
-        return bills;
-    }
+    public void setBill(Bill bill) {
+        this.bill = bill;
 
-    public void setBills(Set<Bill> bills) {
-        this.bills = bills;
     }
 }

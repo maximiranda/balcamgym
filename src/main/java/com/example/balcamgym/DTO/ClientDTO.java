@@ -8,17 +8,16 @@ import java.util.stream.Collectors;
 public class ClientDTO {
 private long id;
     private String firstName, lastName, email;
-    private Set<BillDTO> bill;
+    private Set<BillDTO> bills;
 
 
-    public ClientDTO(){}
 
     public ClientDTO(Client client) {
         this.id = client.getId();
         this.firstName = client.getFirstName();
         this.lastName = client.getLastName();
         this.email = client.getEmail();
-        this.bill = client.getBills().stream().map(BillDTO::new).collect(Collectors.toSet());
+        this.bills = client.getBills().stream().map(BillDTO::new).collect(Collectors.toSet());
     }
 
     public long getId() {
@@ -37,7 +36,7 @@ private long id;
         return email;
     }
 
-    public Set<BillDTO> getBill() {
-        return bill;
+    public Set<BillDTO> getBills() {
+        return bills;
     }
 }
