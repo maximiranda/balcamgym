@@ -1,8 +1,8 @@
 package com.example.balcamgym.Services.Implements;
 
+import com.example.balcamgym.Services.ClientServices;
 import com.example.balcamgym.Models.Client;
 import com.example.balcamgym.Repositories.ClientRepository;
-import com.example.balcamgym.Services.ClientServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
