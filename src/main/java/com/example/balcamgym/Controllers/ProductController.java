@@ -28,7 +28,7 @@ public class ProductController {
 
     @GetMapping("/products")
     public Set<ProductDTO> getProducts(){
-        return productServices.getAllProducts().stream().map(ProductDTO::new).collect(Collectors.toSet());
+        return productServices.findAllProducts().stream().map(ProductDTO::new).collect(Collectors.toSet());
     }
     @PostMapping("/products")
     public ResponseEntity<Object> buyProduct(@RequestParam String name, @RequestParam ProductCategory category, @RequestParam double price,

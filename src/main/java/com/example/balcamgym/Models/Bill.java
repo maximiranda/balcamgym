@@ -59,8 +59,9 @@ public class Bill {
         return productStorages;
     }
 
-    public void setProductStorage(ProductStorage productStorage) {
-        this.productStorages = productStorages;
+    public void setProductStorage(Set<ProductStorage> productStorage) {
+
+        this.productStorages = productStorage;
     }
 
     public double getAmount() {

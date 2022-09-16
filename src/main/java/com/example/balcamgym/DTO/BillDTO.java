@@ -13,7 +13,6 @@ public class BillDTO {
     private Client client;
     private double amount;
 
-    public BillDTO(){}
 
     public BillDTO (Bill bill){
         this.id = bill.getId();
