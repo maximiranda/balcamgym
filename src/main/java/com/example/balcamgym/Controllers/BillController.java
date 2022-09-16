@@ -1,6 +1,8 @@
 package com.example.balcamgym.Controllers;
 
 import com.example.balcamgym.DTO.BillDTO;
+import com.example.balcamgym.DTO.ProductStorageBillDTO;
+import com.example.balcamgym.Models.Bill;
 import com.example.balcamgym.Models.Client;
 import com.example.balcamgym.Models.Product;
 import com.example.balcamgym.Models.ProductStorage;
@@ -14,6 +16,7 @@ import com.example.balcamgym.Services.ProductStorageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -25,11 +28,17 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api")
 public class BillController {
-    @Autowired
+   @Autowired
     private BillRepository billRepository;
-
     @Autowired
-    private ClientRepository clientRepository;
+    private ClientServices clientServices;
+    @Autowired
+    private ProductServices productServices;
+    @Autowired
+    private ProductStorageServices productStorageServices;
+    @Autowired
+    private BillServices billServices;
+
 
     @GetMapping("/bills")
     public Set<BillDTO> getBills(){
