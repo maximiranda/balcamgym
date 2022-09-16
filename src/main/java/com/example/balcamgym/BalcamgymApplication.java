@@ -30,12 +30,56 @@ public class BalcamgymApplication {
 
 		Client client = new Client("hola","hola","hola@hola",passwordEncoder.encode("hola123"),true);
 
-		Product p1 = new Product("pantalon",ProductCategory.CLOTHES,1000,10);
-		Product p2 = new Product("panta",ProductCategory.CLOTHES,1000,10);
-		Product p3 = new Product("pantis",ProductCategory.CLOTHES,1000,10);
-		Product p4 = new Product("pantalones",ProductCategory.CLOTHES,1000,10);
+		Product menClothes0 = new Product("Under Armour Men's" + "HeatGear Leggings","84% Polyester, 16% Elastane, Imported, Pull On closure, Machine Wash, Super-light" +
+				"HeatGear fabric delivers superior coverage without weighing you down, Strategic" +
+				"mesh panels for added ventilation where you need it, Material wicks sweat & dries" +
+				"really fast","./assets/images/leggingsMens.png",ProductCategory.CLOTHES,24.49,25);
 
+		Product menClothes1 = new Product("Cabeen Men's Workout Sport Tank Tops Gym ","Pull On closure, Hand Wash Only, Material: These mens tank tops are made of high" +
+				"quality light weight and super soft fabric, not easy to deform or shrink. Y-Back Design:"
+				,"./assets/images/tankTops.png",ProductCategory.CLOTHES,14.99,15);
 
+		Product menClothes2 = new Product("Men's Tech 2.0 ShortSleeve T-Shirt","100% Polyester, Imported, UA Tech fabric is quick-drying, ultra-soft & has a more" +
+				"natural feel, Material wicks sweat & dries really fast, New, streamlined fit & shaped" +
+				"hem","./assets/images/tShirtMens.png",ProductCategory.CLOTHES,12.17,5);
+
+		Product menClothes3 = new Product("Men's Elastic Shorts Pants","85% Polyester, 15% Spandex, Pull On closure, Machine Wash, High performance" +
+				"elastic with excellent elasticity. Elastic fit for increased mobility and muscle support.","./assets/images/shortPants.png",ProductCategory.CLOTHES,25.99,10);
+
+		Product menClothes4 = new Product("Under Armour Men’s Tech 2.0 ½ Zip Long Sleeve","100% Polyester, Zipper closure, Machine Wash, UA Tech fabric is quick-drying, ultrasoft & has a more natural feel, Material wicks sweat & dries really fast, Generous ½ zip" +
+				"front makes for easy layering","./assets/images/mensLongSleeve.png",ProductCategory.CLOTHES,20.00,15);
+
+		Product menClothes5 = new Product("Athletic Gym Training Slim Fit Jogger Jogging Long Track Pants Sweatpants","95% Polyester, 5% Spandex, Drawstring closure, Drawstring on elastic waistband can" +
+				"ensure the fit and comfortable when you wearing this joggers Pants.","./assets/images/mensLongJogging.png",ProductCategory.CLOTHES,12.99,10);
+
+		Product menClothes6 = new Product("Champion Authentic Originals Men's Sueded Fleece Jogger Sweatpants","80% Cotton, 20% Polyester, Imported, No Closure closure, Machine Wash, 8.5 oz." +
+				"polyester fleece is high in cotton, high in comfort. Sueded fleece is sanded to make it" +
+				"incredibly soft, inside and out.","./assets/images/joggerSweatpants.png",ProductCategory.CLOTHES,18.95,18);
+
+		productRepository.save(menClothes0);
+		productRepository.save(menClothes1);
+		productRepository.save(menClothes2);
+		productRepository.save(menClothes3);
+		productRepository.save(menClothes4);
+		productRepository.save(menClothes5);
+		productRepository.save(menClothes6);
+
+		Product womenClothes0 = new Product("Womens gym sets gradient seamless yoga","70% Cotton, 30% Polyester, Imported, No Closure closure, Machine Wash, 8.5 oz" +
+				"Women Seamless Long Sleeve Yoga Set Gym Crop Top and High Waist Bra" +
+				"Leggings.","./assets/images/womengymset1.webp",ProductCategory.CLOTHES,24.49,10);
+
+		Product womenClothes1 = new Product("Ot-Ew Women's Seamless Sports Leggings","85% Polyester, 15% Spandex, Pull On closure. ideal to be comfortable while doing" +
+				"sports. Color: blue","./assets/images/womengymsetunique.png",ProductCategory.CLOTHES,14.99,11);
+
+		Product womenClothes2 = new Product("Womens gym one piece set with color black","100% Cotton, Imported, No Closure closure, Machine Wash, 8.5 oz. polyester fleece" +
+				"is high in cotton, high in comfort. Sueded fleece is sanded to make it incredibly soft,"+
+				"inside and out","./assets/images/women3.png",ProductCategory.CLOTHES,12.15,7);
+
+		Product womenClothes3 = new Product("Womens gym sets gradient seamless","70% Cotton, 30% Polyester, Imported, No Closure closure, Machine Wash, 8.5 oz" +
+				"Women Seamless Long Sleeve Yoga Set Gym Crop Top and High Waist Bra","./assets/images/womenequip.webp",ProductCategory.CLOTHES,25.99,4);
+
+		Product womenClothes4 = new Product("Seamless women's shorts","seamless women's shorts, ideal for any sport extremely comfortable and soft to the" +
+				"touch. Color: black","./assets/images/womenshort.png",ProductCategory.CLOTHES,20.00,5);
 
 		Product womenClothes5 = new Product("Fresh antiperspirant women's t-shirt","85% Polyester, 15% Spandex, Pull On closure. ideal to be comfortable while doing" +
 				"sports. Color: light blue","./assets/images/womertshirt.png",ProductCategory.CLOTHES,12.99,18);
@@ -173,12 +217,9 @@ public class BalcamgymApplication {
 
 		clientRepository.save(Admin);
 		clientRepository.save(client);
-		productRepository.save(p1);
-		productRepository.save(p2);
-		productRepository.save(p3);
-		productRepository.save(p4);
-		billRepository.save(bill1);
-		productStorageRepository.save(ps);
+
+
+
 		subscriptionRepository.save(sub1);
 		billSubscriptionRepository.save(bils1);
 
