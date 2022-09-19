@@ -5,21 +5,50 @@ createApp({
         return {
             products: [],
             filteredProducts : [],
-            productsBg: ["../images/products-bg-01.png", "../images/products-bg-02-01.png", "../images/products-bg-test-01.png"],
+            productsBg: ["../web/assets/images/produc-bg-01.png", "../web/assets/images/produc-bg-02-01.png"],
             categories: ["Suplements", "Equipment", "Clothes"],
             suplements: ["Proteins", "Creatines", "BCAA"],
             clothes: ["Men", "Women"],
-            selectedCategory: "",
-            activeCategory: false,
+            checkedCategory : "",
             subcategories: [],
             inputRange : 0,
             searchFilterInput : "",
+            isOpen : false,
+            cartProducts : [],
+            
         }
     },
     created() {
         this.loadData()
     },
     methods: {
+        deleteItemCart(product){
+            if(product.quantity > 1){
+                product.quantity --
+            }else{
+                this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
+            }
+            console.log(this.cartProducts)
+        },
+        addCart(product){
+            if(this.cartProducts.includes(product)){
+                product.quantity ++
+            }else{
+                product.quantity = 1
+                this.cartProducts.push(product)
+            }
+            console.log(this.cartProducts)
+        },
+        showCategories(category){
+            this.checkedCategory = category
+            if(category == "Suplements"){
+                this.subcategories = this.suplements
+            }else if(category == "Clothes"){
+                this.subcategories = this.clothes
+            }else if(category == "Equipment"){
+                this.subcategories = []
+            }
+        },
         loadData() {
             fetch('https://jsonplaceholder.typicode.com/photos')
                 .then(response => response.json())
@@ -32,7 +61,6 @@ createApp({
         selectFilter(){
             if(this.selectedCategory == "Suplements"){
                 console.log("aca va el filtro de suplementos")
-
                 this.filteredProducts = this.products.filter(product => product.category == "suplement")
             }else if(this.selectedCategory == "Equipment"){
                 console.log("aca va el filtro de Equipment")

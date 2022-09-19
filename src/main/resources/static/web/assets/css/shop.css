@@ -4,3 +4,10 @@ body {
     font-family: "Poppins", sans-serif;
     color: #444444;
 }
+
+.banner-bg{
+    background-image: url(../images/bannertest.jpg);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
