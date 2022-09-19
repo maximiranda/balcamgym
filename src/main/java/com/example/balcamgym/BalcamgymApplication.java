@@ -16,12 +16,14 @@ import java.time.LocalDate;
 @SpringBootApplication
 public class BalcamgymApplication {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(BalcamgymApplication.class, args);
 	}
 
+
 	@Bean
-	public CommandLineRunner initData (ClientRepository clientRepository, ProductStorageRepository productStorageRepository, ProductRepository productRepository, BillRepository billRepository,
+	public CommandLineRunner initData (ClientRepository clientRepository, ProductStorageRepository productStorageRepository, ProductRepository productRepository, WorkoutRepository workoutRepository, BillRepository billRepository,
 									   BillSubscriptionRepository billSubscriptionRepository, SubscriptionRepository subscriptionRepository, ImgFIleServices imgFIleServices){
 	return (args) -> {
 		imgFIleServices.deleteAll();
@@ -210,10 +212,29 @@ public class BalcamgymApplication {
 		productRepository.save(suplementsProtein4);
 		productRepository.save(suplementsProtein5);
 
+		Workout lesson0 = new Workout("Body Building","Michael Logan","Bodybuilding is the use of progressive resistance exercise to control and develop one's muscles (muscle building) by muscle hypertrophy for aesthetic purposes","Monday","9:00 AM");
+
+		Workout lesson1 = new Workout("Yoga","Lisa Douglas"," Yoga is an ancient practice that involves physical poses, concentration, and deep breathing. A regular yoga practice can promote endurance, strength, calmness, flexibility, and well-being.","Tuesday","10:00 AM");
+
+		Workout lesson2 = new Workout("Body Building","Michael Logan","Bodybuilding is the use of progressive resistance exercise to control and develop one's muscles (muscle building) by muscle hypertrophy for aesthetic purposes","Tuesday","12:00 AM");
+
+		Workout lesson3 = new Workout("Spinning","Sarah Lennox","Indoor cycling, often called spinning, is a form of exercise with classes focusing on endurance, strength, intervals, high intensity (race days) and recovery, and involves using a special stationary exercise bicycle with a weighted flywheel in a classroom setting","Wednesday","9:30 AM");
+
+		Workout lesson4 = new Workout("Kick-boxing","David Robinson","Kickboxing is a group of stand-up combat sports and a form of boxing based on kicking and punching. The combat takes place in a boxing ring, normally with boxing gloves, mouthguards, shorts, and bare feet to favor the use of kicks. Kickboxing is practiced for self-defense, general fitness, or for competition.","Thursday","11:00 AM");
+
+		Workout lesson5 = new Workout("Crossfit","Sarah Lennox","A form of high intensity interval training, CrossFit is a strength and conditioning workout that is made up of functional movement performed at a high intensity level. These movements are actions that you perform in your day-to-day life, like squatting, pulling, pushing etc","Friday","9:00 AM");
+
+		workoutRepository.save(lesson0);
+		workoutRepository.save(lesson1);
+		workoutRepository.save(lesson2);
+		workoutRepository.save(lesson3);
+		workoutRepository.save(lesson4);
+		workoutRepository.save(lesson5);
+
 
 		Subscription sub1 = new Subscription(SubscriptionTypes.BASIC,49,LocalDate.now(),LocalDate.now().plusMonths(1));
 
-		BillSubscription bils1 = new BillSubscription(client,sub1, sub1.getAmount(),sub1.getFromdate(),sub1.getToDate());
+		BillSubscription bils1 = new BillSubscription(client,sub1);
 
 		clientRepository.save(Admin);
 		clientRepository.save(client);

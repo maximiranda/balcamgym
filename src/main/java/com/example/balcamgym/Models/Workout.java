@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 public class Workout {
@@ -13,44 +14,33 @@ public class Workout {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
-    private Client client;
-
+    private List<Client> clients;
 
     private String name;
 
     private String coachName;
 
+    @Column(name="description",length=1000)
     private String description;
 
-    private LocalDate fromDate, toDate;
+    private String fromDate;
 
-    private LocalTime fromTime, toTime;
+    private String fromTime;
 
 
     public Workout(){}
 
-    public Workout(String name,String coachName, String description, LocalDate fromDate, LocalDate toDate, LocalTime fromTime, LocalTime toTime) {
+    public Workout(String name,String coachName, String description, String fromDate, String fromTime ) {
         this.name = name;
         this.coachName = coachName;
         this.description = description;
         this.fromDate = fromDate;
-        this.toDate = toDate;
         this.fromTime = fromTime;
-        this.toTime = toTime;
+
     }
 
-    public Workout(Client client, String name, String coachName, String description, LocalDate fromDate, LocalDate toDate, LocalTime fromTime, LocalTime toTime) {
-        this.client = client;
-        this.name = name;
-        this.coachName = coachName;
-        this.description = description;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
-        this.fromTime = fromTime;
-        this.toTime = toTime;
-    }
 
     public long getId() {
         return id;
@@ -73,7 +63,6 @@ public class Workout {
     }
 
 
-
     public String getDescription() {
         return description;
     }
@@ -81,48 +70,19 @@ public class Workout {
         this.description = description;
     }
 
+    public String getFromDate() {return fromDate;}
 
+    public void setFromDate(String fromDate) {this.fromDate = fromDate;}
 
-    public LocalDate getFromDate() {
-        return fromDate;
-    }
-    public void setFromDate(LocalDate fromDate) {
-        this.fromDate = fromDate;
-    }
+    public String getFromTime() {return fromTime;}
 
+    public void setFromTime(String fromTime) {this.fromTime = fromTime;}
 
-
-    public LocalDate getToDate() {
-        return toDate;
-    }
-    public void setToDate(LocalDate toDate) {
-        this.toDate = toDate;
+    public List<Client> getClients() {
+        return clients;
     }
 
-
-
-    public LocalTime getFromTime() {
-        return fromTime;
-    }
-    public void setFromTime(LocalTime fromTime) {
-        this.fromTime = fromTime;
-    }
-
-
-
-    public LocalTime getToTime() {
-        return toTime;
-    }
-    public void setToTime(LocalTime toTime) {
-        this.toTime = toTime;
-    }
-
-
-
-    public Client getClient() {
-        return client;
-    }
-    public void setClient(Client client) {
-        this.client = client;
+    public void addClients(Client client) {
+        this.clients.add(client);
     }
 }

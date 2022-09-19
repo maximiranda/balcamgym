@@ -21,28 +21,18 @@ public class BillSubscription {
     @JoinColumn(name = "subscription_id")
     private Subscription subscription;
 
-    private double amount;
-
-    private LocalDate fromDate, toDate;
 
 
 
     public BillSubscription(){}
 
-    public BillSubscription(Client client, Subscription subscription, double amount, LocalDate fromDate, LocalDate toDate) {
+    public BillSubscription(Client client, Subscription subscription) {
         this.client = client;
         this.subscription = subscription;
-        this.amount = amount;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
     }
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Client getClient() {
@@ -61,27 +51,4 @@ public class BillSubscription {
         this.subscription = subscription;
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public LocalDate getFromDate() {
-        return fromDate;
-    }
-
-    public void setFromDate(LocalDate fromDate) {
-        this.fromDate = fromDate;
-    }
-
-    public LocalDate getToDate() {
-        return toDate;
-    }
-
-    public void setToDate(LocalDate toDate) {
-        this.toDate = toDate;
-    }
 }

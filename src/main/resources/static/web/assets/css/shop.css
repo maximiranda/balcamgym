@@ -5,9 +5,10 @@ body {
     color: #444444;
 }
 
-.banner-bg{
-    background-image: url(../images/bannertest.jpg);
-    background-size: contain;
-    background-position: bottom;
-    background-repeat: no-repeat;
+.truncate-shop{
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
