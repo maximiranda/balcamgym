@@ -15,6 +15,7 @@ createApp({
             searchFilterInput : "",
             isOpen : false,
             cartProducts : [],
+            moneyFormat : new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }),
         }
     },
     created() {
@@ -27,57 +28,46 @@ createApp({
             }else{
                 this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
             }
-            console.log(this.cartProducts)
         },
         addCart(product){
             if(this.cartProducts.includes(product)){
                 product.quantity ++
+                product.stock--
+                if(product.stock < 1 ){
+                    alert("no se puede mas capo")
+                }
             }else{
                 product.quantity = 1
                 this.cartProducts.push(product)
             }
             console.log(this.cartProducts)
         },
-        showCategories(category){
+        loadData() {
+            axios.get("/api/products")
+            .then(response => {
+                this.products = response.data
+                console.log(this.products)
+                this.filteredProducts = this.products
+            }).catch(error => error)
+        },
+        selectFilter(category){
             this.checkedCategory = category
             if(category == "Suplements"){
                 this.subcategories = this.suplements
+                this.filteredProducts = this.products.filter(product => product.productCategory == "SUPPLEMENTS")
             }else if(category == "Clothes"){
                 this.subcategories = this.clothes
+                this.filteredProducts = this.products.filter(product => product.productCategory == "EQUIPMENT")
             }else if(category == "Equipment"){
                 this.subcategories = []
-            }
-        },
-        loadData() {
-            fetch('https://jsonplaceholder.typicode.com/photos')
-                .then(response => response.json())
-                .then(json => {
-                    this.products = json.filter(res => res.id < 50)
-                    this.filteredProducts = this.products
-                    console.log(this.products);
-                })
-        },
-        selectFilter(){
-            if(this.selectedCategory == "Suplements"){
-                console.log("aca va el filtro de suplementos")
-                this.filteredProducts = this.products.filter(product => product.category == "suplement")
-            }else if(this.selectedCategory == "Equipment"){
-                console.log("aca va el filtro de Equipment")
-
-                this.filteredProducts = this.products.filter(product => product.category == "equipment")
-            }else if(this.selectedCategory == "Clothes"){
-                console.log("aca va el filtro de clothes")
-
-                this.filteredProducts = this.products.filter(product => product.category == "cloth")
-            }else if(this.selectedCategory == "all"){
-                this.filteredProducts = this.products
+                this.filteredProducts = this.products.filter(product => product.productCategory == "CLOTHES")
             }
         },
         rangePriceFilter(inputRange){
-            this.filteredProducts = this.products.filter(product => product.id <= inputRange && product.id >=inputRange)
+            this.filteredProducts = this.products.filter(product => product.price <= inputRange)
         },
         searchFilter(){
-            this.filteredProducts = this.products.filter(product => product.title.includes(this.searchFilterInput))
+            this.filteredProducts = this.products.filter(product => product.name.toLowerCase().includes(this.searchFilterInput))
             console.log(this.filteredProducts)
             if(this.searchFilterInput == ""){
                 this.filteredProducts = this.products
