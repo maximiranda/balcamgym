@@ -20,25 +20,35 @@ createApp({
     },
     created() {
         this.loadData()
+        const localStorageData = JSON.parse(localStorage.getItem("productsInCart"))
+        if(localStorageData == null){
+            this.cartProducts = []
+        }else{
+            this.cartProducts = localStorageData
+        }
     },
     methods: {
         deleteItemCart(product){
             if(product.quantity > 1){
                 product.quantity --
+                localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
             }else{
                 this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
+                localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
             }
         },
         addCart(product){
             if(this.cartProducts.includes(product)){
                 product.quantity ++
                 product.stock--
+                localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
                 if(product.stock < 1 ){
                     alert("no se puede mas capo")
                 }
             }else{
                 product.quantity = 1
                 this.cartProducts.push(product)
+                localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
             }
             console.log(this.cartProducts)
         },
@@ -57,10 +67,10 @@ createApp({
                 this.filteredProducts = this.products.filter(product => product.productCategory == "SUPPLEMENTS")
             }else if(category == "Clothes"){
                 this.subcategories = this.clothes
-                this.filteredProducts = this.products.filter(product => product.productCategory == "EQUIPMENT")
+                this.filteredProducts = this.products.filter(product => product.productCategory == "CLOTHES")
             }else if(category == "Equipment"){
                 this.subcategories = []
-                this.filteredProducts = this.products.filter(product => product.productCategory == "CLOTHES")
+                this.filteredProducts = this.products.filter(product => product.productCategory == "EQUIPMENT")
             }
         },
         rangePriceFilter(inputRange){

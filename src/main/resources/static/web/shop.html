@@ -48,7 +48,6 @@
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" />
                             </svg>
-
                             <span class="absolute top-0 left-0 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
                         </div>
                     </button>
@@ -87,18 +86,20 @@
                             <div v-for="product in cartProducts" class="flex justify-evenly items-center w-full">
                                 <img :src="product.thumbnailUrl" class="h-24 object-contain">
                                 <h3 class="text-white truncate w-[200px]">{{product.name}}</h3>
-                                <div class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
-                                    <ion-icon @click="deleteItemCart(product)" class="cursor-pointer text-black text-2xl"
-                                        name="remove-outline"></ion-icon>
+                                <div
+                                    class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
+                                    <ion-icon @click="deleteItemCart(product)"
+                                        class="cursor-pointer text-black text-2xl" name="remove-outline"></ion-icon>
                                     <p class="text-black text-xl truncate">{{product.quantity}}</p>
-                                    <ion-icon @click="addCart(product)" class="cursor-pointer text-black text-2xl" name="add-outline"></ion-icon>
+                                    <ion-icon @click="addCart(product)" class="cursor-pointer text-black text-2xl"
+                                        name="add-outline"></ion-icon>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                <!-- Mobile Menu open -->
                 <div v-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
                     class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out  bg-[#1E1E1E] lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
                     <div class="lg:hidden flex flex-col gap-5 mt-4 lg:mt-0">
@@ -112,11 +113,13 @@
                             <div v-for="product in cartProducts" class="flex justify-evenly items-center w-full">
                                 <img :src="product.thumbnailUrl" class="h-24 object-contain">
                                 <h3 class="text-white truncate w-[200px]">Whey protein z-10 aguante river</h3>
-                                <div class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
+                                <div
+                                    class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
                                     <ion-icon @click="deleteItemCart(product)" class="text-black text-2xl"
                                         name="remove-outline"></ion-icon>
                                     <p class="text-black text-xl truncate">{{product.quantity}}</p>
-                                    <ion-icon @click="addCart(product)" class=" text-black text-2xl" name="add-outline"></ion-icon>
+                                    <ion-icon @click="addCart(product)" class=" text-black text-2xl" name="add-outline">
+                                    </ion-icon>
                                 </div>
                             </div>
                         </div>
@@ -126,8 +129,7 @@
         </div>
     </nav>
 
-
-    <section class="flex w-full  lg:flex-row flex-wrap justify-center gap-10 pt-5">
+    <section class="flex w-full lg:flex-row flex-wrap justify-center gap-10 pt-5">
         <!-- CATEGORIES  -->
         <div class="h-full w-[30vh] hidden lg:flex">
             <div class="p-5">
@@ -136,7 +138,7 @@
                         Categories
                     </h2>
                     <div v-for="category in categories" class="cursor-pointer">
-                        <h4  @click="selectFilter(category)" :class="checkedCategory == category ? 'font-bold' : ''"
+                        <h4 @click="selectFilter(category)" :class="checkedCategory == category ? 'font-bold' : ''"
                             class="text-xl">
                             {{category}}
                         </h4>
@@ -154,12 +156,14 @@
                     <h2 class="font-bold text-2xl cursor-default">
                         Price
                     </h2>
-                    <input @input="rangePriceFilter(inputRange)" v-model="inputRange" type="range" name="priceRange"
-                        id="priceRange">
+                    <input @input="rangePriceFilter(inputRange)" value="100" max="300" v-model="inputRange" type="range"
+                        name="priceRange" id="priceRange">
                     <h4 class="text-red-600 text-xl font-bold">Up to: {{moneyFormat.format(inputRange)}}</h4>
                 </div>
             </div>
         </div>
+        <!-- CATEGORIES ENDS  -->
+        <!-- PRODUCTS LIST  -->
         <div class="min-h-full w-[120vh]">
             <div class="p-5 flex flex-col">
                 <div class="flex justify-between w-[84%]">
@@ -176,14 +180,15 @@
                 <div class="flex gap-2 lg:gap-10 flex-wrap pt-5">
                     <!-- CARDS-->
                     <div v-for="(product, i) in filteredProducts"
-                        class="overflow-hidden rounded shadow flex flex-col gap-2 w-full lg:w-[290px] lg:h-[430px]">
+                        class="overflow-hidden rounded shadow flex flex-col gap-2 h-[430px] w-full lg:w-[290px] lg:h-[430px]">
                         <div class="flex items-center shadow-lg justify-center">
-                            <img src="/web/assets/images/trainer4.png"
-                                class="hover:rotate-12 object-contain h-[210px] transition-all duration-150 hover:scale-[1.4] absolute"
+                            <img :src="product.urlImg"
+                                class="hover:rotate-0 lg:hover:rotate-12 object-cover h-[210px] z-10 transition-all duration-150 hover:scale-100 lg:hover:scale-[1.4] absolute"
                                 alt="product.id">
-                            <img v-if="i % 2 == 0" class="hidden lg:block  object-cover" :src="productsBg[1]"
+                            <div class="absolute z-0 bg-gray-900/50 h-[290px] w-[290px]"></div>
+                            <img v-if="i % 2 == 0" class="hidden lg:block object-cover" :src="productsBg[1]"
                                 alt="NIKE AIR">
-                            <img v-else class="hidden lg:block object-cover " :src="productsBg[0]">
+                            <img v-else class="hidden lg:block object-cover" :src="productsBg[0]">
                         </div>
                         <div class="flex flex-col justify-between h-full">
                             <h2 class="text-xl font-medium text-gray-700 ">{{product.name}}</h2>
@@ -208,6 +213,7 @@
                 </div>
             </div>
         </div>
+        <!-- PRODUCTS LIST  -->
     </section>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
