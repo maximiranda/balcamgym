@@ -1,7 +1,6 @@
 package com.example.balcamgym.Controllers;
 
 import com.example.balcamgym.DTO.BillDTO;
-import com.example.balcamgym.DTO.ProductStorageBillDTO;
 import com.example.balcamgym.Models.Bill;
 import com.example.balcamgym.Models.Client;
 import com.example.balcamgym.Models.Product;
@@ -47,12 +46,10 @@ public class BillController {
 
 
     @PostMapping("/purchase")
-    public ResponseEntity<Object> purchase (@RequestBody ProductStorageBillDTO productStorageBillDTO, @RequestParam boolean paymentAuthorization, Authentication authentication){
+    public ResponseEntity<Object> purchase (@RequestParam List<Long> ids, @RequestParam boolean paymentAuthorization, Authentication authentication){
         Client client = clientServices.findByEmail(authentication.getName());
-        List<Long> ids = productStorageBillDTO.getIds();
-
         if (client == null){
-            return new ResponseEntity<>("Client doesn´t found", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Client doesn't found", HttpStatus.FORBIDDEN);
         }
         if (!paymentAuthorization){
             return new ResponseEntity<>("Payment unauthorized", HttpStatus.FORBIDDEN);
@@ -60,14 +57,17 @@ public class BillController {
         if (ids.isEmpty()){
             return new ResponseEntity<>("Missing data", HttpStatus.FORBIDDEN);
         }
-        Bill bill  = new Bill(client, productStorageBillDTO.getAmount(),"000-000-001");
+        List<Product> products = ids.stream().map(id -> productServices.findProductById(id)).collect(Collectors.toList());
+        double amount = products.stream().map(Product::getPrice).reduce(0.0, Double::sum);
+        System.out.println(amount);
+        Bill bill  = new Bill(client, amount,"000-000-001");
         billServices.saveBill(bill);
         Set<ProductStorage> productStorages = new HashSet<>();
 
         for (Long id: ids){
             Product product1 = productServices.findProductById(id);
             if (product1.getStock() < 0) {
-                return new ResponseEntity<>("Product " + product1.getName() + "doesn´t have stock", HttpStatus.FORBIDDEN);
+                return new ResponseEntity<>("Product " + product1.getName() + "doesn't have stock", HttpStatus.FORBIDDEN);
             }
             product1.setStock(product1.getStock()-1);
             System.out.println(product1);
@@ -75,7 +75,6 @@ public class BillController {
 
             productServices.saveProduct(product1);
             productStorageServices.saveProductStorage(productStorage);
-            System.out.println("hola");
             productStorages.add(productStorage);
 
         }
@@ -83,11 +82,10 @@ public class BillController {
         bill.setProductStorage(productStorages);
         billServices.saveBill(bill);
 
-        PdfGenerator pdf = new PdfGenerator();
         BillDTO billDTO = new BillDTO(bill);
-        pdf.createBill(productStorageBillDTO, billDTO);
+        PdfGenerator.createBill(ids, billDTO);
 
-        return new ResponseEntity<>("Purchase success", HttpStatus.OK);
+        return new ResponseEntity<>("Purchase success", HttpStatus.CREATED);
     }
 
 

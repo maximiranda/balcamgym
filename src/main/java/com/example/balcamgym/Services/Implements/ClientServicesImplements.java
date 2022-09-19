@@ -18,19 +18,19 @@ public class ClientServicesImplements implements ClientServices {
         return clientRepository.findAll();
     }
 
-    @Override
-    public void saveClient(Client client) {
-        clientRepository.save(client);
-    }
 
     @Override
     public Client findClientById(long id) {
-        return clientRepository.findClientById(id);
+        return clientRepository.findById(id).get();
     }
 
     @Override
     public Client findByEmail(String email) {
         return clientRepository.findByEmail(email);
+    }
+    @Override
+    public void saveClient(Client client) {
+        clientRepository.save(client);
     }
 
 }

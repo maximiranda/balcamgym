@@ -28,7 +28,7 @@ public class Product {
 
     public Product (){}
 
-    public Product(String name, ProductCategory productCategory, double price, int stock) {
+    public Product(String name, String description, ProductCategory productCategory, double price, int stock) {
         this.name = name;
         this.productCategory = productCategory;
         this.price = price;

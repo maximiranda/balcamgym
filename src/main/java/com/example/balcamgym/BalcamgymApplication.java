@@ -26,7 +26,7 @@ public class BalcamgymApplication {
 	return (args) -> {
 		imgFIleServices.deleteAll();
 		imgFIleServices.init();
-		Client Admin = new Client("Admin","Admin","admin@balcamgym.com","balcamgym",true);
+		Client Admin = new Client("Admin","Admin","admin@balcamgym.com",passwordEncoder.encode("balcamgym"),true);
 
 		Client client = new Client("hola","hola","hola@hola",passwordEncoder.encode("hola123"),true);
 
