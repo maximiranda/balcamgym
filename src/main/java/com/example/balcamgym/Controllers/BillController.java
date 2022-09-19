@@ -59,7 +59,7 @@ public class BillController {
         }
         List<Product> products = ids.stream().map(id -> productServices.findProductById(id)).collect(Collectors.toList());
         double amount = products.stream().map(Product::getPrice).reduce(0.0, Double::sum);
-        System.out.println(amount);
+
         Bill bill  = new Bill(client, amount,"000-000-001");
         billServices.saveBill(bill);
         Set<ProductStorage> productStorages = new HashSet<>();
@@ -70,7 +70,7 @@ public class BillController {
                 return new ResponseEntity<>("Product " + product1.getName() + "doesn't have stock", HttpStatus.FORBIDDEN);
             }
             product1.setStock(product1.getStock()-1);
-            System.out.println(product1);
+
             ProductStorage productStorage = new ProductStorage(product1, bill);
 
             productServices.saveProduct(product1);
@@ -78,12 +78,12 @@ public class BillController {
             productStorages.add(productStorage);
 
         }
-        System.out.println(productStorages);
+
         bill.setProductStorage(productStorages);
         billServices.saveBill(bill);
 
         BillDTO billDTO = new BillDTO(bill);
-        PdfGenerator.createBill(ids, billDTO);
+        PdfGenerator.createBill(ids,billDTO,productServices);
 
         return new ResponseEntity<>("Purchase success", HttpStatus.CREATED);
     }
