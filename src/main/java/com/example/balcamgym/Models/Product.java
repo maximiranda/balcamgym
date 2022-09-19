@@ -17,6 +17,8 @@ public class Product {
 
     private String name,description;
 
+    private String urlImg;
+
     private ProductCategory productCategory;
 
     private double price;
@@ -26,16 +28,17 @@ public class Product {
 
     public Product (){}
 
-    public Product(String name, ProductCategory productCategory, double price, int stock) {
+    public Product(String name, String description, ProductCategory productCategory, double price, int stock) {
         this.name = name;
         this.productCategory = productCategory;
         this.price = price;
         this.stock = stock;
     }
 
-    public Product(String name, String description, ProductCategory productCategory, double price, int stock) {
+    public Product(String name, String description, String urlImg, ProductCategory productCategory, double price, int stock) {
         this.name = name;
         this.description = description;
+        this.urlImg = urlImg;
         this.productCategory = productCategory;
         this.price = price;
         this.stock = stock;
@@ -64,9 +67,11 @@ public class Product {
         this.name = name;
     }
 
-    public ProductCategory getProductCategory() {
-        return productCategory;
-    }
+    public String getUrlImg(){return urlImg;}
+
+    public void setUrlImg(String urlImg) {this.urlImg = urlImg;}
+
+    public ProductCategory getProductCategory() {return productCategory;}
 
     public void setProductCategory(ProductCategory productCategory) {
         this.productCategory = productCategory;

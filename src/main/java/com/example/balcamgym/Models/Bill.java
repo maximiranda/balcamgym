@@ -22,14 +22,17 @@ public class Bill {
     private Set<ProductStorage> productStorages;
 
 
+    private String number;
 
     private double amount;
 
     public Bill(){}
 
-    public Bill(Client client, double amount ) {
+    public Bill(Client client, double amount, String number ) {
         this.client = client;
         this.amount = amount;
+        this.number= number;
+
     }
 
 
@@ -56,8 +59,9 @@ public class Bill {
         return productStorages;
     }
 
-    public void setProductStorage(ProductStorage productStorage) {
-        this.productStorages = productStorages;
+    public void setProductStorage(Set<ProductStorage> productStorage) {
+
+        this.productStorages = productStorage;
     }
 
     public double getAmount() {
@@ -66,5 +70,13 @@ public class Bill {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

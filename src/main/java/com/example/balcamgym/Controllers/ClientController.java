@@ -24,12 +24,10 @@ public class ClientController {
         return clientServices.getAllClients().stream().map(ClientDTO::new).collect(Collectors.toList());
     }
     @PostMapping("/clients")
-    public ResponseEntity<Object> register(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String password,
-                                           Authentication authentication){
-        Client newCurrentClient = clientServices.findByEmail(authentication.getName());
+    public ResponseEntity<Object> register(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String password){
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()){
             return new ResponseEntity<>("Missing Data", HttpStatus.FORBIDDEN);
-        }if (clientServices.findByEmail(authentication.getName()) != null){
+        }if (clientServices.findByEmail(email) != null){
             return new ResponseEntity<>("This email already use",HttpStatus.FORBIDDEN);
         }
         Client client = new Client(firstName, lastName, email, password, false);

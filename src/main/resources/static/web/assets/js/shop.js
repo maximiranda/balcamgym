@@ -15,7 +15,6 @@ createApp({
             searchFilterInput : "",
             isOpen : false,
             cartProducts : [],
-            
         }
     },
     created() {
