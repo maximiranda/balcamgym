@@ -13,6 +13,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -85,8 +86,8 @@ public class PdfGenerator {
             pdfPTable.addCell(pdfPCell4);
             pdfPTable.addCell(pdfPCell5);
 
-            Set<Product> setProducts = productServices.findAllProductsById(ids).stream().collect(Collectors.toSet());
-            List<Product> products =   ids.stream().map(id->productServices.findProductById(id)).collect(Collectors.toList());
+            Set<Product> setProducts = new HashSet<>(productServices.findAllProductsById(ids));
+            List<Product> products =   ids.stream().map(productServices::findProductById).collect(Collectors.toList());
 
             System.out.println(products);
 
