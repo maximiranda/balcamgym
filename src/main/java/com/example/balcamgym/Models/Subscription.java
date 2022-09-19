@@ -19,15 +19,14 @@ public class Subscription {
 
     private double amount;
 
-    private LocalDate fromdate, toDate;
+    private LocalDate fromDate, toDate;
 
     public Subscription(){}
 
-
-    public Subscription(SubscriptionTypes subscriptionTypes, double amount, LocalDate fromdate, LocalDate toDate) {
+    public Subscription(SubscriptionTypes subscriptionTypes, double amount, LocalDate fromDate, LocalDate toDate) {
         this.subscriptionTypes = subscriptionTypes;
         this.amount = amount;
-        this.fromdate = fromdate;
+        this.fromDate = fromDate;
         this.toDate = toDate;
     }
 
@@ -55,12 +54,12 @@ public class Subscription {
         this.amount = amount;
     }
 
-    public LocalDate getFromdate() {
-        return fromdate;
+    public LocalDate getFromDate() {
+        return fromDate;
     }
 
-    public void setFromdate(LocalDate fromdate) {
-        this.fromdate = fromdate;
+    public void setFromDate(LocalDate fromDate) {
+        this.fromDate = fromDate;
     }
 
     public LocalDate getToDate() {

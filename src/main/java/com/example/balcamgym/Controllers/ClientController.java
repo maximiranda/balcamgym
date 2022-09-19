@@ -34,6 +34,9 @@ public class ClientController {
         clientServices.saveClient(client);
         return new ResponseEntity<>("Create", HttpStatus.CREATED);
     }
-
-
+    @GetMapping("/clients/current")
+    public ClientDTO getClient(Authentication authentication){
+        Client client = clientServices.findByEmail(authentication.getName());
+        return new ClientDTO(client);
+    }
 }

@@ -26,7 +26,7 @@ public class ImgFIleServicesImplements implements ImgFIleServices {
     @Autowired
     private ImgFIleRepository imgFIleRepository;
 
-    private final Path root = Paths.get("src/main/resources/static/public");
+    private final Path root = Paths.get("src/main/resources/static/web/assets/images/products");
 
     @Override
     public void init() {

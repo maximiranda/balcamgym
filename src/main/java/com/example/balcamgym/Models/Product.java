@@ -15,7 +15,10 @@ public class Product {
     @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
     private Set<ProductStorage> productsStorage;
 
-    private String name,description;
+    private String name;
+
+    @Column(name="description",length=1000)
+    private String description;
 
     private String urlImg;
 

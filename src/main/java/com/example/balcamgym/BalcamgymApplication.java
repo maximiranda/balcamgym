@@ -232,7 +232,7 @@ public class BalcamgymApplication {
 
 		Subscription sub1 = new Subscription(SubscriptionTypes.BASIC,49,LocalDate.now(),LocalDate.now().plusMonths(1));
 
-		BillSubscription bils1 = new BillSubscription(client,sub1, sub1.getAmount(),sub1.getFromdate(),sub1.getToDate());
+		BillSubscription bils1 = new BillSubscription(client,sub1);
 
 		clientRepository.save(Admin);
 		clientRepository.save(client);

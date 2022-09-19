@@ -9,7 +9,6 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.FileOutputStream;
 import java.time.LocalDate;
@@ -30,8 +29,8 @@ public class PdfGenerator {
 
         try {
             Document document = new Document(PageSize.A4);
-            String route = System.getProperty("user.home");
-            PdfWriter.getInstance(document, new FileOutputStream(route + "/downloads/BALCAM_BILL.pdf"));
+            String route = (System.getProperty("user.home") + "/Descargas/");
+            PdfWriter.getInstance(document, new FileOutputStream(route  + "BALCAM_BILL.pdf"));
 
 
             document.open();
@@ -87,8 +86,8 @@ public class PdfGenerator {
             pdfPTable.addCell(pdfPCell4);
             pdfPTable.addCell(pdfPCell5);
 
-            Set<Product> setProducts = productServices.findAllProductsById(ids).stream().collect(Collectors.toSet());
-            List<Product> products =   ids.stream().map(id->productServices.findProductById(id)).collect(Collectors.toList());
+            Set<Product> setProducts = new HashSet<>(productServices.findAllProductsById(ids));
+            List<Product> products =   ids.stream().map(productServices::findProductById).collect(Collectors.toList());
 
             System.out.println(products);
 
