@@ -9,12 +9,10 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -30,8 +28,8 @@ public class PdfGenerator {
 
         try {
             Document document = new Document(PageSize.A4);
-            String route = System.getProperty("user.home");
-            PdfWriter.getInstance(document, new FileOutputStream(route + "/downloads/BALCAM_BILL.pdf"));
+            String route = (System.getProperty("user.home") + "/Descargas/");
+            PdfWriter.getInstance(document, new FileOutputStream(route  + "BALCAM_BILL.pdf"));
 
 
             document.open();

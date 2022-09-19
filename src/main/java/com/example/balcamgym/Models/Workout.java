@@ -22,6 +22,7 @@ public class Workout {
 
     private String coachName;
 
+    @Column(name="description",length=1000)
     private String description;
 
     private String fromDate;
