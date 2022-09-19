@@ -28,7 +28,7 @@ public class PdfGenerator {
 
         try {
             Document document = new Document(PageSize.A4);
-            String route = (System.getProperty("user.home") + "/Descargas/");
+            String route = (System.getProperty("user.home") + "/downloads/");
             PdfWriter.getInstance(document, new FileOutputStream(route  + "BALCAM_BILL.pdf"));
 
 
@@ -37,17 +37,14 @@ public class PdfGenerator {
 
 
 
-            Paragraph title = new Paragraph("BALCAM'S GYM-BILL",titleFont);
-            title.setSpacingAfter(3);
-            title.setAlignment(Element.ALIGN_CENTER);
-            title.setSpacingBefore(-2);
 
-            Paragraph titleClient = new Paragraph( billDTO.getClient().getFirstName()+" "+ billDTO.getClient().getLastName()+":"+" "+ billDTO.getNumber(),titleFont);
+
+            Paragraph titleClient = new Paragraph( billDTO.getClient().getFirstName()+" "+ billDTO.getClient().getLastName(),titleFont);
             titleClient.setSpacingAfter(3);
             titleClient.setAlignment(Element.ALIGN_CENTER);
             titleClient.setSpacingBefore(-2);
 
-            Paragraph subTitle = new Paragraph("Account number: " + billDTO.getNumber());
+            Paragraph subTitle = new Paragraph("Invoice number: " + billDTO.getNumber(),subFont);
             subTitle.setAlignment(Element.ALIGN_CENTER);
             subTitle.setSpacingAfter(1);
 
@@ -59,8 +56,8 @@ public class PdfGenerator {
 
 
             Image img = Image.getInstance("src/main/resources/static/web/assets/images/logofinal.png");
-            img.scaleAbsoluteWidth(150);
-            img.scaleAbsoluteHeight(80);
+            img.scaleAbsoluteWidth(200);
+            img.scaleAbsoluteHeight(70);
             img.setAlignment(Element.ALIGN_CENTER);
 
             PdfPTable pdfPTable = new PdfPTable(4);
@@ -109,7 +106,7 @@ public class PdfGenerator {
             });
 
             document.add(img);
-            document.add(title);
+
             document.add(titleClient);
             document.add(subTitle);
             document.add(date);

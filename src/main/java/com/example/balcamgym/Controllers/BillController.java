@@ -1,17 +1,12 @@
 package com.example.balcamgym.Controllers;
 
 import com.example.balcamgym.DTO.BillDTO;
-import com.example.balcamgym.Models.Bill;
-import com.example.balcamgym.Models.Client;
-import com.example.balcamgym.Models.Product;
-import com.example.balcamgym.Models.ProductStorage;
+import com.example.balcamgym.Models.*;
 import com.example.balcamgym.Repositories.BillRepository;
-import com.example.balcamgym.Services.BillServices;
-import com.example.balcamgym.Services.ClientServices;
-import com.example.balcamgym.Services.ProductServices;
+import com.example.balcamgym.Services.*;
+import com.example.balcamgym.Utils.EmailSenderService;
 import com.example.balcamgym.Utils.PdfGenerator;
 
-import com.example.balcamgym.Services.ProductStorageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +33,8 @@ public class BillController {
     @Autowired
     private BillServices billServices;
 
+    @Autowired
+    private EmailSenderService senderEmail;
 
     @GetMapping("/bills")
     public Set<BillDTO> getBills(){
@@ -84,7 +81,6 @@ public class BillController {
 
         BillDTO billDTO = new BillDTO(bill);
         PdfGenerator.createBill(ids,billDTO,productServices);
-
         return new ResponseEntity<>("Purchase success", HttpStatus.CREATED);
     }
 
