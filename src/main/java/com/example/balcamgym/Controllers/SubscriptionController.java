@@ -53,6 +53,6 @@ public class SubscriptionController {
         client.setBillSubscription(billSubscription);
         billSubscriptionServices.saveBillSubscription(billSubscription);
         clientServices.saveClient(client);
-        return new ResponseEntity<>("", HttpStatus.CREATED);
+        return new ResponseEntity<>("Subscription added", HttpStatus.CREATED);
     }
 }

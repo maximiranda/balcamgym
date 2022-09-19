@@ -4,3 +4,11 @@ body {
     font-family: "Poppins", sans-serif;
     color: #444444;
 }
+
+.truncate-shop{
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}

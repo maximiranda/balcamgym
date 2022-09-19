@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 public class Workout {
@@ -13,10 +14,9 @@ public class Workout {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
-    private Client client;
-
+    private List<Client> clients;
 
     private String name;
 
@@ -41,14 +41,6 @@ public class Workout {
 
     }
 
-    public Workout(Client client, String name, String coachName, String description, String fromDate,  String fromTime) {
-        this.client = client;
-        this.name = name;
-        this.coachName = coachName;
-        this.description = description;
-        this.fromDate = fromDate;
-        this.fromTime = fromTime;
-    }
 
     public long getId() {
         return id;
@@ -86,10 +78,11 @@ public class Workout {
 
     public void setFromTime(String fromTime) {this.fromTime = fromTime;}
 
-    public Client getClient() {
-        return client;
+    public List<Client> getClients() {
+        return clients;
     }
-    public void setClient(Client client) {
-        this.client = client;
+
+    public void addClients(Client client) {
+        this.clients.add(client);
     }
 }

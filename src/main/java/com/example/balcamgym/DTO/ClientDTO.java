@@ -2,6 +2,7 @@ package com.example.balcamgym.DTO;
 
 import com.example.balcamgym.Models.Client;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -10,7 +11,9 @@ private long id;
     private String firstName, lastName, email;
     private Set<BillDTO> bills;
 
+    private BillSubscriptionDTO billSubscription;
 
+    private Set<WorkoutDTO> workouts;
 
     public ClientDTO(Client client) {
         this.id = client.getId();
@@ -18,6 +21,11 @@ private long id;
         this.lastName = client.getLastName();
         this.email = client.getEmail();
         this.bills = client.getBills().stream().map(BillDTO::new).collect(Collectors.toSet());
+        this.workouts = client.getWorkouts().stream().map(WorkoutDTO::new).collect(Collectors.toSet());
+        if (client.getBillSubscription() != null){
+            System.out.println(client.getBillSubscription());
+            this.billSubscription = new BillSubscriptionDTO(client.getBillSubscription());
+        }
     }
 
     public long getId() {
@@ -38,5 +46,13 @@ private long id;
 
     public Set<BillDTO> getBills() {
         return bills;
+    }
+
+    public BillSubscriptionDTO getBillSubscription() {
+        return billSubscription;
+    }
+
+    public Set<WorkoutDTO> getWorkouts() {
+        return workouts;
     }
 }
