@@ -21,7 +21,11 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private Set<Workout> workouts = new HashSet<>();
 
+
     private String firstName, lastName, email, password;
+
+    @OneToOne
+    private BillSubscription billSubscription;
 
     private boolean clientSubscription = false;
 
@@ -89,5 +93,13 @@ public class Client {
 
     public Set<Workout> getWorkouts() {
         return workouts;
+    }
+
+    public BillSubscription getBillSubscription() {
+        return billSubscription;
+    }
+
+    public void setBillSubscription(BillSubscription billSubscription) {
+        this.billSubscription = billSubscription;
     }
 }
