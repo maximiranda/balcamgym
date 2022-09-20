@@ -73,7 +73,7 @@
 
                 <!-- drawer component -->
                 <div id="drawer-right-example"
-                    class="fixed z-40 h-screen p-4 overflow-y-auto w-[550px] bg-gray-800 transition-transform right-0 top-0 translate-x-full"
+                    class="fixed z-50 h-screen p-4 overflow-y-auto w-[550px] bg-gray-800 transition-transform right-0 top-0 translate-x-full"
                     tabindex="-1" aria-labelledby="drawer-right-label" aria-hidden="true">
                     <div class="flex flex-col gap-5 mt-4 lg:mt-0">
                         <h2 class="text-center text-white text-xl uppercase">
@@ -83,24 +83,38 @@
                             Product list
                         </h4>
                         <div class="flex flex-wrap gap-3">
-                            <div v-for="product in cartProducts" class="flex justify-between items-center w-full border-b">
+                            <div v-for="product in cartProducts"
+                                class="flex justify-between items-center w-full border-b">
                                 <img :src="product.urlImg" class="pl-5 h-24 object-contain">
                                 <h3 class="text-white truncate w-[200px]">{{product.name}}</h3>
                                 <div
                                     class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
                                     <ion-icon @click="deleteItemCart(product)"
-                                        class="cursor-pointer text-black text-2xl" name="remove-outline"></ion-icon>
-                                    <p class="text-black text-xl truncate">{{product.quantity}}</p>
-                                    <ion-icon @click="addCart(product)" class="cursor-pointer text-black text-2xl"
-                                        name="add-outline"></ion-icon>
+                                        class="cursor-pointer text-black text-2xl select-none " name="remove-outline">
+                                    </ion-icon>
+                                    <p class="text-black text-xl truncate select-none">{{product.quantity}}</p>
+                                    <ion-icon v-if="product.stock > 0" @click="addCart(product)"
+                                        class="select-none cursor-pointer text-black text-2xl" name="add-outline">
+                                    </ion-icon>
+                                    <ion-icon v-else @click="noStockAllert" class="select-none cursor-pointer text-black text-2xl cursor-not-allowed" name="add-outline">
+                                    </ion-icon>
                                 </div>
-                            </div> 
+                            </div>
+                        </div>
+                        <div class="flex w-full items-center justify-between">
+                            <button class="w-[65%] bg-green-700 px-5 py-2 rounded text-white font-bold">
+                                <p>Continue checkout</p> 
+                            </button>
+                            <button @click="cleanCart" class="w-[30%] flex justify-center gap-2 items-center bg-red-700 px-5 py-2 rounded text-white">
+                                <ion-icon class="text-xl" name="trash-outline"></ion-icon>
+                                <p>Clear cart</p>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <!-- Mobile Menu open -->
                 <div v-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
-                    class="absolute inset-x-0 z-40 w-full px-6 py-4 transition-all duration-300 ease-in-out  bg-[#1E1E1E] lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
+                    class="absolute inset-x-0 z-50 w-full px-6 py-4 transition-all duration-300 ease-in-out  bg-[#1E1E1E] lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
                     <div class="lg:hidden flex flex-col gap-5 mt-4 lg:mt-0">
                         <h2 class="text-center text-white text-xl">
                             Shopping cart
@@ -109,7 +123,8 @@
                             Product list
                         </h4>
                         <div class="flex flex-wrap gap-3">
-                            <div v-for="product in cartProducts" class="flex justify-between items-center w-full border-b">
+                            <div v-for="product in cartProducts"
+                                class="flex justify-between items-center w-full border-b">
                                 <img :src="product.urlImg" class="h-24 object-contain">
                                 <h3 class="text-white truncate w-[200px]">Whey protein z-10 aguante river</h3>
                                 <div
@@ -117,7 +132,7 @@
                                     <ion-icon @click="deleteItemCart(product)" class="text-black text-2xl"
                                         name="remove-outline"></ion-icon>
                                     <p class="text-black text-xl truncate">{{product.quantity}}</p>
-                                    <ion-icon @click="addCart(product)" class=" text-black text-2xl" name="add-outline">
+                                    <ion-icon @click="addCartAllert = !addCartAllert" @click="addCart(product)" class=" text-black text-2xl" name="add-outline">
                                     </ion-icon>
                                 </div>
                             </div>
@@ -127,7 +142,42 @@
             </div>
         </div>
     </nav>
-
+    <transition>
+        <div v-if="noStock" class="z-40 sticky top-0 w-full text-white bg-red-500">
+            <div class="container flex items-center justify-between px-6 py-4 mx-auto">
+                <div class="flex">
+                    <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
+                        <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z">
+                        </path>
+                    </svg>
+        
+                    <p class="mx-3">There is no stock available! - Try another product.</p>
+                </div>
+        
+                <button @click="noStock = !noStock" class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </transition>
+    <transition class="relative sticky top-10 left-10">
+        <div v-if="addCartAllert" class="absolute top-10 left-10 flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <div class="flex items-center justify-center w-12 bg-emerald-500">
+                <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+                </svg>
+            </div>
+        
+            <div class="px-4 py-2 -mx-3">
+                <div class="mx-3">
+                    <span class="font-semibold text-emerald-500 dark:text-emerald-400">Success</span>
+                    <p class="text-sm text-gray-600 dark:text-gray-200">Your account was registered!</p>
+                </div>
+            </div>
+        </div>
+    </transition>
     <section class="flex w-full lg:flex-row flex-wrap justify-center gap-10 pt-5">
         <!-- CATEGORIES  -->
         <div class="h-full w-[30vh] hidden lg:flex">
@@ -186,16 +236,18 @@
                             </div>
                             <img :src="product.urlImg"
                                 class="hover:rotate-0 lg:hover:rotate-12 object-cover h-48 lg:h-[210px] z-10 transition-all duration-150 hover:scale-100 lg:hover:scale-[1.4] relative lg:absolute"
-                                alt="product.id">
+                                alt="product.name">
                             <div class="lg:visible invisible absolute z-0 bg-gray-600/25 h-[290px] w-[290px]"></div>
                             <img v-if="i % 2 == 0" class="hidden lg:block object-cover" :src="productsBg[1]"
                                 alt="NIKE AIR">
                             <img v-else class="hidden lg:block object-cover" :src="productsBg[0]">
                         </div>
                         <div class="flex flex-col justify-between h-full lg:bg-white bg-[#1e1e1e]">
-                            <h2 class="truncate-shop text-xl font-medium text-white lg:text-gray-700 p-2">{{product.name}}</h2>
+                            <h2 class="truncate-shop text-xl font-medium text-white lg:text-gray-700 p-2">
+                                {{product.name}}</h2>
                             <div class="flex justify-between items-center p-3">
-                                <h3 class=" font-bold text-xl text-white lg:text-[#1e1e1e]">{{moneyFormat.format(product.price)}}</h3>
+                                <h3 class=" font-bold text-xl text-white lg:text-[#1e1e1e]">
+                                    {{moneyFormat.format(product.price)}}</h3>
                                 <button @click="addCart(product)"
                                     class="lg:text-white text-black bg-[#f1d24d] lg:hover:bg-[#f1d24d] transition-all duration-150 flex flex-row-reverse gap-2 jusfy-around items-center lg:bg-gray-900 px-2 py-1 rounded">
                                     <h4 class="font-medium">Add to cart</h4>
