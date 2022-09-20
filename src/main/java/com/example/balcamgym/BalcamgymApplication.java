@@ -16,9 +16,11 @@ import java.time.LocalDate;
 @SpringBootApplication
 public class BalcamgymApplication {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(BalcamgymApplication.class, args);
 	}
+
 
 	@Bean
 	public CommandLineRunner initData (ClientRepository clientRepository, ProductStorageRepository productStorageRepository, ProductRepository productRepository, WorkoutRepository workoutRepository, BillRepository billRepository,

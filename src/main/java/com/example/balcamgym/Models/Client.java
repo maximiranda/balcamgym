@@ -29,6 +29,8 @@ public class Client {
 
     private boolean clientSubscription = false;
 
+    private boolean verification = false;
+
     public Client(){}
 
     public Client(String firstName, String lastName, String email, String password, boolean clientSubscription) {
@@ -105,5 +107,13 @@ public class Client {
 
     public void setBillSubscription(BillSubscription billSubscription) {
         this.billSubscription = billSubscription;
+    }
+
+    public boolean isVerification() {
+        return verification;
+    }
+
+    public void setVerification(boolean verification) {
+        this.verification = verification;
     }
 }
