@@ -16,7 +16,8 @@ import java.time.LocalDate;
 @SpringBootApplication
 public class BalcamgymApplication {
 
-
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	public static void main(String[] args) {
 		SpringApplication.run(BalcamgymApplication.class, args);
 	}
@@ -247,7 +248,6 @@ public class BalcamgymApplication {
 
 	};
 	}
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+
 
 }

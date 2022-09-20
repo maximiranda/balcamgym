@@ -22,9 +22,13 @@ public class ClientController {
     @Autowired
     EmailSenderService emailSenderService;
 
-    @GetMapping("clients")
-    public List<ClientDTO> getClient(){
+    @GetMapping("/clients")
+    public List<ClientDTO> getClients(){
         return clientServices.getAllClients().stream().map(ClientDTO::new).collect(Collectors.toList());
+    }
+    @GetMapping("/clients/{id}")
+    public ClientDTO getClient(@PathVariable Long id){
+        return new ClientDTO(clientServices.findClientById(id));
     }
     @PostMapping("/clients")
     public ResponseEntity<Object> register(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String password){
