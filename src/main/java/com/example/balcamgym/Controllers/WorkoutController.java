@@ -30,7 +30,6 @@ public class WorkoutController {
         return workoutServices.getWorkouts().stream().map(WorkoutDTO::new).collect(Collectors.toList());
     }
 
-    @Transactional
     @PostMapping("/workouts")
     public ResponseEntity<Object> addWorkout(Authentication authentication,@RequestParam List<Long> ids){
         Client client = clientServices.findByEmail(authentication.getName());

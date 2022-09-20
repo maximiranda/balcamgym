@@ -80,10 +80,15 @@ public class BillController {
         billServices.saveBill(bill);
 
         BillDTO billDTO = new BillDTO(bill);
-        PdfGenerator.createBill(ids,billDTO,productServices);
+        /*PdfGenerator.createBill(ids,billDTO,productServices);*/
+        senderEmail.sendEmail("maximiranda.95@gmail.com","Purchase PDF","localhost:8080/api/purchase/pdf/"+ billDTO.getId());
         return new ResponseEntity<>("Purchase success", HttpStatus.CREATED);
     }
-
-
-
+    @GetMapping("/purchase/pdf/{id}")
+    public ResponseEntity<Object> getPdf(@PathVariable Long id){
+        BillDTO bill = new BillDTO(billRepository.findBillById(id));
+        List<Long> ids = bill.getProducts().stream().map(productStorageDTO -> productStorageDTO.getProduct().getId()).collect(Collectors.toList());
+        PdfGenerator.createBill(ids, bill, productServices);
+        return new ResponseEntity<>("Purchase success", HttpStatus.CREATED);
+    }
 }

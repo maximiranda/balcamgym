@@ -16,6 +16,9 @@ createApp({
             isOpen : false,
             cartProducts : [],
             moneyFormat : new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }),
+            featureds : [],
+            noStock : false,
+            addCartAllert : false,
         }
     },
     created() {
@@ -31,26 +34,44 @@ createApp({
         deleteItemCart(product){
             if(product.quantity > 1){
                 product.quantity --
+                product.stock ++
                 localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
             }else{
+                product.stock ++
                 this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
                 localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
             }
         },
+        cleanCart(){
+            this.cartProducts = []
+            localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
+        },
+        noStockAllert(){
+            this.addCartAllert = false
+            this.noStock = true
+            setTimeout(() => {
+                this.noStock = false
+            }, 5000)
+        },
         addCart(product){
+            this.addCartAllert = true
+            this.noStock = false
+            setTimeout(()=>{
+                this.addCartAllert = false
+            }, 3000)
             if(this.cartProducts.includes(product)){
                 product.quantity ++
                 product.stock--
                 localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
-                if(product.stock < 1 ){
-                    alert("no se puede mas capo")
+                if(product.stock < 0 ){
+                    this.noStockAllert()
                 }
             }else{
                 product.quantity = 1
+                product.stock --
                 this.cartProducts.push(product)
                 localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
             }
-            console.log(this.cartProducts)
         },
         loadData() {
             axios.get("/api/products")
