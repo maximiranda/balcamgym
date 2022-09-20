@@ -368,18 +368,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class=" col-lg-3 col-sm-6">
-                    <div class="single_schedule mt-30">
-                        <span class="number">01.</span>
-                        <span class="time">Mon, 9.00 AM</span>
-                        <h4 class="title"><a href="javascript:void(0)">Fitness Class</a></h4>
-                        <p>Nelson Mendela</p>
+            <div class="row justify-content-center" id="app">
+                <div class=" col-lg-3 col-sm-6"v-for="workouts in workouts">
+                    <div class="single_schedule mt-30" >
+                        <div  > <p class="number">{{limitText(workouts.fromDate)}}.</p> </div>
+                        <span class="time">{{workouts.fromTime}}</span>
+                        <h4 class="title"><a href="javascript:void(0)">{{workouts.name}}</a></h4>
+                        <p>{{workouts.coachName}}</p>
                     </div>
                 </div>
-                
-               
-                
                 
             </div>
         </div>
@@ -584,6 +581,12 @@
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     
     <!--====== Scrolling Nav js ======-->
+    
+    <!--====== Axios ======-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!--====== Vue ======-->
+    <script src="https://unpkg.com/vue@3"></script>
 
     
     <!--====== Main js ======-->
