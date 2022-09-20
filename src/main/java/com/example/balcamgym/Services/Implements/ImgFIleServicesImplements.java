@@ -31,7 +31,9 @@ public class ImgFIleServicesImplements implements ImgFIleServices {
     @Override
     public void init() {
         try {
-            Files.createDirectory(root);
+            if(!Files.exists(root)){
+                Files.createDirectory(root);
+            }
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize folder for upload!");
         }

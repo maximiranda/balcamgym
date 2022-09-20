@@ -28,6 +28,8 @@ public class Product {
 
     private int stock;
 
+    private boolean productActive = true;
+
 
     public Product (){}
 
@@ -38,13 +40,14 @@ public class Product {
         this.stock = stock;
     }
 
-    public Product(String name, String description, String urlImg, ProductCategory productCategory, double price, int stock) {
+    public Product(String name, String description, String urlImg, ProductCategory productCategory, double price, int stock, boolean productActive) {
         this.name = name;
         this.description = description;
         this.urlImg = urlImg;
         this.productCategory = productCategory;
         this.price = price;
         this.stock = stock;
+        this.productActive = productActive;
     }
 
     public String getDescription() {
@@ -103,5 +106,12 @@ public class Product {
     public void setProductsStorage(ProductStorage productStorage) {
         productStorage.setProduct(this);
         this.productsStorage.add(productStorage);
+    }
+
+    public boolean isProductActive() {
+        return productActive;
+    }
+    public void setProductActive(boolean productActive) {
+        this.productActive = productActive;
     }
 }

@@ -27,7 +27,7 @@ public class BalcamgymApplication {
 	public CommandLineRunner initData (ClientRepository clientRepository, ProductStorageRepository productStorageRepository, ProductRepository productRepository, WorkoutRepository workoutRepository, BillRepository billRepository,
 									   BillSubscriptionRepository billSubscriptionRepository, SubscriptionRepository subscriptionRepository, ImgFIleServices imgFIleServices){
 	return (args) -> {
-		imgFIleServices.deleteAll();
+
 		imgFIleServices.init();
 		Client Admin = new Client("Admin","Admin","admin@balcamgym.com",passwordEncoder.encode("balcamgym"),true);
 
@@ -36,32 +36,32 @@ public class BalcamgymApplication {
 		Product menClothes0 = new Product("Under Armour Men Leggings","84% Polyester, 16% Elastane, Imported, Pull On closure, Machine Wash, Super-light" +
 				"HeatGear fabric delivers superior coverage without weighing you down, Strategic" +
 				"mesh panels for added ventilation where you need it, Material wicks sweat & dries" +
-				"really fast","/web/assets/images/products/1.png",ProductCategory.CLOTHES,24.49,25);
+				"really fast","/web/assets/images/products/1.png",ProductCategory.CLOTHES,24.49,25,true);
 
 		Product menClothes1 = new Product("Tank T-shirt Gym Men's Workout Sport","Pull On closure, Hand Wash Only, Material: These mens tank tops are made of high" +
 				"quality light weight and super soft fabric, not easy to deform or shrink. Y-Back Design:"
-				,"/web/assets/images/products/2.webp",ProductCategory.CLOTHES,14.99,15);
+				,"/web/assets/images/products/2.webp",ProductCategory.CLOTHES,14.99,15,true);
 
 		Product menClothes2 = new Product("Men's Tech 2.0 ShortSleeve Epic T-Shirt","100% Polyester, Imported, UA Tech fabric is quick-drying, ultra-soft & has a more" +
 				"natural feel, Material wicks sweat & dries really fast, New, streamlined fit & shaped" +
-				"hem","/web/assets/images/products/3.png",ProductCategory.CLOTHES,12.17,5);
+				"hem","/web/assets/images/products/3.png",ProductCategory.CLOTHES,12.17,5,true);
 
 		Product menClothes3 = new Product("Men's Elastic Shorts Pants black","85% Polyester, 15% Spandex, Pull On closure, Machine Wash, High performance" +
-				"elastic with excellent elasticity. Elastic fit for increased mobility and muscle support.","/web/assets/images/products/4.png",ProductCategory.CLOTHES,25.99,10);
+				"elastic with excellent elasticity. Elastic fit for increased mobility and muscle support.","/web/assets/images/products/4.png",ProductCategory.CLOTHES,25.99,10,true);
 
 		Product menClothes4 = new Product("Black Men Shorts Joggers","100% Polyester, Zipper closure, Machine Wash, UA Tech fabric is quick-drying, ultrasoft & has a more natural feel, Material wicks sweat & dries really fast, Generous ½ zip" +
-				"front makes for easy layering","/web/assets/images/products/5.jpg",ProductCategory.CLOTHES,20.00,15);
+				"front makes for easy layering","/web/assets/images/products/5.jpg",ProductCategory.CLOTHES,20.00,15,true);
 
 		Product menClothes5 = new Product("Athletic Gym Training Slim Fit Jogger Jogging Long Track Pants Sweatpants","95% Polyester, 5% Spandex, Drawstring closure, Drawstring on elastic waistband can" +
-				"ensure the fit and comfortable when you wearing this joggers Pants.","/web/assets/images/products/6.png",ProductCategory.CLOTHES,12.99,10);
+				"ensure the fit and comfortable when you wearing this joggers Pants.","/web/assets/images/products/6.png",ProductCategory.CLOTHES,12.99,10,true);
 
 		Product menClothes6 = new Product("Originals Men's Sueded Fleece Jogger Sweatpants","80% Cotton, 20% Polyester, Imported, No Closure closure, Machine Wash, 8.5 oz." +
 				"polyester fleece is high in cotton, high in comfort. Sueded fleece is sanded to make it" +
-				"incredibly soft, inside and out.","/web/assets/images/products/7.webp",ProductCategory.CLOTHES,18.95,18);
+				"incredibly soft, inside and out.","/web/assets/images/products/7.webp",ProductCategory.CLOTHES,18.95,18,true);
 
 		Product menClothes7 = new Product("Originals man set Fleece Dry black","60% Cotton, 40% Polyester, Imported, No Closure closure, Machine Wash, 8.5 oz." +
 				"polyester fleece is high in cotton, high in comfort. Sueded fleece is sanded to make it" +
-				"incredibly soft, inside and out.","/web/assets/images/products/0.webp",ProductCategory.CLOTHES,18.95,18);
+				"incredibly soft, inside and out.","/web/assets/images/products/0.webp",ProductCategory.CLOTHES,18.95,18,true);
 
 		productRepository.save(menClothes0);
 		productRepository.save(menClothes1);
@@ -74,36 +74,36 @@ public class BalcamgymApplication {
 
 		Product womenClothes0 = new Product("Womens gym sets gradient seamless yoga","70% Cotton, 30% Polyester, Imported, No Closure closure, Machine Wash, 8.5 oz" +
 				"Women Seamless Long Sleeve Yoga Set Gym Crop Top and High Waist Bra" +
-				"Leggings.","/web/assets/images/products/8.png",ProductCategory.CLOTHES,24.49,10);
+				"Leggings.","/web/assets/images/products/8.png",ProductCategory.CLOTHES,24.49,10,true);
 
 		Product womenClothes1 = new Product("Ot-Ew Women's Seamless Sports Leggings","85% Polyester, 15% Spandex, Pull On closure. ideal to be comfortable while doing" +
-				"sports. Color: blue","/web/assets/images/products/9.jpg",ProductCategory.CLOTHES,14.99,11);
+				"sports. Color: blue","/web/assets/images/products/9.jpg",ProductCategory.CLOTHES,14.99,11,true);
 
 		Product womenClothes2 = new Product("Womens gym top white fresh","100% Cotton, Imported, No Closure closure, Machine Wash, 8.5 oz. polyester fleece" +
 				"is high in cotton, high in comfort. Sueded fleece is sanded to make it incredibly soft,"+
-				"inside and out","/web/assets/images/products/10.png",ProductCategory.CLOTHES,12.15,7);
+				"inside and out","/web/assets/images/products/10.png",ProductCategory.CLOTHES,12.15,7,true);
 
 		Product womenClothes3 = new Product("Womens gym sets gradient seamless pink","70% Cotton, 30% Polyester, Imported, No Closure closure, Machine Wash, 8.5 oz" +
-				"Women Seamless Long Sleeve Yoga Set Gym Crop Top and High Waist Bra","/web/assets/images/products/11.webp",ProductCategory.CLOTHES,25.99,4);
+				"Women Seamless Long Sleeve Yoga Set Gym Crop Top and High Waist Bra","/web/assets/images/products/11.webp",ProductCategory.CLOTHES,25.99,4,true);
 
 		Product womenClothes4 = new Product("Seamless women's shorts black","seamless women's shorts, ideal for any sport extremely comfortable and soft to the" +
-				"touch. Color: black","/web/assets/images/products/12.png",ProductCategory.CLOTHES,20.00,5);
+				"touch. Color: black","/web/assets/images/products/12.png",ProductCategory.CLOTHES,20.00,5,true);
 
 		Product womenClothes5 = new Product("Fresh antiperspirant women's t-shirt","85% Polyester, 15% Spandex, Pull On closure. ideal to be comfortable while doing" +
-				"sports. Color: light blue","/web/assets/images/products/13.jpg",ProductCategory.CLOTHES,12.99,18);
+				"sports. Color: light blue","/web/assets/images/products/13.jpg",ProductCategory.CLOTHES,12.99,18,true);
 
 		Product womenClothes6 = new Product("Leggins Women cotton dry ultra fresh","Tight-fitting leggings to keep everything in place, soft to the touch, cotton dry 70%\n" +
-				"Cotton, 30% Polyester","/web/assets/images/products/14.png",ProductCategory.CLOTHES,18.95,10);
+				"Cotton, 30% Polyester","/web/assets/images/products/14.png",ProductCategory.CLOTHES,18.95,10,true);
 
 		Product womenClothes7 = new Product("Three-quarter Leggins Women cotton dry ","Tight-fitting leggings, soft to the touch, cotton dry 80% Cotton, 20% Polyester color:" +
-				"black","/web/assets/images/products/15.webp",ProductCategory.CLOTHES,12.15,12);
+				"black","/web/assets/images/products/15.webp",ProductCategory.CLOTHES,12.15,12,true);
 
 		Product womenClothes8 = new Product("Comfortable and soft women's top","Become your own personal trainer with this ultra comfortable and stretchy top, with" +
 				"small design windows for better breathing. cotton dry 80% Cotton, 20% Polyester" +
-				"color: black","/web/assets/images/products/16.png",ProductCategory.CLOTHES,25.99,3);
+				"color: black","/web/assets/images/products/16.png",ProductCategory.CLOTHES,25.99,3,true);
 
 		Product womenClothes9 = new Product("Leggins Women cotton dry with batman print","Tight-fitting leggings, soft to the touch, pull On closure. ideal to be comfortable while" +
-				"doing sports. cotton dry 80% Cotton, 20% Polyester","/web/assets/images/products/17.png",ProductCategory.CLOTHES,20.00,8);
+				"doing sports. cotton dry 80% Cotton, 20% Polyester","/web/assets/images/products/17.png",ProductCategory.CLOTHES,20.00,8,true);
 
 		productRepository.save(womenClothes0);
 		productRepository.save(womenClothes1);
@@ -118,30 +118,30 @@ public class BalcamgymApplication {
 
 		Product equipments0 = new Product("Elastic bands for bodybuilding and resistance","ultra-resistant bands for gym, 100% waterproof," +
 				"Strength Training without Weights, Physical Therapy, Pilates, Rehab, Yellow & Red & Green & Blue & Black," +
-				"Beginner","/web/assets/images/products/18.png",ProductCategory.EQUIPMENT,19.88,5);
+				"Beginner","/web/assets/images/products/18.png",ProductCategory.EQUIPMENT,19.88,5,true);
 
 		Product equipments1 = new Product("BEST Resistance Yoga Mat","ultra-resistant mat for yoga and stretching, 100% waterproof," +
 				"Strength Training without Weights, Physical Therapy, Pilates, Rehab, Yellow & Red & Green," +
-				"Beginner","/web/assets/images/products/19.png",ProductCategory.EQUIPMENT,19.88,5);
+				"Beginner","/web/assets/images/products/19.png",ProductCategory.EQUIPMENT,19.88,5,true);
 
 		Product equipments2 = new Product("EVOLUTION Exercise Ma","EVOLUTION Exercise Mat for Fitness, Yoga, Pilates, Stretching & Floor Exercises (48L x 20W x" +
-				"1/2-Inch Thick)","/web/assets/images/products/20.png",ProductCategory.EQUIPMENT,23.85,8);
+				"1/2-Inch Thick)","/web/assets/images/products/20.png",ProductCategory.EQUIPMENT,23.85,8,true);
 
-		Product equipments4 = new Product("SPORT FITNESS Kettlebell","SPORT FITNESS Basics Cast Iron Kettlebell Weight. 12Kg","/web/assets/images/products/21.png",ProductCategory.EQUIPMENT,30.60,5);
+		Product equipments4 = new Product("SPORT FITNESS Kettlebell","SPORT FITNESS Basics Cast Iron Kettlebell Weight. 12Kg","/web/assets/images/products/21.png",ProductCategory.EQUIPMENT,30.60,5,true);
 
-		Product equipments5 = new Product("BARBELL Weight Plate","BalanceFrom Cast Iron Olympic 2-Inch Weight Plate","/web/assets/images/products/22.png",ProductCategory.EQUIPMENT,169.99,4);
+		Product equipments5 = new Product("BARBELL Weight Plate","BalanceFrom Cast Iron Olympic 2-Inch Weight Plate","/web/assets/images/products/22.png",ProductCategory.EQUIPMENT,169.99,4,true);
 
 		Product equipments6 = new Product("THERABAND Resistance Tubes","THERABAND Resistance Tubes, Professional Latex Elastic Tubing with Soft Handles & Door" +
 				"Anchor For Physical Therapy, Pilates, At-Home Workouts, and Rehab, 48 Inch, Silver, Super" +
-				"Heavy, Advanced Level 2","/web/assets/images/products/23.png",ProductCategory.EQUIPMENT,19.99,10);
+				"Heavy, Advanced Level 2","/web/assets/images/products/23.png",ProductCategory.EQUIPMENT,19.99,10,true);
 
-		Product equipments7 = new Product("BEST Hex Dumbbell","Rubber Encased Hex Dumbbell. 2Lb","/web/assets/images/products/24.jpg",ProductCategory.EQUIPMENT,43.70,8);
+		Product equipments7 = new Product("BEST Hex Dumbbell","Rubber Encased Hex Dumbbell. 2Lb","/web/assets/images/products/24.jpg",ProductCategory.EQUIPMENT,43.70,8,true);
 
-		Product equipments8 = new Product("CAPELLI Ab Wheel","Capelli Sport Ab Wheel Rollout, Exercise Roller for Abdominal and Core Strength Training Black","/web/assets/images/products/25.png",ProductCategory.EQUIPMENT,14.99,12);
+		Product equipments8 = new Product("CAPELLI Ab Wheel","Capelli Sport Ab Wheel Rollout, Exercise Roller for Abdominal and Core Strength Training Black","/web/assets/images/products/25.png",ProductCategory.EQUIPMENT,14.99,12,true);
 
-		Product equipments9 = new Product("BalanceFrom Aerobic Stepper", "BalanceFrom Adjustable Workout Aerobic Stepper Step Platform Trainer, 4 Removable Raisers Included","/web/assets/images/products/26.png",ProductCategory.EQUIPMENT,30.15,3);
+		Product equipments9 = new Product("BalanceFrom Aerobic Stepper", "BalanceFrom Adjustable Workout Aerobic Stepper Step Platform Trainer, 4 Removable Raisers Included","/web/assets/images/products/26.png",ProductCategory.EQUIPMENT,30.15,3,true);
 
-		Product equipments10 = new Product("TRX GO TRX training","TRX GO Suspension Trainer and the Go Bundle - for the Travel Focused Professional or any Fitness Journey, TRX Training Club App ","/web/assets/images/products/27.png",ProductCategory.EQUIPMENT,219.50,2);
+		Product equipments10 = new Product("TRX GO TRX training","TRX GO Suspension Trainer and the Go Bundle - for the Travel Focused Professional or any Fitness Journey, TRX Training Club App ","/web/assets/images/products/27.png",ProductCategory.EQUIPMENT,219.50,2,true);
 
 		productRepository.save(equipments0);
 		productRepository.save(equipments1);

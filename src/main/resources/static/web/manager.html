@@ -37,31 +37,10 @@
 
 </head>
 
-<body>
+<body id="app">
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
-
-    <!--====== PRELOADER PART START ======-->
-
-    <div class="preloader">
-        <div class="loader">
-            <div class="ytp-spinner">
-                <div class="ytp-spinner-container">
-                    <div class="ytp-spinner-rotator">
-                        <div class="ytp-spinner-left">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
-                        <div class="ytp-spinner-right">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--====== PRELOADER PART ENDS ======-->
 
     <!--====== HEADER PART START ======-->
 
@@ -126,8 +105,8 @@
                             <span class="line"></span>
                             <h3 class="title">Manager</h3>
                         </div>
-                        <button type="button" class="btn btn-outline-warning mt-1 m-2 p-2" >Add product</button>
-                        <button type="button" class="btn btn-outline-warning mt-1m-2 p-2" >Delete product</button>
+                        <button type="button" class="btn btn-outline-warning mt-1 m-2 p-2">Add product</button>
+                        <button type="button" class="btn btn-outline-warning mt-1m-2 p-2">Delete product</button>
                     </div>
                 </div>
             </div>
@@ -142,25 +121,24 @@
                             <div class="">
                                 <h3 class="card-title m-3 text-center">Add products to the store:</h3>
                                 <h5 class="m-2">Select Category</h5>
-                                <select class="form-select m-2" style="width:140px; height:30px;"
+                                <select v-model="category" class="form-select m-2" style="width:140px; height:30px;"
                                     aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">Clothes</option>
-                                    <option value="2">Suplements</option>
-                                    <option value="3">Equipments</option>
+                                    <option value="none">Select a category</option>
+                                    <option :value="category.toUpperCase()" v-for="category in categories">{{category}}</option>
                                 </select>
                             </div>
                             <div class="col-md-7">
                                 <h5 class="m-2">Complete the requested information</h5>
-                                <input class="form-control" type="text" placeholder="Name products"
+                                <input v-model="name" class="form-control" type="text" placeholder="Name products"
                                     aria-label="default input example">
-                                <input class="form-control" type="text" placeholder="Description products"
+                                <input v-model="description" class="form-control" type="text" placeholder="Description products"
                                     aria-label="default input example">
-                                <input class="form-control" type="text" placeholder="Stock"
+                                <input v-model="stock" class="form-control" type="text" placeholder="Stock"
                                     aria-label="default input example">
-                                    <input class="form-control" type="money" placeholder="Price"
+                                <input v-model="price" class="form-control" type="money" placeholder="Price"
                                     aria-label="default input example">
-                                    <button type="button" class="btn btn-outline-warning mt-1" >Add product</button>
+                                <input @change="onChangeFile($event)" type="file" name="file" id="file" >
+                                <button  @click="addNewProduct" type="button" class="btn btn-outline-warning mt-1">Add product</button>
                             </div>
                         </div>
                     </div>
@@ -187,13 +165,13 @@
                                 <h5 class="m-2">Complete the requested information</h5>
                                 <input class="form-control" type="text" placeholder="Name products"
                                     aria-label="default input example">
-                            <!--     <input class="form-control" type="text" placeholder="Description products"
+                                <!--     <input class="form-control" type="text" placeholder="Description products"
                                     aria-label="default input example">
                                 <input class="form-control" type="text" placeholder="Stock"
                                     aria-label="default input example">
                                     <input class="form-control" type="money" placeholder="Price"
                                     aria-label="default input example"> -->
-                                    <button type="button" class="btn btn-outline-warning mt-1" >Delete product</button>
+                                <button type="button" class="btn btn-outline-warning mt-1">Delete product</button>
                             </div>
                         </div>
                     </div>
@@ -329,7 +307,9 @@
 
 
     <!--====== Main js ======-->
-    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="assets/js/manager.js"></script>
 
 </body>
 
