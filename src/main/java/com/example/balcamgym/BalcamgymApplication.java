@@ -27,7 +27,7 @@ public class BalcamgymApplication {
 	public CommandLineRunner initData (ClientRepository clientRepository, ProductStorageRepository productStorageRepository, ProductRepository productRepository, WorkoutRepository workoutRepository, BillRepository billRepository,
 									   BillSubscriptionRepository billSubscriptionRepository, SubscriptionRepository subscriptionRepository, ImgFIleServices imgFIleServices){
 	return (args) -> {
-		imgFIleServices.deleteAll();
+
 		imgFIleServices.init();
 		Client Admin = new Client("Admin","Admin","admin@balcamgym.com",passwordEncoder.encode("balcamgym"),true);
 
