@@ -4,6 +4,7 @@ import com.example.balcamgym.DTO.ClientDTO;
 import com.example.balcamgym.Models.Client;
 import com.example.balcamgym.Repositories.ClientRepository;
 import com.example.balcamgym.Services.ClientServices;
+import com.example.balcamgym.Utils.EmailSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,8 @@ import java.util.stream.Collectors;
 public class ClientController {
     @Autowired
     ClientServices clientServices;
+    @Autowired
+    EmailSenderService emailSenderService;
 
     @GetMapping("clients")
     public List<ClientDTO> getClient(){
@@ -32,7 +35,19 @@ public class ClientController {
         }
         Client client = new Client(firstName, lastName, email, password, false);
         clientServices.saveClient(client);
+        emailSenderService.sendEmail(client.getEmail(),"Activacion de cuenta","localhost:8080/api/client/activation/" + client.getId());
         return new ResponseEntity<>("Create", HttpStatus.CREATED);
+
+    }
+    @GetMapping("/client/activation/{id}")
+    public ResponseEntity<Object> verification(@PathVariable Long id){
+        Client client = clientServices.findClientById(id);
+        if (client == null){
+            return new ResponseEntity<>("client not found", HttpStatus.FORBIDDEN);
+        }
+        client.setVerification(true);
+        clientServices.saveClient(client);
+        return new ResponseEntity<>("client verifying", HttpStatus.ACCEPTED);
     }
     @GetMapping("/clients/current")
     public ClientDTO getClient(Authentication authentication){
