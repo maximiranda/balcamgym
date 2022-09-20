@@ -343,6 +343,11 @@ i, span, a {
   display: block;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
+  /* overflow: hidden;
+  max-width: 5ch;
+  text-overflow: ellipsis;
+  white-space: nowrap; */
+  
 }
 
 .single_schedule .time {
