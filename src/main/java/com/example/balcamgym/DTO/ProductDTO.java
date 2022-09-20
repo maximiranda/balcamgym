@@ -10,6 +10,8 @@ public class ProductDTO {
     private double price;
     private int stock;
 
+    private boolean productActive;
+
     public ProductDTO(){}
 
     public ProductDTO(Product product){
@@ -20,6 +22,7 @@ public class ProductDTO {
         this.productCategory = product.getProductCategory();
         this.price = product.getPrice();
         this.stock = product.getStock();
+        this.productActive = product.isProductActive();
     }
 
     public long getId() {
@@ -44,5 +47,9 @@ public class ProductDTO {
 
     public int getStock() {
         return stock;
+    }
+
+    public boolean isProductActive() {
+        return productActive;
     }
 }

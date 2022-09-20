@@ -32,7 +32,7 @@ public class ProductController {
 
     @GetMapping("/products")
     public Set<ProductDTO> getProducts(){
-        return productServices.findAllProducts().stream().map(ProductDTO::new).collect(Collectors.toSet());
+        return productServices.findAllProducts().stream().filter(product -> product.isProductActive() && product.getStock()>0).map(ProductDTO::new).collect(Collectors.toSet());
     }
     @PostMapping("/products")
     public ResponseEntity<Object> createProduct(@RequestParam String name, @RequestParam ProductCategory category, @RequestParam double price,
@@ -49,11 +49,25 @@ public class ProductController {
         }
         try {
             imgFIleServices.save(multipartFile);
-            Product product = new Product(name, description,"/public/"+ multipartFile.getOriginalFilename(), category, price, stock);
+            Product product = new Product(name, description,"/public/"+ multipartFile.getOriginalFilename(), category, price, stock,true);
             productServices.saveProduct(product);
             return new ResponseEntity<>("Uploaded", HttpStatus.CREATED);
         } catch (Exception e){
             return new ResponseEntity<>("Not upload", HttpStatus.EXPECTATION_FAILED);
         }
+    }
+
+    @PatchMapping("/products")
+    public ResponseEntity<Object> disableProduct(@RequestParam long id, Authentication authentication){
+        Client client = clientServices.findByEmail(authentication.getName());
+        Product product = productServices.findProductById(id);
+        if (product == null){
+            return new ResponseEntity<>("Product not found", HttpStatus.FORBIDDEN);
+        }
+
+        product.setProductActive(false);
+        productServices.saveProduct(product);
+        return new ResponseEntity<>("Product disalbe",HttpStatus.ACCEPTED);
+
     }
 }
