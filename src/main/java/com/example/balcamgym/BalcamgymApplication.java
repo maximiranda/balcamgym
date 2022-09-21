@@ -154,6 +154,31 @@ public class BalcamgymApplication {
 		productRepository.save(equipments9);
 		productRepository.save(equipments10);
 
+		Product sumplement0 = new Product("BCAA ENA","It is an excellent recuperator and also improves muscle growth. Provides metabolic energy to muscles and decreases protein breakdown during intense exercise" ,"/web/assets/images/products/bcaaENA.png",ProductCategory.SUPPLEMENTS,12.52,30,true);
+		Product sumplement1 = new Product("BCAA GAT","This new formula boasts Nitrosigine as its only source of Arginine. Nitrosigine has been shown to inhibit the enzyme responsible for breaking down Arginine, making it the superior choice of arginine supplementation and a perfect synergistic partner to L-Citrulline." ,"/web/assets/images/products/bcaaGAT.png",ProductCategory.SUPPLEMENTS,10.20,25,true);
+		Product sumplement2 = new Product("BCAA ON","The BCAA 2:1:1 ratio of leucine, isoleucine, valine\n RECOVERY takes your training efforts to the next level by supporting endurance and recovery" ,"/web/assets/images/products/bcaaON.png",ProductCategory.SUPPLEMENTS,17.20,20,true);
+		Product sumplement3 = new Product("Creatine ENA","Our Micronized Creatine is an excellent pre-workout supplement as it collaborates in the formation of energy components, improves muscle power and delays muscle fatigue." ,"/web/assets/images/products/creatineENA.png",ProductCategory.SUPPLEMENTS,8.20,15,true);
+		Product sumplement4 = new Product("Creatine GAT","Dymatize Creatine Monohydrate has always been processed to an extra-fine 180 microns, ensuring proper dispersion." ,"/web/assets/images/products/creatineGAT.png",ProductCategory.SUPPLEMENTS,8.20,10,true);
+		Product sumplement5 = new Product("Creatine ON","Creatine Monohydrate is a naturally occurring substance found in the body and in foods such as meat and fish. Creatine is used by the body to produce energy for short bursts of high-intensity activity." ,"/web/assets/images/products/creatineON.png",ProductCategory.SUPPLEMENTS,9.80,8,true);
+		Product sumplement6 = new Product("Whey Protein ENA","This type of supplement helps to complement the diet of people with specific nutritional goals or requirements. Its consumption can be indicated by various factors, such as the duration and intensity of the activity" ,"/web/assets/images/products/wheyproteinENA.png",ProductCategory.SUPPLEMENTS,18.20,10,true);
+		Product sumplement7 = new Product("Whey Protein GAT","GAT Sport 100% Whey Protein is a premium quality whey protein powder that is ideal for athletes and bodybuilders who are looking to build muscle and increase strength." ,"/web/assets/images/products/wheyproteinGAT.png",ProductCategory.SUPPLEMENTS,20.50,15,true);
+		Product sumplement8 = new Product("Whey Protein ON","Whey protein is a complete protein, meaning it contains all the essential amino acids needed to build and repair muscle tissue." ,"/web/assets/images/products/wheyproteinON.png",ProductCategory.SUPPLEMENTS,19.20,20,true);
+		Product sumplement9 = new Product("Whey Protein Isolate STAR","Whey protein isolate is a type of protein supplement that is made from whey, a by-product of cheese production. Whey protein isolate is a concentrated form of whey protein that contains a higher percentage of protein than other types of whey protein." ,"/web/assets/images/products/wheyproteinSTAR.png",ProductCategory.SUPPLEMENTS,25.20,10,true);
+		Product sumplement10 = new Product("Whey Protein SYNTHA-6","Whey protein isolate is a type of protein supplement that is made from whey, a by-product of cheese production. Whey protein isolate is a concentrated form of whey protein that contains a higher percentage of protein than other types of whey protein." ,"/web/assets/images/products/wheyproteinSYNTHA-6.png",ProductCategory.SUPPLEMENTS,30.00,10,true);
+
+		productRepository.save(sumplement0);
+		productRepository.save(sumplement1);
+		productRepository.save(sumplement2);
+		productRepository.save(sumplement3);
+		productRepository.save(sumplement4);
+		productRepository.save(sumplement5);
+		productRepository.save(sumplement6);
+		productRepository.save(sumplement7);
+		productRepository.save(sumplement8);
+		productRepository.save(sumplement9);
+		productRepository.save(sumplement10);
+
+
 		Workout lesson0 = new Workout("Body Building","Michael Logan","Bodybuilding is the use of progressive resistance exercise to control and develop one's muscles (muscle building) by muscle hypertrophy for aesthetic purposes","Monday","9:00 AM");
 
 		Workout lesson1 = new Workout("Yoga","Lisa Douglas"," Yoga is an ancient practice that involves physical poses, concentration, and deep breathing. A regular yoga practice can promote endurance, strength, calmness, flexibility, and well-being.","Tuesday","10:00 AM");
