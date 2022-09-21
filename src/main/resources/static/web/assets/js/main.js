@@ -1,3 +1,39 @@
+const app = Vue.createApp({
+  data() {
+    return {
+      workouts: [],
+      coachName: [],
+      name: '',
+      fromDate: [],
+      fromTime: '',
+      
+    };
+  },
+
+  created() {
+    axios
+      .get("/api/workouts")
+      .then((response) => {
+        this.workouts = response.data;
+        console.log(this.workouts);
+        this.fromDates = this.workouts.map((workout) => workout.fromDate.substring(0, 3));
+        console.log(this.fromDates);
+        
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      
+  },
+
+  methods: {
+    limitText(text) {
+      return text.substring(0, 3);
+    }
+  }
+}).mount("#app");
+
+
 $(function() {
     
     "use strict";
@@ -166,7 +202,7 @@ $(function() {
     
     //===== 
     
-    
+
     
     
     

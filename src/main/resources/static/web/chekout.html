@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
 </head>
 
-<body>
+<body id="app">
     <!-- NAV -->
     <nav class="min-h-[10vh] lg:min-h-[13vh] relative bg-[#1E1E1E] shadow-lg ">
         <div class="container px-6 py-6 mx-auto">
@@ -48,7 +48,7 @@
                                 <span class="absolute top-0 left-5 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
                             </div>
                         </button>
-                        <p class="text-white">Back to shop!</p>
+                        <a href="./shop.html" class="text-white">Back to shop!</a>
                     </div>
                     <div class="flex justify-center items-center flex-col lg:hidden">
                         <button type="button"
@@ -74,33 +74,37 @@
 
     <section class="flex flex-col gap-5 justify-center lg:flex-row w-full ">
         <div class="gap-5 flex flex-col ">
-            <div class="flex flex-row justify-around items-center w-[800px] h-[350px] border m-5" >
+            <div v-for="product in cartProducts" class="flex flex-row justify-around items-center w-[800px] h-[350px] border m-5" >
                 <div class="h-24 w-24 flex justify-center items-center border ">
-                    1
+                    <img :src="product.urlImg">
                 </div>
                 <div class="flex w-64 flex-col justify-between items-center flex-wrap">
                     <div class="flex flex-col gap-2 flex-wrap">
-                        <h2 class="font-medium text-xl">Basic Tee</h2>
-                        <h3 class="font-medium">sienna</h3>
+                        <h2 class="font-medium text-xl">{{product.name}}</h2>
+                        <h3 class="font-medium">{{product.productCategory}}</h3>
                         <p class="">
-                            THERABAND Resistance Tubes, Professional Latex Elastic Tubing with Soft Handles & Door Anchor For Physical Therapy, Pilates, At-Home Workouts, and Rehab, 48 Inch, Silver, Super Heavy, Advanced Level 2
+                            {{product.description}}
                         </p>
                         <hr>
                         <div class="flex justify-between items-center">
-                            <div class="flex gap-3 items-center">
+                            <div v-if="product.stock > 0" class="flex gap-3 items-center">
                                 <ion-icon class="text-green-700 text-2xl" name="checkmark-outline"></ion-icon>
-                                <p>in Stock</p>
+                                <p>Stock</p>
                             </div>
-                            <h3 class="font-bold">$52.25</h3>
+                            <div v-else class="flex gap-3 items-center">
+                                <ion-icon class="text-red-700 text-2xl" name="close-outline"></ion-icon>
+                                <p>No Stock!</p>
+                            </div>
+                            <h3 class="font-bold">{{moneyFormat.format(product.price)}}</h3>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col justify-around h-full">
                     <div class="flex justify-between w-[150px]">
-                        <p class="justify-self-end self-start ">
-                            CANTIDAD
+                        <p class="font-medium text-xl justify-self-end self-start ">
+                            {{product.quantity}}
                         </p>
-                        <ion-icon class="text-2xl justify-self-end self-start " name="close-outline"></ion-icon>
+                        <ion-icon @click="deleteItem(product)" class="text-2xl justify-self-end self-start " name="close-outline"></ion-icon>
                     </div>
                 </div>
             </div>    
@@ -112,33 +116,30 @@
                 <div class="flex flex-col">
                     <div class="flex justify-between items-center m-3 border-b">
                         <p class="p-2">Subtotal</p>
-                        <p>$54</p>
+                        <p>{{moneyFormat.format(subtotal)}}</p>
                     </div>
                     <div class="flex justify-between items-center m-3 border-b">
                         <p class="p-2">Shipping Estimate</p>
-                        <p>$54</p>
+                        <p>{{moneyFormat.format(shippingEstimate)}}</p>
                     </div>
                     <div class="flex justify-between items-center m-3 border-b">
                         <p class="p-2">Tax Estimate</p>
-                        <p>$22</p>
+                        <p>{{moneyFormat.format(subtotal * taxEstimate)}}</p>
                     </div>
                     <div class="flex justify-between items-center m-3">
                         <h3 class="font-bold">Order Total: </h3>
-                        <h3 class="font-bold">$542</h3>
+                        <h3 class="font-bold">{{moneyFormat.format(subtotal * (1 + taxEstimate) + shippingEstimate)}}</h3>
                     </div>
                 </div>
-                <button class="w-full bg-sky-500 rounded shadow text-white font-bold py-2">
+                <button @click="makePayment" class="w-full bg-sky-500 rounded shadow text-white font-bold py-2">
                     Checkout
                 </button>
             </div>
         </div>
     </section>
 
-
-    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="../path/to/flowbite/dist/flowbite.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../web/assets/js/shop.js"></script>

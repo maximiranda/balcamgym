@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api")
 public class ClientController {
+    @Autowired
+    PasswordEncoder passwordEncoder;
     @Autowired
     ClientServices clientServices;
     @Autowired
@@ -37,7 +40,7 @@ public class ClientController {
         }if (clientServices.findByEmail(email) != null){
             return new ResponseEntity<>("This email already use",HttpStatus.FORBIDDEN);
         }
-        Client client = new Client(firstName, lastName, email, password, false);
+        Client client = new Client(firstName, lastName, email, passwordEncoder.encode(password), false);
         clientServices.saveClient(client);
         emailSenderService.sendEmail(client.getEmail(),"Activacion de cuenta","localhost:8080/api/client/activation/" + client.getId());
         return new ResponseEntity<>("Create", HttpStatus.CREATED);

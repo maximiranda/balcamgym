@@ -89,16 +89,18 @@
                                 <h3 class="text-white truncate w-[200px]">{{product.name}}</h3>
                                 <div
                                     class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
-                                    <ion-icon @click="deleteItemCart(product)"
+                                    <ion-icon @click="reduceQuantity(product)"
                                         class="cursor-pointer text-black text-2xl select-none " name="remove-outline">
                                     </ion-icon>
                                     <p class="text-black text-xl truncate select-none">{{product.quantity}}</p>
-                                    <ion-icon v-if="product.stock > 0" @click="addCart(product)"
+                                    <ion-icon v-if="product.stockAux > 0" @click="addCart(product)"
                                         class="select-none cursor-pointer text-black text-2xl" name="add-outline">
                                     </ion-icon>
                                     <ion-icon v-else @click="noStockAllert" class="select-none cursor-pointer text-black text-2xl cursor-not-allowed" name="add-outline">
                                     </ion-icon>
                                 </div>
+                                <ion-icon @click="deleteItem(product)"  class="text-xl text-white" name="close-outline"></ion-icon>
+
                             </div>
                         </div>
                         <div class="flex w-full items-center justify-between">
@@ -228,12 +230,14 @@
 
                 <div class="flex gap-10 lg:gap-10 flex-wrap pt-5">
                     <!-- CARDS-->
+                    
                     <div v-for="(product, i) in filteredProducts"
                         class="lg:border-0 border overflow-hidden rounded shadow flex flex-col gap-2 h-[300px] w-full lg:w-[290px] lg:h-[430px]">
                         <div class="relative flex items-center justify-center">
                             <div v-if="product.stock < 5" class=" absolute left-0 top-3 rounded-r bg-red-600 z-20">
                                 <p class="p-2 px-4 text-white uppercase bold">Few units left</p>
                             </div>
+                            
                             <img :src="product.urlImg"
                                 class="hover:rotate-0 lg:hover:rotate-12 object-cover h-48 lg:h-[210px] z-10 transition-all duration-150 hover:scale-100 lg:hover:scale-[1.4] relative lg:absolute"
                                 alt="product.name">
@@ -242,13 +246,15 @@
                                 alt="NIKE AIR">
                             <img v-else class="hidden lg:block object-cover" :src="productsBg[0]">
                         </div>
+                        
                         <div class="flex flex-col justify-between h-full lg:bg-white bg-[#1e1e1e]">
+                            <a :href="'./productdetails.html?id='+product.id">
                             <h2 class="truncate-shop text-xl font-medium text-white lg:text-gray-700 p-2">
-                                {{product.name}}</h2>
+                                {{product.name}}</h2></a>
                             <div class="flex justify-between items-center p-3">
                                 <h3 class=" font-bold text-xl text-white lg:text-[#1e1e1e]">
                                     {{moneyFormat.format(product.price)}}</h3>
-                                <button @click="addCart(product)"
+                                <button :disabled="product.stockAux == 0"  @click="addCart(product)"
                                     class="lg:text-white text-black bg-[#f1d24d] lg:hover:bg-[#f1d24d] transition-all duration-150 flex flex-row-reverse gap-2 jusfy-around items-center lg:bg-gray-900 px-2 py-1 rounded">
                                     <h4 class="font-medium">Add to cart</h4>
                                     <div class="relative transition-colors duration-300 transform ">
@@ -264,6 +270,7 @@
                             </div>
                         </div>
                     </div>
+                
                 </div>
             </div>
         </div>
