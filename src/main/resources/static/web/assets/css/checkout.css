@@ -1,9 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 body {
-    background: #ddeefc;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    color: #444444;
 }
 
 * {
@@ -14,6 +13,21 @@ body {
     outline: none;
 }
 
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    padding: 50px 15px;
+}
 
 @media screen and (max-width: 700px),
 (max-height: 500px) {
@@ -123,6 +137,7 @@ body {
     font-size: 22px;
     font-weight: 500;
     font-family: "Source Sans Pro", sans-serif;
+    box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);
     color: #fff;
     margin-top: 20px;
     cursor: pointer;
@@ -356,6 +371,7 @@ body {
     position: relative;
     z-index: 4;
     height: 100%;
+    text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);
     user-select: none;
 }
 
@@ -549,6 +565,7 @@ body {
     color: #1a3b5d;
     font-size: 18px;
     border-radius: 4px;
+    box-shadow: 0px 10px 20px -7px rgba(32, 56, 117, 0.35);
 }
 
 @media screen and (max-width: 480px) {
@@ -592,6 +609,7 @@ body {
     width: 100%;
     height: 50px;
     border-radius: 5px;
+    box-shadow: none;
     border: 1px solid #ced6e0;
     transition: all 0.3s ease-in-out;
     font-size: 18px;
@@ -604,6 +622,10 @@ body {
 .card-input__input:hover,
 .card-input__input:focus {
     border-color: #3d9cff;
+}
+
+.card-input__input:focus {
+    box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
 }
 
 .card-input__input.-select {
@@ -661,8 +683,40 @@ body {
     pointer-events: none;
 }
 
+.github-btn {
+    position: absolute;
+    right: 40px;
+    bottom: 50px;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);
+    background: #24292e;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
 @media screen and (min-width: 500px) {
     .github-btn:hover {
         transform: scale(1.1);
+        box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .github-btn {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 20px;
+    }
+
+    .github-btn:active {
+        transform: scale(1.1);
+        box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);
     }
 }
