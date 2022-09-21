@@ -17,7 +17,7 @@ new Vue({
             isInputFocused: false,
             modal: false,
             //------------------------------------------------
-            client : {},
+            client : "",
             products: [],
             filteredProducts: [],
             productsBg: ["../web/assets/images/produc-bg-01.png", "../web/assets/images/produc-bg-02-01.png"],

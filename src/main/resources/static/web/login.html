@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
 	<link rel="shortcut icon" href="assets/images/favicon-16x16.png" type="image/png">
+	<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
 	<title>Document</title>
 </head>
 
@@ -27,15 +29,15 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Log In</h4>
-											<div class="form-group">
-												<input v-model="email" type="email" name="logemail" class="form-style"
+											<div class="relative form-group">
+												<input v-model="email" type="email" name="logemail" class="pl-[35px] form-style bg-gray-900"
 													placeholder="Your Email" id="logemail" autocomplete="off">
-												<i class="input-icon uil uil-at"></i>
+												<i class="absolute left-0 input-icon uil uil-at"></i>
 											</div>
-											<div class="form-group mt-2">
-												<input @keyup.enter="logIn" v-model="password" type="password" name="logpass" class="form-style"
+											<div class="relative form-group mt-2">
+												<input @keyup.enter="logIn" v-model="password" type="password" name="logpass" class="pl-[35px] bg-gray-900 form-style"
 													placeholder="Your Password" id="logpass" autocomplete="off">
-												<i class="input-icon uil uil-lock-alt"></i>
+												<i class="absolute left-0 input-icon uil uil-lock-alt"></i>
 											</div>
 											<button @click="logIn" class="btn mt-4">Submit</button>
 											<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your
@@ -45,27 +47,27 @@
 								</div>
 								<div class="card-back">
 									<div class="center-wrap">
-										<div class="section text-center">
+										<div class="relative section text-center">
 											<h4 class="mb-4 pb-3">Sign Up</h4>
 											<div class="form-group">
-												<input v-model="firstName" type="text" name="firstName" class="form-style"
+												<input v-model="firstName" type="text" name="firstName" class="pl-[35px] form-style bg-gray-900"
 													placeholder="Your first name" id="logname" autocomplete="off">
-												<i class="input-icon uil uil-user"></i>
+												<i class="absolute left-0 input-icon uil uil-user"></i>
 											</div>
-											<div class="form-group">
-												<input v-model="lastName" type="text" name="lastName" class="form-style"
+											<div class="relative form-group">
+												<input v-model="lastName" type="text" name="lastName" class="pl-[35px] form-style bg-gray-900"
 													placeholder="Your last Name" id="logname" autocomplete="off">
-												<i class="input-icon uil uil-user"></i>
+												<i class="absolute left-0 input-icon uil uil-user"></i>
 											</div>
-											<div class="form-group mt-2">
-												<input v-model="email" type="email" name="logemail" class="form-style"
+											<div class="relative form-group mt-2">
+												<input v-model="email" type="email" name="logemail" class="pl-[35px] form-style bg-gray-900"
 													placeholder="Your Email" id="logemail" autocomplete="off">
-												<i class="input-icon uil uil-at"></i>
+												<i class="absolute left-0 input-icon uil uil-at"></i>
 											</div>
-											<div class="form-group mt-2">
-												<input v-model="password" type="password" name="logpass" class="form-style"
+											<div class="relative form-group mt-2">
+												<input v-model="password" type="password" name="logpass" class="pl-[35px] form-style bg-gray-900"
 													placeholder="Your Password" id="logpass" autocomplete="off">
-												<i class="input-icon uil uil-lock-alt"></i>
+												<i class="absolute left-0 input-icon uil uil-lock-alt"></i>
 											</div>
 											<button @click="register" class="btn mt-3">submit</button>
 										</div>
@@ -79,12 +81,14 @@
 		</div>
 	</div>
 	<!-- JavaScript Bundle with Popper -->
+	<script src="../path/to/flowbite/dist/flowbite.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<script src="./assets/js/login.js"></script>
+
 
 </body>
 
