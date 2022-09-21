@@ -40,4 +40,29 @@ public class EmailSenderService {
                 = new FileSystemResource(new File());
         helper.addAttachment("Invoice", file);
     }*/
+
+    public void sendMailWithAttchment(String toEmail,
+                                      String subject,
+                                      String body,
+                                      String attchment) throws MessagingException {
+
+        MimeMessage mimeMessage = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+
+
+        helper.setFrom("balcamsgym@gmail.com");
+        helper.setTo(toEmail);
+        helper.setText(body);
+        helper.setSubject(subject);
+
+
+        FileSystemResource fileSystemResource =
+                new FileSystemResource(new File(attchment));
+        helper.addAttachment(fileSystemResource.getFilename(), fileSystemResource);
+        mailSender.send(mimeMessage);
+
+        System.out.println("email whit pdf send successfully");
+
+
+    }
 }
