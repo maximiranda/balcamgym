@@ -89,16 +89,18 @@
                                 <h3 class="text-white truncate w-[200px]">{{product.name}}</h3>
                                 <div
                                     class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
-                                    <ion-icon @click="deleteItemCart(product)"
+                                    <ion-icon @click="reduceQuantity(product)"
                                         class="cursor-pointer text-black text-2xl select-none " name="remove-outline">
                                     </ion-icon>
                                     <p class="text-black text-xl truncate select-none">{{product.quantity}}</p>
-                                    <ion-icon v-if="product.stock > 0" @click="addCart(product)"
+                                    <ion-icon v-if="product.stockAux > 0" @click="addCart(product)"
                                         class="select-none cursor-pointer text-black text-2xl" name="add-outline">
                                     </ion-icon>
                                     <ion-icon v-else @click="noStockAllert" class="select-none cursor-pointer text-black text-2xl cursor-not-allowed" name="add-outline">
                                     </ion-icon>
                                 </div>
+                                <ion-icon @click="deleteItem(product)"  class="text-xl text-white" name="close-outline"></ion-icon>
+
                             </div>
                         </div>
                         <div class="flex w-full items-center justify-between">
@@ -252,7 +254,7 @@
                             <div class="flex justify-between items-center p-3">
                                 <h3 class=" font-bold text-xl text-white lg:text-[#1e1e1e]">
                                     {{moneyFormat.format(product.price)}}</h3>
-                                <button @click="addCart(product)"
+                                <button :disabled="product.stockAux == 0"  @click="addCart(product)"
                                     class="lg:text-white text-black bg-[#f1d24d] lg:hover:bg-[#f1d24d] transition-all duration-150 flex flex-row-reverse gap-2 jusfy-around items-center lg:bg-gray-900 px-2 py-1 rounded">
                                     <h4 class="font-medium">Add to cart</h4>
                                     <div class="relative transition-colors duration-300 transform ">

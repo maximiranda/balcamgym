@@ -19,16 +19,34 @@ createApp({
             featureds: [],
             noStock: false,
             addCartAllert: false,
-            subtotal : 0
+            subtotal : 0,
+            shippingEstimate : 7,
+            taxEstimate : 0.21,
         }
     },
     created() {
         this.loadData()
+
         const localStorageData = JSON.parse(localStorage.getItem("productsInCart"))
+        const priceProduct = JSON.parse(localStorage.getItem("subtotal"))
+        const shippingEstimate = JSON.parse(localStorage.getItem("shippingEstimate"))
+
+        if(priceProduct == null){
+            this.subtotal = 0
+        }else{
+            this.subtotal = priceProduct
+        }
+
         if (localStorageData == null) {
             this.cartProducts = []
         } else {
             this.cartProducts = localStorageData
+        }
+
+        if(shippingEstimate == null){
+            this.shippingEstimate = 7
+        }else{
+            this.shippingEstimate = shippingEstimate
         }
     },
     methods: {
@@ -43,20 +61,48 @@ createApp({
                 "description": "pago balcamgym"
             }).then(r => console.log(r))
         },
-        deleteItemCart(product) {
+        deleteItem(product){
+            product.stockAux = product.stock
+            this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
+
+            this.subtotal = 0
+            this.cartProducts.forEach(product => {
+                this.subtotal += product.price * product.quantity
+            })
+            
+            this.shippingEstimate = 7
+            this.shippingEstimate = this.shippingEstimate * (1.2 **this.cartProducts.length )
+
+            localStorage.setItem("shippingEstimate", JSON.stringify(this.shippingEstimate))
+            localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
+            localStorage.setItem("subtotal", JSON.stringify(this.subtotal))
+        }
+        ,
+        reduceQuantity(product) {
             if (product.quantity > 1) {
                 product.quantity--
-                product.stock++
+                product.stockAux++
                 localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
             } else {
-                product.stock++
-                this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
-                localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
+                product.stockAux++
+                this.deleteItem(product)
             }
+
+            this.subtotal = 0
+            this.cartProducts.forEach(product => {
+                this.subtotal += product.price * product.quantity
+            })
+
+            localStorage.setItem("subtotal", JSON.stringify(this.subtotal))
         },
         cleanCart() {
+            this.subtotal = 0
             this.cartProducts = []
+            this.shippingEstimate = 7
+            
+            localStorage.setItem("shippingEstimate", JSON.stringify(this.shippingEstimate))
             localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
+            localStorage.setItem("subtotal", JSON.stringify(this.subtotal))
         },
         noStockAllert() {
             this.addCartAllert = false
@@ -68,23 +114,37 @@ createApp({
         addCart(product) {
             this.addCartAllert = true
             this.noStock = false
-            this.subtotal = product.price
             setTimeout(() => {
                 this.addCartAllert = false
             }, 3000)
+
             if (this.cartProducts.includes(product)) {
                 product.quantity++
-                product.stock--
+                product.stockAux--
                 localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
-                if (product.stock < 0) {
+                if (product.stockAux < 0) {
                     this.noStockAllert()
                 }
             } else {
+                product.stockAux = product.stock
                 product.quantity = 1
-                product.stock--
+                product.stockAux--
                 this.cartProducts.push(product)
                 localStorage.setItem("productsInCart", JSON.stringify(this.cartProducts))
             }
+
+            this.shippingEstimate = 7
+            this.shippingEstimate = this.shippingEstimate * (1.2 **this.cartProducts.length )
+
+            localStorage.setItem("shippingEstimate", JSON.stringify(this.shippingEstimate))
+
+
+            this.subtotal = 0
+            this.cartProducts.forEach(product => {
+                this.subtotal += product.price * product.quantity
+            })
+            localStorage.setItem("subtotal", JSON.stringify(this.subtotal))
+            console.log(this.cartProducts, this.subtotal)
         },
         loadData() {
             axios.get("/api/products")
