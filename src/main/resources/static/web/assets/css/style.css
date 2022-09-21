@@ -1607,3 +1607,8 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
     display: none;
   }
 }
+
+
+video{
+  width: 100%;
+}
