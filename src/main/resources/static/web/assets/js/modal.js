@@ -119,6 +119,16 @@ new Vue({
                 console.log(this.client)
             })
         },
+        outClick(e) {
+            const modal = document.querySelector("#modal")
+            console.log(modal)
+            const isCLick = modal.contains(e.target)
+            console.log(isCLick)
+            
+            if (!isCLick){
+                this.modal = false
+            }
+        },
         makePayment() {
             if(!(this.cardName == "" || this.cardCvv == "" || this.cardYear == "" || this.cardMonth == "" || this.cardNumber == "")){
                 axios.post('https://maxbank-homebanking.herokuapp.com/api/pays', {

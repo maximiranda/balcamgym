@@ -21,7 +21,7 @@
                 <div class="flex items-center justify-between w-full">
                     <div class="text-xl font-semibold text-gray-700">
                         <a class="text-2xl font-bold block transition-colors duration-300 transform text-white lg:text-3xl hover:text-gray-300"
-                            href="#">
+                            href="./index.html">
                             BALCAM '<span class="text-yellow-400">S</span>
                             <br>
                             <span class="text-center font-thin text-sm">shop</span>
@@ -75,7 +75,7 @@
         </div>
     </nav>
 
-    <div id="app"> 
+    <div id="app" @click="outClick"> 
         <transition>
             <div v-if="purchaseAlertSucces" class="z-50 absolute top-0 w-full text-white bg-emerald-500">
                 <div class="container flex items-center justify-between px-6 py-4 mx-auto">
@@ -188,9 +188,9 @@
                     href="./shop.html" class="cursor-pointer underline font-bold text-yellow-600">Go to shop now!</a></h2>
         </section>
         <transition>
-            <div v-if="modal" ref="modal" class="h-full w-full top-0 absolute bg-gray-900/50 flex justify-center items-center">
-                <div class="absolute top-[6%]  flex flex-col items-center justify-around lg:flex-row h-full w-full lg:h-[800px] lg:w-[1200px] bg-white rounded shadow">
-                    <div>
+            <div v-if="modal"  class="h-full w-full top-0 absolute bg-gray-900/50 flex justify-center items-center">
+                <div id="modal" class="absolute top-[6%]  flex flex-col items-center justify-around lg:flex-row h-full w-full lg:h-[800px] lg:w-[1200px] bg-white rounded shadow">
+                    <div >
                         <div class="card-form">
                             <div class="card-list">
                                 <div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
