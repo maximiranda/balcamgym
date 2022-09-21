@@ -31,7 +31,7 @@ public class BalcamgymApplication {
 		imgFIleServices.init();
 		Client Admin = new Client("Admin","Admin","admin@balcamgym.com",passwordEncoder.encode("balcamgym"),true);
 
-		Client client = new Client("hola","hola","maximiranda.95@gmail.com",passwordEncoder.encode("hola123"),true);
+		Client client = new Client("hola","hola","atorresmarambio@gmail.com",passwordEncoder.encode("hola123"),true);
 		client.setVerification(true);
 
 		Product menClothes0 = new Product("Under Armour Men Leggings","84% Polyester, 16% Elastane, Imported, Pull On closure, Machine Wash, Super-light" +

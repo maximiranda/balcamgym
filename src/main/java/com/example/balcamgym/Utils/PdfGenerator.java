@@ -30,9 +30,9 @@ public class PdfGenerator {
 
         try {
             Document document = new Document(PageSize.A4);
-            String route = (System.getProperty("user.home") + "/downloads/");
-            PdfWriter.getInstance(document, new FileOutputStream("localhost:8080/web/assets/pdf/"  + billDTO.getNumber() + "Balcams-Gym.pdf"));
 
+            PdfWriter.getInstance(document, new FileOutputStream("c:/temp/bill.pdf"));
+            //PdfWriter.getInstance(document, new FileOutputStream("pdf.pdf"));
 
             document.open();
             document.setMargins(1,1,1,1);

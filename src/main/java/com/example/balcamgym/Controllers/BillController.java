@@ -82,7 +82,7 @@ public class BillController {
 
         BillDTO billDTO = new BillDTO(bill);
         PdfGenerator.createBill(ids, billDTO,client,productServices);
-        senderEmail.sendMailWithAttchment(client.getEmail(), "Purchase PDF","Invoce number:"+ billDTO.getNumber(),"/web/assets/pdf/" + billDTO.getNumber() + "Balcams-Gym.pdf");
+        senderEmail.sendMailWithAttchment(client.getEmail(), "Purchase PDF","Invoce number:"+ billDTO.getNumber(),"c:/temp/bill.pdf");
         return new ResponseEntity<>("Purchase success", HttpStatus.CREATED);
     }
 }
