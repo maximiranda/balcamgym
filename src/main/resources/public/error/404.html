@@ -4,59 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <title>404 - NO ECONTRADO</title>
-    <style>
-        .color-verde {
-            color: #00D474;
-        }
-        .color-azul {
-            color: #4367E5;
-        }
-        .bg-verde {
-            background-color: #05C261;
-        }
-        .bg-azul{
-            background-color: #4367E5;
-        }
-        .error {
-            font-size: 7rem;
-        }
-        .principal-container {
-            width: 100vw;
+    <!-- CSS only -->
+    <style type="text/css">
+
+        body {
+            line-height: 1;
+            background-color: #222327ce !important;
+            height: 98.3vh;
         }
 
 
-        @media (min-width:992px) {
-            .cat{
-                width: 50vw;
-                height: 100vh;
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            background-image: url(web/assets/images/fondologin.jpg);
+            opacity: 2.6;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            font-size: 16px;
+            font-family: 'Open Sans',sans-serif;
+        }
+
+
+        @media screen and (max-width:600px) {
+            html {
+                font-size: 10px;
             }
-            
-            .principal-container{
-                width: 50vw !important;
-                height: 100vh !important;
-            }
-
         }
+
+        #container {
+            width: calc(100% - 100px);
+            max-width: 800px;
+            min-width: 300px;
+            margin: 0 auto;
+            padding: 30px 50px;
+        }
+
+        h1 {
+            font-size: 10rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        a {
+        color: rgb(55, 225, 95);
+        font-size: 2rem;
+        margin: 0px;
+        padding: 10px;
+        text-decoration: none;
+        }
+
+        a:hover {
+        color: rgb(248, 214, 22);
+        }
+
+        @font-face {
+            font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v10/k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+        }
+
     </style>
 </head>
-<body>
-    <main class="d-flex flex-lg-row flex-column flex-lg-nowrap">
+<body class="bg-login">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
 
-        <div class="cat d-lg-flex justify-content-center align-items-center">
-            <img class="w-lg-100 h-lg-100" src="/public/assets/img/space-cat.svg" alt="">
-        </div>
-        <div class="principal-container d-flex justify-content-center flex-row flex-wrap flex-lg-column">
-            <div class="w-75 d-flex flex-column align-items-center d-lg-block">
-                <p class="error pt-0 mb-0 ">404</p>
-                <p class="fs-3 mb-0">UH OH! Parece que estas perdido.</p>
+<div>
+    <div id="container">
+    <h1>404</h1>
+    <h2>There isn't anything here.</h2>
+    <h2>To return to BALCAM'S GYM<a href="/web/index.html">press here.</a></h2>
+    </div>
+</div>
 
-                <p class="d-none d-lg-block">La pagina que estas buscando no existe. Como llegaste aqui es un misterio. Pero puedes hacer click en el boton abajo para volver al inicio.</p>
-            </div>
-            <a href="/web/accounts.html" class="text-decoration-none text-white btn btn-primary bg-azul w-50">Inicio</a>
-        </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
