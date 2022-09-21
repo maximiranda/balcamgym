@@ -17,7 +17,7 @@ new Vue({
             isInputFocused: false,
             modal: false,
             //------------------------------------------------
-            client : {},
+            client : "",
             products: [],
             filteredProducts: [],
             productsBg: ["../web/assets/images/produc-bg-01.png", "../web/assets/images/produc-bg-02-01.png"],
@@ -118,6 +118,16 @@ new Vue({
                 this.client = res.data
                 console.log(this.client)
             })
+        },
+        outClick(e) {
+            const modal = document.querySelector("#modal")
+            console.log(modal)
+            const isCLick = modal.contains(e.target)
+            console.log(isCLick)
+            
+            if (!isCLick){
+                this.modal = false
+            }
         },
         makePayment() {
             if(!(this.cardName == "" || this.cardCvv == "" || this.cardYear == "" || this.cardMonth == "" || this.cardNumber == "")){

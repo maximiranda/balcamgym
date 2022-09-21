@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.mail.MessagingException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -43,7 +44,7 @@ public class BillController {
 
 
     @PostMapping("/purchase")
-    public ResponseEntity<Object> purchase (@RequestParam List<Long> ids, @RequestParam boolean paymentAuthorization, Authentication authentication){
+    public ResponseEntity<Object> purchase (@RequestParam List<Long> ids, @RequestParam boolean paymentAuthorization, Authentication authentication) throws MessagingException {
         Client client = clientServices.findByEmail(authentication.getName());
         if (client == null){
             return new ResponseEntity<>("Client doesn't found", HttpStatus.FORBIDDEN);
@@ -80,8 +81,8 @@ public class BillController {
         billServices.saveBill(bill);
 
         BillDTO billDTO = new BillDTO(bill);
-        /*PdfGenerator.createBill(ids,billDTO,productServices);*/
-        senderEmail.sendEmail("maximiranda.95@gmail.com","Purchase PDF","localhost:8080/api/purchase/pdf/"+ billDTO.getId());
+        PdfGenerator.createBill(ids,billDTO,productServices);
+        senderEmail.sendMailWithAttchment(client.getEmail(), "Purchase PDF","Invoce number:"+ billDTO.getNumber(),"C:\\Users\\Chino\\Downloads\\BALCAM_BILL.pdf");
         return new ResponseEntity<>("Purchase success", HttpStatus.CREATED);
     }
     @GetMapping("/purchase/pdf/{id}")
