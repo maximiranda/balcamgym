@@ -15,6 +15,8 @@ private long id;
 
     private Set<WorkoutDTO> workouts;
 
+    private boolean clientSubscription = false;
+
     public ClientDTO(Client client) {
         this.id = client.getId();
         this.firstName = client.getFirstName();
@@ -26,6 +28,7 @@ private long id;
             System.out.println(client.getBillSubscription());
             this.billSubscription = new BillSubscriptionDTO(client.getBillSubscription());
         }
+        this.clientSubscription = client.isClientSubscription();
     }
 
     public long getId() {
@@ -54,5 +57,9 @@ private long id;
 
     public Set<WorkoutDTO> getWorkouts() {
         return workouts;
+    }
+
+    public boolean isClientSubscription() {
+        return clientSubscription;
     }
 }
