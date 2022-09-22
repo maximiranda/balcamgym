@@ -10,22 +10,42 @@
 	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
 	<link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/png">
 	<script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+	<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
 	<title>Login | Balcam's Gym</title>
 </head>
 
 <body id="app" class="relative">
-	<div :class="{'hidden':!isOpen}" class="w-screen h-screen flex justify-center items-center absolute z-50 ">
-		<div class=" h-[300px] w-[400px] rounded shadow flex flex-col justify-center items-center gap-5">
+	<div v-if="showAlert" class="absolute top-0 z-10 w-full text-white bg-emerald-500">
+		<div class="container flex items-center justify-between px-6 py-4 mx-auto">
+			<div class="flex">
+				<svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
+					<path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z">
+					</path>
+				</svg>
+	
+				<p class="mx-3">Account succesfully activated</p>
+			</div>
+	
+			<button @click="showAlert = !showAlert" class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
+				<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<div :class="{'hidden':!isOpen}" class="bg-gray-700/25 w-screen h-screen flex justify-center items-center absolute z-50 ">
+		<div class="bg-gray-900 h-[300px] w-[400px] rounded shadow flex flex-col justify-center items-center gap-5">
 			<div class="flex flex-row relative items-center justify-center">
-				<i class="uil uil-check text-2xl absolute text-green-700 right-[45px]"></i>				
+				<i class="uil uil-check text-2xl absolute text-green-700 right-[45px]"></i>
 				<h3 class="text-white">Done!</h3>
 			</div>
 			<div class="flex flex-col justify-center items-center">
 				<h2 class="text-xl font-bold text-white">One last thing!</h2>
 				<p class="text-xl font-thin text-white text-center">Check out your inbox in: <span>{{email}}</span></p>
 			</div>
-			<button @click="isOpen=!isOpen" class="py-2 px-5 bg-yellow-500 rounded text-black font-black shadow">OK</button>
+			<button @click="isOpen=!isOpen"
+				class="py-2 px-5 bg-yellow-500 rounded text-black font-black shadow">OK</button>
 		</div>
 	</div>
 	<div class="section bg-login">
@@ -43,12 +63,14 @@
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3 text-2xl font-semibold">Log In</h4>
 											<div class="relative form-group">
-												<input v-model="email" type="email" name="logemail" class="pl-[35px] rounded form-style bg-gray-900"
+												<input v-model="email" type="email" name="logemail"
+													class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your Email" id="logemail" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-at"></i>
 											</div>
 											<div class="relative form-group mt-2">
-												<input @keyup.enter="logIn" v-model="password" type="password" name="logpass" class="pl-[35px] rounded bg-gray-900 form-style"
+												<input @keyup.enter="logIn" v-model="password" type="password"
+													name="logpass" class="pl-[35px] rounded bg-gray-900 form-style"
 													placeholder="Your Password" id="logpass" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-lock-alt"></i>
 											</div>
@@ -63,26 +85,37 @@
 										<div class="relative section text-center">
 											<h4 class="pb-3 text-2xl font-semibold">Sign Up</h4>
 											<div class="form-group">
-												<input v-model="firstName" type="text" name="firstName" class="pl-[35px] rounded form-style bg-gray-900"
+												<input required v-model="firstName" type="text" name="firstName"
+													class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your first name" id="logname" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-user"></i>
 											</div>
 											<div class="relative form-group">
-												<input v-model="lastName" type="text" name="lastName" class="pl-[35px] rounded form-style bg-gray-900"
+												<input required v-model="lastName" type="text" name="lastName"
+													class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your last Name" id="logname" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-user"></i>
 											</div>
 											<div class="relative form-group mt-2">
-												<input v-model="email" type="email" name="logemail" class="pl-[35px] rounded form-style bg-gray-900"
+												<input required v-model="email" type="email" name="logemail"
+													class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your Email" id="logemail" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-at"></i>
 											</div>
 											<div class="relative form-group mt-2">
-												<input v-model="password" type="password" name="logpass" class="pl-[35px] rounded form-style bg-gray-900"
+												<input @keyup.enter="register" required v-model="password" type="password" name="logpass"
+													class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your Password" id="logpass" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-lock-alt"></i>
 											</div>
-											<button @click="register" class="btn">submit</button>
+											<button @click="register" class="btn">
+												<div v-if="isLoading" class="flex justify-center items-center">
+													<div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+														role="status">
+													</div>
+												</div>
+												<p v-else>submit</p>												
+											</button>
 										</div>
 									</div>
 								</div>

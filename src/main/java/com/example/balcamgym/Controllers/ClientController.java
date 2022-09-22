@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,23 +43,24 @@ public class ClientController {
         }
         Client client = new Client(firstName, lastName, email, passwordEncoder.encode(password), false);
         clientServices.saveClient(client);
-        emailSenderService.sendEmail(client.getEmail(),"Activacion de cuenta","localhost:8080/api/client/activation/" + client.getId());
+        emailSenderService.sendEmail(client.getEmail(),"Activacion de cuenta","http://localhost:8080/api/client/activation/" + client.getId());
         return new ResponseEntity<>("Create", HttpStatus.CREATED);
-
     }
     @GetMapping("/client/activation/{id}")
-    public ResponseEntity<Object> verification(@PathVariable Long id){
+    public RedirectView verification(@PathVariable Long id){
         Client client = clientServices.findClientById(id);
         if (client == null){
-            return new ResponseEntity<>("client not found", HttpStatus.FORBIDDEN);
+            return new RedirectView("/web/login.html?confirm=false");
         }
         client.setVerification(true);
         clientServices.saveClient(client);
-        return new ResponseEntity<>("client verifying", HttpStatus.ACCEPTED);
+        return new RedirectView("/web/login.html?confirm=true");
     }
     @GetMapping("/clients/current")
     public ClientDTO getClient(Authentication authentication){
         Client client = clientServices.findByEmail(authentication.getName());
         return new ClientDTO(client);
     }
+
+
 }

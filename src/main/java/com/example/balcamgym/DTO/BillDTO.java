@@ -10,7 +10,6 @@ public class BillDTO {
     private long id;
     private String number;
     private Set<ProductStorageDTO> productStorage;
-    private Client client;
     private double amount;
 
 
@@ -19,7 +18,6 @@ public class BillDTO {
         this.number = bill.getNumber();
         this.productStorage= bill.getProductStorage().stream().map(ProductStorageDTO::new).collect(Collectors.toSet());
         this.amount = bill.getAmount();
-        this.client = bill.getClient();
     }
 
     public long getId() {
@@ -33,10 +31,6 @@ public class BillDTO {
 
     public double getAmount() {
         return amount;
-    }
-
-    public Client getClient() {
-        return client;
     }
 
     public String getNumber() {

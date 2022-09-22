@@ -30,16 +30,6 @@ public class EmailSenderService {
 
         System.out.println("Mail sent successfully");
     }
-/*    public void sendEmailAtt(String toEmail, String subject, String body) throws MessagingException {
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setFrom("BALCAMGYM@gmail.com");
-        helper.setTo(toEmail);
-        helper.setSubject(subject);
-        FileSystemResource file
-                = new FileSystemResource(new File());
-        helper.addAttachment("Invoice", file);
-    }*/
 
     public void sendMailWithAttchment(String toEmail,
                                       String subject,
