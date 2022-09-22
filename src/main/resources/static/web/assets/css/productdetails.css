@@ -40,8 +40,7 @@ h4 {
 .containers{
     margin-top: 33px;
     padding: 25px 60px 25px 25px;
-    border: 1px solid #ccc;
-    border-radius: 40px;
+    border-radius: 10px;
     max-width: 70rem;
 }
 
@@ -76,11 +75,6 @@ input{
     color: #FFFFFF;
     font-size: 15px;
     margin-left: 20px;
-}
-.productImage{
-    background-color: #FAFAFA;
-    border-radius: 20px;
-
 }
 
 
