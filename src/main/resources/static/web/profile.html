@@ -125,19 +125,16 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="./assets/images/unknown-profile.png"
-                                alt="" />
+                            <img src="./assets/images/unknown-profile.png" alt="" />
                             <div class="file btn btn-lg btn-primary ">
                                 <i class="lni lni-camera"><input type="file" name="file" /></i>
-                                
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
-                            <h5>
-                                {{clientId.firstName}} {{clientId.lastName}}
-                            </h5>
+
 
 
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -158,21 +155,17 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="profile-work">
-                            <!-- <p>WORK LINK</p>
-                            <a href="">Website Link</a><br />
-                            <a href="">Bootsnipp Profile</a><br />
-                            <a href="">Bootply Profile</a>
-                            <p>SKILLS</p>
-                            <a href="">Web Designer</a><br />
-                            <a href="">Web Developer</a><br />
-                            <a href="">WordPress</a><br />
-                            <a href="">WooCommerce</a><br />
-                            <a href="">PHP, .Net</a><br /> -->
-                        </div>
+
                     </div>
                     <div class="col-md-8">
+                        <div class="mb-5" v-if="clientSubscription == true">
+                            <h2 style="color: green;"><p style="color: black;">Subscription Status:</p> Active</h2>
+                        </div>
+                        <div class="mb-5" v-else="clientSubscription == false">
+                            <h2 style="color:red" ><p style="color: black;">Subscription Status:</p> Inactive (pay a subscription madafaca)</h2>
+                        </div>
                         <div class="tab-content profile-tab" id="myTabContent">
+
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -218,7 +211,7 @@
                                         <p>{{clientId.workouts}}</p>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>

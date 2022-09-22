@@ -25,6 +25,7 @@ createApp({
             product: [],
             clients: [],
             clientId: [],
+            subscriptionTrue: [],
         }
     },
     created() {
@@ -67,8 +68,9 @@ createApp({
                 console.log(this.clients)
                 this.clientId = this.clients.find(client => client.id == id)
                 console.log(this.clientId)
+                this.subscriptionTrue = this.clients.filter(client => client.clientSubscription == false)
+                console.log(this.subscriptionTrue)
             }).catch(error => error)
-
         },
         selectFilter(category){
             this.checkedCategory = category
