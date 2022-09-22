@@ -266,7 +266,7 @@
         <!-- CATEGORIES ENDS  -->
 
         <!-- PRODUCTS LIST  -->
-        <div class="min-h-full w-[120vh]">
+        <div class="min-h-full w-full lg:w-[120vh]">
             <div class="p-5 flex flex-col">
                 <div class="flex justify-between items-center w-full lg:w-[87%]">
                     <h2 class="font-bold text-4xl cursor-default ">
@@ -279,10 +279,10 @@
                     </div>
                 </div>
 
-                <div class="flex gap-10 lg:gap-10 flex-wrap pt-5">
+                <div class="flex gap-10 w-full flex-wrap pt-5">
                     <!-- CARDS-->
                     <div v-for="(product, i) in filteredProducts"
-                        class="lg:border-0 border overflow-hidden rounded shadow flex flex-col gap-2 h-[300px] w-full lg:w-[290px] lg:h-[430px]">
+                        class="lg:border-0 border overflow-hidden rounded shadow flex flex-col gap-2 h-[320px] w-full lg:w-[290px] lg:h-[430px]">
                         <div class="relative flex items-center justify-center">
                             <div v-if="product.stock < 5" class=" absolute left-0 top-3 rounded-r bg-red-600 z-20">
                                 <p class="p-2 px-4 text-white uppercase bold">Few units left</p>
