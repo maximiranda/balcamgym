@@ -18,7 +18,6 @@ createApp({
       suplements: ["Proteins", "Creatines", "BCAA"],
       clothes: ["Men", "Women"],
       checkedCategory: "",
-      subcategories: [],
       inputRange: 0,
       searchFilterInput: "",
       isOpen: false,
@@ -63,6 +62,7 @@ createApp({
     } else {
       this.shippingEstimate = shippingEstimate;
     }
+
   },
   methods: {
     makePayment() {
@@ -185,8 +185,8 @@ createApp({
         .get("/api/products")
         .then((response) => {
           this.products = response.data;
-          console.log(this.products);
           this.filteredProducts = this.products;
+          this.featureds = this.products.filter(product => product.stock < 5)
         })
         .catch((error) => error);
 
