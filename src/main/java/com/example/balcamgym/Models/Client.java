@@ -27,7 +27,7 @@ public class Client {
     @OneToOne
     private BillSubscription billSubscription;
 
-    private boolean clientSubscription = false;
+    private boolean clientSubscription ;
 
     private boolean verification = false;
 
@@ -38,7 +38,7 @@ public class Client {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.clientSubscription=false;
+        this.clientSubscription= clientSubscription;
     }
 
     public long getId() {
