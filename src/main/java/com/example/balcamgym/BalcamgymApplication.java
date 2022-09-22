@@ -32,6 +32,8 @@ public class BalcamgymApplication {
 
 		Client client = new Client("hola","hola","atorresmarambio@gmail.com",passwordEncoder.encode("hola123"),true);
 		client.setVerification(true);
+		Client client1 = new Client("maxi","maxi","maximiranda.95@gmail.com",passwordEncoder.encode("maxi"),true);
+		client1.setVerification(true);
 
 		Product menClothes0 = new Product("Under Armour Men Leggings","84% Polyester, 16% Elastane, Imported, Pull On closure, Machine Wash, Super-light" +
 				"HeatGear fabric delivers superior coverage without weighing you down, Strategic" +
@@ -198,7 +200,6 @@ public class BalcamgymApplication {
 		workoutRepository.save(lesson4);
 		workoutRepository.save(lesson5);
 
-		//add workout to client
 
 
 
@@ -208,6 +209,10 @@ public class BalcamgymApplication {
 
 		clientRepository.save(Admin);
 		clientRepository.save(client);
+		clientRepository.save(client1);
+/*		client1.addWorkouts(lesson0);
+		lesson0.addClients(client1);*/
+
 
 
 
