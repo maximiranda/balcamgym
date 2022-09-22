@@ -45,12 +45,24 @@ const app = Vue.createApp({
     limitText(text) {
       return text.substring(0, 3);
     },
+
+    alertContact(){
+       Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your message has been sent. We will answer you ASAP!',
+      showConfirmButton: false,
+      timer: 1500
+    });
+    setTimeout(()=> window.location.href= "/web/contact.html", 2000)
+     } ,
     logOut() {
       axios
         .post("/api/logout")
         .then((response) => console.log("signed out!!!"));
     },
   }
+
 }).mount("#app");
 
 

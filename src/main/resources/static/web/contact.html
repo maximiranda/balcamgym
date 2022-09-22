@@ -36,7 +36,7 @@
 
 </head>
 
-<body>
+<body id="app">
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
@@ -131,7 +131,7 @@
                             <span class="line"></span>
                             <h3 class="title">Get in Touch</h3>
                         </div>
-                        <form id="contact-form" action="assets/contact.php" method="post">
+                        <form @submit.prevent="alertContact" id="contact-form">
                             <div class="single_form">
                                 <input type="text" name="name" placeholder="Name">
                             </div>
@@ -412,35 +412,16 @@
 
 
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-
-    <!--====== Jquery js ======-->
-    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
-
-    <!--====== Bootstrap js ======-->
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.4.5.2.min.js"></script>
-
-    <!--====== Slick js ======-->
-    <script src="assets/js/slick.min.js"></script>
-
-    <!--====== Ajax Contact js ======-->
-    <script src="assets/js/ajax-contact.js"></script>
-
-    <!--====== Counter Up js ======-->
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-
-    <!--====== Magnific Popup js ======-->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-
-    <!--====== Scrolling Nav js ======-->
-
+    <!--====== VUE ======-->
+    <script src="https://unpkg.com/vue@3"></script>
 
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
 
+     <!--====== SweetAlert2 ======-->
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
