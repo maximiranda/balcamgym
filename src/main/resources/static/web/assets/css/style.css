@@ -683,6 +683,12 @@ h4 {
     transition: all 0.3s ease-out 0s;
     
   }
+  .lni{
+    transform: translate(17rem, 0px);
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
 
 .sticky {
   position: fixed;

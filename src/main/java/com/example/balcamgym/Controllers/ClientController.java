@@ -61,4 +61,6 @@ public class ClientController {
         Client client = clientServices.findByEmail(authentication.getName());
         return new ClientDTO(client);
     }
+
+
 }

@@ -27,3 +27,7 @@ body {
 .v-leave-to {
     opacity: 0;
 }
+
+.lni{
+    color: yellow
+}
