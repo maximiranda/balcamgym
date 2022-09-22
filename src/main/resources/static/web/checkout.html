@@ -15,60 +15,137 @@
 
 <body class="relative">
     <!-- NAV -->
-    <nav class="min-h-[10vh] lg:min-h-[13vh] relative bg-[#1E1E1E] shadow-lg ">
+    <nav class="mi-h-[7vh] lg:min-h-[7vh] relative bg-[#1E1E1E] shadow-lg ">
         <div class="container px-6 py-6 mx-auto">
             <div class="lg:flex lg:items-center lg:justify-between">
                 <div class="flex items-center justify-between w-full">
                     <div class="text-xl font-semibold text-gray-700">
-                        <a class="text-2xl font-bold block transition-colors duration-300 transform text-white lg:text-3xl hover:text-gray-300"
+                        <a class="flex flex-row justify-content-center align-items-center navbar-brand " href="index.html">
+                            <img class="pr-3" style="height: 70px;" src="assets/images/logo-Balcam-white.png" alt="Logo">
+                            <div class="pt-2 d-flex flex-column justify-content-center align-items-center">
+                                <H4 class="h4Balcam text-2xl text-white">BALCAM<span class="text text-[#f1d24d]">'S</span></H4>
+                                <h4 class="h4Balcam text-2xl text-white">GYM SHOP</h4>
+                            </div>
+                        </a>
+                        <!-- <a class="text-2xl font-bold block transition-colors duration-300 transform text-white lg:text-3xl hover:text-gray-300"
                             href="./index.html">
                             BALCAM '<span class="text-yellow-400">S</span>
                             <br>
-                            <span class="text-center font-thin text-sm">shop</span>
-                        </a>
+                            <span class="text-center font-thin text-sm" href="./index.html" >Home</span>
+                        </a> -->
                     </div>
 
                     <div class="pt-2 hidden lg:flex flex-col items-center justify-center">
-                        <h1 class="text-3xl font-bold text-white">Shop Cart</h1>
+                        <h1 class="text-2xl font-bold text-white ">BALCAM'S SHOP</h1>
+                        <h3 class="text-xl text-white font-thin pt-2">Welcome to the shop of your best gym, we have what
+                            you
+                            are looking for!</h3>
                     </div>
-                    <div class=" flex-row gap-2 justify-center items-center lg:flex hidden">
-                        <button type="button" data-drawer-target="drawer-right-example"
-                            data-drawer-show="drawer-right-example" data-drawer-placement="right"
-                            aria-controls="drawer-right-example" v-cloak @click="isOpen = !isOpen" type="button"
-                            class="hidden lg:block text-gray-200  hover:text-gray-400 focus:outline-none focus:text-gray-400"
-                            aria-label="toggle menu">
-                            <div
-                                class="relative transition-colors duration-300 transform text-gray-200 hover:text-gray-300">
-                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
 
-                                <span
-                                    class="absolute top-0 left-5 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
+                    <button type="button" data-drawer-target="drawer-right-example"
+                        data-drawer-show="drawer-right-example" data-drawer-placement="right"
+                        aria-controls="drawer-right-example" v-cloak @click="isOpen = !isOpen" type="button"
+                        class="hidden lg:block text-gray-200  hover:text-gray-400 focus:outline-none focus:text-gray-400"
+                        aria-label="toggle menu">
+                        <div
+                            class="relative transition-colors duration-300 transform text-gray-200 hover:text-gray-300">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <span class="absolute top-0 left-0 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
+                        </div>
+                    </button>
+
+
+                    <button v-cloak @click="isOpen = !isOpen" type="button"
+                        class="block lg:hidden text-gray-200  hover:text-gray-400 focus:outline-none focus:text-gray-400"
+                        aria-label="toggle menu">
+
+                        <div
+                            class="relative transition-colors duration-300 transform text-gray-200 hover:text-gray-300">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+
+                            <span class="absolute top-0 left-0 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- drawer component -->
+                <div id="drawer-right-example"
+                    class="fixed z-50 h-screen p-4 overflow-y-auto w-[550px] bg-gray-800 transition-transform right-0 top-0 translate-x-full"
+                    tabindex="-1" aria-labelledby="drawer-right-label" aria-hidden="true">
+                    <div class="flex flex-col gap-5 mt-4 lg:mt-0">
+                        <h2 class="text-center text-white text-xl uppercase">
+                            Shopping cart
+                        </h2>
+                        <h4 class="text-right text-white">
+                            Product list
+                        </h4>
+                        <div class="flex flex-wrap gap-3">
+                            <div v-for="product in cartProducts"
+                                class="flex justify-between items-center w-full border-b">
+                                <img :src="product.urlImg" class="pl-5 h-24 object-contain">
+                                <h3 class="text-white truncate w-[200px]">{{product.name}}</h3>
+                                <div
+                                    class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
+                                    <ion-icon @click="reduceQuantity(product)"
+                                        class="cursor-pointer text-black text-2xl select-none " name="remove-outline">
+                                    </ion-icon>
+                                    <p class="text-black text-xl truncate select-none">{{product.quantity}}</p>
+                                    <ion-icon v-if="product.stockAux > 0" @click="addCart(product)"
+                                        class="select-none cursor-pointer text-black text-2xl" name="add-outline">
+                                    </ion-icon>
+                                    <ion-icon v-else @click="noStockAllert" class="select-none cursor-pointer text-black text-2xl cursor-not-allowed" name="add-outline">
+                                    </ion-icon>
+                                </div>
+                                <ion-icon @click="deleteItem(product)"  class="text-xl text-white" name="close-outline"></ion-icon>
+
                             </div>
-                        </button>
-                        <a href="./shop.html" class="text-white">Back to shop!</a>
+                        </div>
+                        <div class="flex w-full items-center justify-between">
+                            <button class="w-[65%] bg-green-700 px-5 py-2 rounded text-white font-bold">
+                                <a href="./checkout.html">Continue checkout</a> 
+                            </button>
+                            <button @click="cleanCart" class="w-[30%] flex justify-center gap-2 items-center bg-red-700 px-5 py-2 rounded text-white">
+                                <ion-icon class="text-xl" name="trash-outline"></ion-icon>
+                                <p>Clear cart</p>
+                            </button>
+                        </div>
                     </div>
-                    <div class="flex justify-center items-center flex-col lg:hidden">
-                        <button type="button"
-                            class="block lg:hidden text-gray-200  hover:text-gray-400 focus:outline-none focus:text-gray-400"
-                            aria-label="toggle menu">
-                            <div
-                                class="relative transition-colors duration-300 transform text-gray-200 hover:text-gray-300">
-                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                                <span
-                                    class="absolute top-0 left-5 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
+                </div>
+                <!-- Mobile Menu open -->
+                <div v-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
+                    class="absolute inset-x-0 z-50 w-full px-6 py-4 transition-all duration-300 ease-in-out  bg-[#1E1E1E] lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
+                    <div class="lg:hidden flex flex-col gap-5 mt-4 lg:mt-0">
+                        <h2 class="text-center text-white text-xl">
+                            Shopping cart
+                        </h2>
+                        <h4 class="text-right text-white">
+                            Product list
+                        </h4>
+                        <div class="flex flex-wrap gap-3">
+                            <div v-for="product in cartProducts"
+                                class="flex justify-between items-center w-full border-b">
+                                <img :src="product.urlImg" class="h-24 object-contain">
+                                <h3 class="text-white truncate w-[200px]">Whey protein z-10 aguante river</h3>
+                                <div
+                                    class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
+                                    <ion-icon @click="deleteItemCart(product)" class="text-black text-2xl"
+                                        name="remove-outline"></ion-icon>
+                                    <p class="text-black text-xl truncate">{{product.quantity}}</p>
+                                    <ion-icon @click="addCartAllert = !addCartAllert" @click="addCart(product)" class=" text-black text-2xl" name="add-outline">
+                                    </ion-icon>
+                                </div>
                             </div>
-                        </button>
-                        <p class="text-white">Back to shop!</p>
+                        </div>
                     </div>
                 </div>
             </div>
