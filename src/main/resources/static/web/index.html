@@ -3,37 +3,37 @@
 
 <head>
     <meta charset="utf-8">
-    
+
     <!--====== Title ======-->
     <title>The best gym - Balcam's</title>
-    
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/png">
-        
+
     <!--====== Magnific Popup CSS ======-->
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        
+
     <!--====== Slick CSS ======-->
     <link rel="stylesheet" href="assets/css/slick.css">
-        
+
     <!--====== Line Icons CSS ======-->
     <link rel="stylesheet" href="assets/css/LineIcons.2.0.css">
-        
+
     <!--====== Bootstrap CSS ======-->
     <link rel="stylesheet" href="assets/css/bootstrap.4.5.2.min.css">
-    
+
     <!--====== Default CSS ======-->
     <link rel="stylesheet" href="assets/css/default.css">
-    
+
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
 </head>
 
-<body>
+<body id="app">
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
@@ -70,14 +70,18 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="d-flex flex-row justify-content-center align-items-center navbar-brand " href="index.html">
-                                <img class="pr-3" style="height: 70px;" src="assets/images/logo-Balcam-white.png" alt="Logo">
+                            <a class="d-flex flex-row justify-content-center align-items-center navbar-brand "
+                                href="index.html">
+                                <img class="pr-3" style="height: 70px;" src="assets/images/logo-Balcam-white.png"
+                                    alt="Logo">
                                 <div class="pt-2 d-flex flex-column justify-content-center align-items-center">
                                     <h4 class="h4Balcam text-white">BALCAM<span class="yellow-color">'S</span></h4>
                                     <h4 class="h4Balcam text-white">GYM</h4>
                                 </div>
                             </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
@@ -103,8 +107,17 @@
                                     <li class="nav-item">
                                         <a class="page-scroll" href="./contact.html">Contact</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a :href="'./profile.html?id='+clients.id"><i class="lni lni-user"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a @click="logOut" href="./index.html"><i class="lni lni-power-switch"></i></a>
+                                    </li>
                                 </ul>
+
                             </div> <!-- navbar collapse -->
+
+
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -114,42 +127,44 @@
         <div id="home" class="header-hero bg_cover align-items-center">
             <div>
                 <video autoplay muted loop id="myVideo" class="landingVideo">
-                <source src="./assets/images/videos/landingVideo.mp4" type="video/mp4">
-              </video>
-<<<<<<< HEAD
-              <div class="header-hero-content text-center movements">
-=======
-            <div class="container" >
-                <div class="row justify-content-center">
-                    <div class="col-lg-9">
-                        <div style="position:absolute; top:0; left:0;">
->>>>>>> cbc8ba43954668589f9f4d4d62499c75704c5ff5
-                            <h3 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Balcam's is the best option</h3>
-                            <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">This gym is the best you can choose, if what you want is a real change in your physical appearance</p>
+                    <source src="./assets/images/videos/landingVideo.mp4" type="video/mp4">
+                </video>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9">
+                            <div style="position:absolute; top:0; left:0;">
+                                <h3 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
+                                    Balcam's is the best option</h3>
+                                <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">This gym is the
+                                    best you can choose, if what you want is a real change in your physical appearance
+                                </p>
                             </div>
-                        <div class="header-hero-content text-center">
-                           
-                            <ul>
-                                <li><a href="./login.html"  rel="nofollow" class="main-btn wow fadeInUp font-weight-bold" data-wow-duration="1.3s" data-wow-delay="0.8s">Register FREE Now</a></li>
-                                <li><a href="./shop.html" class="main-btn main-btn-2 wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.2s">Shop NOW</a></li>
-                            </ul>
+                            <div class="header-hero-content text-center">
+
+                                <ul>
+                                    <li><a href="./login.html" rel="nofollow"
+                                            class="main-btn wow fadeInUp font-weight-bold" data-wow-duration="1.3s"
+                                            data-wow-delay="0.8s">Register FREE Now</a></li>
+                                    <li><a href="./shop.html" class="main-btn main-btn-2 wow fadeInUp"
+                                            data-wow-duration="1.3s" data-wow-delay="1.2s">Shop NOW</a></li>
+                                </ul>
+                            </div>
                         </div>
-            </div>
-            
-            <div class="container" >
-                <div class="row justify-content-center">
-                    <div class="col-lg-9">
-                         <!-- header hero content -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- header hero -->
+
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-9">
+                                    <!-- header hero content -->
+                                </div>
+                            </div> <!-- row -->
+                        </div> <!-- container -->
+                    </div> <!-- header hero -->
     </header>
 
     <!--====== HEADER PART ENDS ======-->
-    
+
     <!--====== COURSES PART START ======-->
-    
+
     <section id="courses" class="courses_area pt-105">
         <div class="container">
             <div class="row justify-content-center">
@@ -158,38 +173,48 @@
                         <span class="line"></span>
                         <h3 class="title">Our Lessons</h3>
                         <p>Our unique approach
-                            as part of our community, every dogpound member is matched with a team of trainers based on your unique goals and experiences. each member of this team will work closely with you to ensure you are always smashing your fitness goals!</p>
+                            as part of our community, every dogpound member is matched with a team of trainers based on
+                            your unique goals and experiences. each member of this team will work closely with you to
+                            ensure you are always smashing your fitness goals!</p>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
-            
+
             <div class="row">
                 <div class="col-md-4">
                     <div class="single_courses mt-30">
                         <video autoplay muted loop id="myVideo">
                             <source src="./assets/images/videos/landingVideo0.mp4" type="video/mp4">
-                          </video>
+                        </video>
                         <h4 class="title"><a href="javascript:void(0)">Gym</a></h4>
-                        <p>Get the physique you want thanks to our personalized team in the fitness area. different exercise equipment is used and a routine is carried out according to days where the upper or lower body is worked</p>
+                        <p>Get the physique you want thanks to our personalized team in the fitness area. different
+                            exercise equipment is used and a routine is carried out according to days where the upper or
+                            lower body is worked</p>
                     </div> <!-- single courses -->
                 </div>
                 <div class="col-md-4">
                     <div class="single_courses mt-30">
                         <video autoplay muted loop id="myVideo">
                             <source src="./assets/images/videos/landingVideo2.mp4" type="video/mp4">
-                          </video>
+                        </video>
                         <h4 class="title"><a href="javascript:void(0)">Body Building</a></h4>
-                        <p>Bodybuilding is a discipline that aims to burn fat and build muscle by lifting weights and performing anaerobic exercises.
-                            The idea of this practice is that the person is left with a marked, strong and defined body. Also maintain a symmetry between the torso and the legs.</p>
+                        <p>Bodybuilding is a discipline that aims to burn fat and build muscle by lifting weights and
+                            performing anaerobic exercises.
+                            The idea of this practice is that the person is left with a marked, strong and defined body.
+                            Also maintain a symmetry between the torso and the legs.</p>
                     </div> <!-- single courses -->
                 </div>
                 <div class="col-md-4">
                     <div class="single_courses mt-30">
                         <video autoplay muted loop id="myVideo">
                             <source src="./assets/images/videos/landingVideo4.mp4" type="video/mp4">
-                          </video>
+                        </video>
                         <h4 class="title"><a href="javascript:void(0)">Yoga</a></h4>
-                        <p>Yoga is a practice that connects the body, breath and mind. This practice uses physical postures, breathing exercises, and meditation to improve overall health. It helps among other things to lower your blood pressure and heart rate, help you relax, improve your self-confidence, reduce stress, improve your coordination, improve your concentration, help you sleep better, and more.</p>
+                        <p>Yoga is a practice that connects the body, breath and mind. This practice uses physical
+                            postures, breathing exercises, and meditation to improve overall health. It helps among
+                            other things to lower your blood pressure and heart rate, help you relax, improve your
+                            self-confidence, reduce stress, improve your coordination, improve your concentration, help
+                            you sleep better, and more.</p>
                     </div> <!-- single courses -->
                 </div>
             </div>
@@ -201,9 +226,11 @@
                     <div class="single_courses mt-30">
                         <video autoplay muted loop id="myVideo">
                             <source src="./assets/images/videos/landingVideo8.mp4" type="video/mp4">
-                          </video>
+                        </video>
                         <h4 class="title"><a href="javascript:void(0)">Spinning</a></h4>
-                        <p>Spinning is a collective physical exercise, which is performed on a stationary bicycle to the rhythm of music, in which high-intensity cardiovascular work is carried out with very high intervention of the large muscle groups of the lower body.</p>
+                        <p>Spinning is a collective physical exercise, which is performed on a stationary bicycle to the
+                            rhythm of music, in which high-intensity cardiovascular work is carried out with very high
+                            intervention of the large muscle groups of the lower body.</p>
                     </div> <!-- single courses -->
                 </div>
 
@@ -211,31 +238,39 @@
                     <div class="single_courses mt-30">
                         <video autoplay muted loop id="myVideo">
                             <source src="./assets/images/videos/landingVideo6.mp4" type="video/mp4">
-                          </video>
+                        </video>
                         <h4 class="title"><a href="javascript:void(0)">Kick-boxing</a></h4>
-                        <p>Kick boxing is a contact sport that alternates boxing blows and martial arts kicks. Generally, this name is used to refer to those exercises that combine kicks and punches. It is a great sport that combines strength, resistance and aerobic exercise, which makes it very complete and beneficial.</p>
+                        <p>Kick boxing is a contact sport that alternates boxing blows and martial arts kicks.
+                            Generally, this name is used to refer to those exercises that combine kicks and punches. It
+                            is a great sport that combines strength, resistance and aerobic exercise, which makes it
+                            very complete and beneficial.</p>
                     </div> <!-- single courses -->
                 </div>
                 <div class="col-md-4">
                     <div class="single_courses mt-30">
                         <video autoplay muted loop id="myVideo">
                             <source src="./assets/images/videos/landingVideo7.mp4" type="video/mp4">
-                          </video>
+                        </video>
                         <h4 class="title"><a href="javascript:void(0)">Crossfit</a></h4>
-                        <p>CrossFit is a type of functional exercise training, constantly varied, executed at high intensity. It is a program of strength and total physical conditioning, which is based on the increase of the ten most recognized physical capacities by specialists in sports training with weights. During the exercise, the aim is to develop muscle strength and tone and increase the functionality of the muscles to repeat the movements.</p>
+                        <p>CrossFit is a type of functional exercise training, constantly varied, executed at high
+                            intensity. It is a program of strength and total physical conditioning, which is based on
+                            the increase of the ten most recognized physical capacities by specialists in sports
+                            training with weights. During the exercise, the aim is to develop muscle strength and tone
+                            and increase the functionality of the muscles to repeat the movements.</p>
                     </div> <!-- single courses -->
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-    
+
     <!--====== COURSES PART ENDS ======-->
-    
+
     <!--====== ABOUT PART START ======-->
-    
+
     <section id="about" class="about_area pt-115 pb-120">
         <div class="about_wrapper">
-        <div class="about_bg bg_cover d-none d-lg-block" style="background-image: url(assets/images/about.jpg)"></div>
+            <div class="about_bg bg_cover d-none d-lg-block" style="background-image: url(assets/images/about.jpg)">
+            </div>
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-lg-10">
@@ -246,10 +281,11 @@
                                 <div class="section_title">
                                     <span class="line"></span>
                                     <h3 class="title">Read About Some Advices</h3>
-                                    <p>Some tips to make your training as expected according to our specialists in physical preparation and nutrition. </p>
+                                    <p>Some tips to make your training as expected according to our specialists in
+                                        physical preparation and nutrition. </p>
                                 </div> <!-- section title -->
                                 <!-- <a href="javascript:void(0)"  class="main-btn">Read More</a> -->
-                                <a href="./blog.html"  class="main-btn">Read More</a>
+                                <a href="./blog.html" class="main-btn">Read More</a>
                             </div> <!-- about content wrapper -->
                         </div> <!-- about content -->
                     </div>
@@ -257,12 +293,13 @@
             </div> <!-- container -->
         </div> <!-- about wrapper -->
     </section>
-    
+
     <!--====== ABOUT PART ENDS ======-->
-    
+
     <!--====== COUNTER PART START ======-->
-    
-    <section id="counter" class="counter_area pt-70 pb-120 bg_cover" style="background-image: url(assets/images/counter_bg.jpg)">
+
+    <section id="counter" class="counter_area pt-70 pb-120 bg_cover"
+        style="background-image: url(assets/images/counter_bg.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-6">
@@ -296,11 +333,11 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-    
+
     <!--====== COUNTER PART ENDS ======-->
-    
+
     <!--====== TEAM PART START ======-->
-    
+
     <section id="team" class="team_area pt-105 pb-80">
         <div class="container">
             <div class="row justify-content-center">
@@ -308,7 +345,9 @@
                     <div class="section_title text-center pb-55">
                         <span class="line"></span>
                         <h3 class="title">Our Team</h3>
-                        <p>The team of specialized people to help you achieve your goals, your objectives, to improve your quality of life, and improve how you see yourself on the outside, but also how you see yourself on the inside.</p>
+                        <p>The team of specialized people to help you achieve your goals, your objectives, to improve
+                            your quality of life, and improve how you see yourself on the outside, but also how you see
+                            yourself on the inside.</p>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
@@ -348,7 +387,7 @@
                         </div>
                         <div class="team_content">
                             <ul class="social">
-                            
+
                             </ul>
                             <h5 class="team_name">Sarah Lennox</h5>
                             <p>Fitness Trainer</p>
@@ -371,9 +410,9 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-    
+
     <!--====== TEAM PART ENDS ======-->
-    
+
     <!--====== SCHEDULES START ======-->
     <section id="schedules" class="schedule_area pt-105 pb-120 bg_cover"
         style="background-image: url(assets/images/schedule_bg.jpg)">
@@ -383,20 +422,23 @@
                     <div class="section_title section_title_2 text-center pb-25">
                         <span class="line"></span>
                         <h3 class="title">Lessons Schedules</h3>
-                        <p>Here you can see the schedules to register and attend the lessons that you are most interested in taking.</p>
+                        <p>Here you can see the schedules to register and attend the lessons that you are most
+                            interested in taking.</p>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center" id="app">
-                <div class=" col-lg-3 col-sm-6"v-for="workouts in workouts">
-                    <div class="single_schedule mt-30" >
-                        <div  > <p class="number">{{limitText(workouts.fromDate)}}.</p> </div>
+            <div class="row justify-content-center">
+                <div class=" col-lg-3 col-sm-6" v-for="workouts in workouts">
+                    <div class="single_schedule mt-30">
+                        <div>
+                            <p class="number">{{limitText(workouts.fromDate)}}.</p>
+                        </div>
                         <span class="time">{{workouts.fromTime}}</span>
                         <h4 class="title"><a href="javascript:void(0)">{{workouts.name}}</a></h4>
                         <p>{{workouts.coachName}}</p>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -485,7 +527,7 @@
     </section>
     <!--====== PRICING ENDS ======-->
     <!--====== FOOTER PART START ======-->
-    
+
     <section id="footer" class="footer_area">
         <div class="footer_widget mt-2 pb-100 pt-100">
             <div class="container">
@@ -497,7 +539,7 @@
                                 <li>Phone: 093826715212</li>
                                 <li><a href="https://wa.link/d73goe"><i class="lni lni-whatsapp"></i></a> Whatsapp</li>
                                 <li>Email: balcamscontact@gmail.com</li>
-                                <li>Location:    Jackson Heights, New York, USA</li>
+                                <li>Location: Jackson Heights, New York, USA</li>
                             </ul>
                         </div> <!-- footer info -->
                     </div>
@@ -505,12 +547,12 @@
                         <div class="footer_info mt-45">
                             <h4 class="footer_title">Course</h4>
                             <ul class="info">
-                                    <li>Gym</li>
-                                    <li>Body Building</li>
-                                    <li>Yoga</li>
-                                    <li>Spinning</li>
-                                    <li>Kick-boxing</li>
-                                    <li>Crossfit</li>
+                                <li>Gym</li>
+                                <li>Body Building</li>
+                                <li>Yoga</li>
+                                <li>Spinning</li>
+                                <li>Kick-boxing</li>
+                                <li>Crossfit</li>
                             </ul>
                         </div> <!-- footer info -->
                     </div>
@@ -532,36 +574,38 @@
                             <ul class="social">
                                 <li><a href="https://www.facebook.com/"><i class="lni lni-facebook-filled"></i></a></li>
                                 <li><a href="https://twitter.com/"><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href="https://www.instagram.com/"><i class="lni lni-instagram-original"></i></a></li>
-                                <li><a href="https://www.linkedin.com/"><i class="lni lni-linkedin-original"></i></a></li>
-                               
+                                <li><a href="https://www.instagram.com/"><i class="lni lni-instagram-original"></i></a>
+                                </li>
+                                <li><a href="https://www.linkedin.com/"><i class="lni lni-linkedin-original"></i></a>
+                                </li>
+
                             </ul>
                         </div> <!-- footer info -->
                     </div>
-                </div>  <!-- row -->
+                </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- footer widget -->
-        
+
         <div class="footer_copyright">
             <div class="container">
                 <div class="copyright text-center">
                     <p>Copyright &copy; 2022. Designed and Developed by Balcams Team</a></p>
-                </div>  <!-- copyright -->
+                </div> <!-- copyright -->
             </div> <!-- container -->
         </div> <!-- footer copyright -->
     </section>
-    
+
     <!--====== FOOTER PART ENDS ======-->
-    
+
     <!--====== BACK TOP TOP PART START ======-->
 
     <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a>
 
     <!--====== BACK TOP TOP PART ENDS ======-->
-    
+
     <!--====== PART START ======-->
-    
-<!--
+
+    <!--
     <section class="">
         <div class="container">
             <div class="row">
@@ -570,7 +614,7 @@
         </div>
     </section>
 -->
-    
+
     <!--====== PART ENDS ======-->
 
 
@@ -582,36 +626,36 @@
     <!--====== Jquery js ======-->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
-    
+
     <!--====== Bootstrap js ======-->
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.4.5.2.min.js"></script>
-    
+
     <!--====== Slick js ======-->
     <script src="assets/js/slick.min.js"></script>
-    
+
     <!--====== Ajax Contact js ======-->
     <script src="assets/js/ajax-contact.js"></script>
-    
+
     <!--====== Counter Up js ======-->
     <script src="assets/js/jquery.counterup.min.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
-    
+
     <!--====== Magnific Popup js ======-->
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    
+
     <!--====== Scrolling Nav js ======-->
-    
+
     <!--====== Axios ======-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!--====== Vue ======-->
     <script src="https://unpkg.com/vue@3"></script>
 
-    
+
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
-    
+
 </body>
 
 </html>

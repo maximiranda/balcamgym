@@ -1,3 +1,5 @@
+let urlParams = new URLSearchParams(window.location.search);
+                let id = urlParams.get("id");
 const app = Vue.createApp({
   data() {
     return {
@@ -6,6 +8,8 @@ const app = Vue.createApp({
       name: '',
       fromDate: [],
       fromTime: '',
+      clients: [],
+      clientId: [],
       
     };
   },
@@ -23,13 +27,29 @@ const app = Vue.createApp({
       .catch(function (error) {
         console.log(error);
       });
+      axios.get("/api/clients/current")
+            .then(response => {
+                
+                this.clients = response.data
+                console.log(this.clients)
+                this.clientId = this.clients.find(clients => clients.id == id)
+                console.log(this.clientId)
+              
+                
+                
+            }).catch(error => error)
       
   },
 
   methods: {
     limitText(text) {
       return text.substring(0, 3);
-    }
+    },
+    logOut() {
+      axios
+        .post("/api/logout")
+        .then((response) => console.log("signed out!!!"));
+    },
   }
 }).mount("#app");
 
