@@ -13,6 +13,10 @@ body {
     overflow: hidden;
 }
 
+.color{
+    color: white !important;
+}
+
 .bg-body{
     background-color: #403d3dd0;
 }
@@ -26,4 +30,8 @@ body {
 .v-enter-from,
 .v-leave-to {
     opacity: 0;
+}
+
+.lni{
+    color: yellow
 }

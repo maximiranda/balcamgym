@@ -38,7 +38,6 @@ img {
   max-width: 100%;
 }
 
-
 a:focus,
 input:focus,
 textarea:focus,
@@ -83,10 +82,6 @@ h6 {
   color: #D2D2D2;
 }
 
-.lni{
-  color: #ffbf00;
-}
-
 h1 {
   font-size: 48px;
 }
@@ -100,7 +95,7 @@ h3 {
 }
 
 h4 {
-  font-size: 21px;
+  font-size: 22px;
 }
 
 h5 {
@@ -204,11 +199,6 @@ p {
 
 .section_title p {
   margin-top: 15px;
-}
-
-.movements{
-  position: absolute;
-  top: -500px;
 }
 
 .section_title.section_title_2 .title,
@@ -393,7 +383,7 @@ i, span, a {
 }
 
 h4 {
-  font-size: 21px;
+  font-size: 22px;
 }
 
 h4 {
@@ -669,7 +659,7 @@ h4 {
   z-index: 99;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
-  background-color: 1e1e1e;
+  background-color:rgba(8, 8, 8, 0.884); 
 }
   .navbar-areaBlog{
     background-color:rgba(8, 8, 8, 0.884); 
@@ -682,12 +672,6 @@ h4 {
     transition: all 0.3s ease-out 0s;
     
   }
-  .lni{
-    transform: translate(17rem, 0px);
-    font-size: 25px;
-    cursor: pointer;
-  }
-  
 
 .sticky {
   position: fixed;
@@ -742,7 +726,7 @@ h4 {
 .navbar-toggler .toggler-icon {
   width: 30px;
   height: 2px;
-  background-color: white;
+  background-color: #222;
   display: block;
   margin: 5px 0;
   position: relative;
@@ -772,7 +756,7 @@ h4 {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: rgb(34, 33, 33);
+    background-color: #fff;
     z-index: 9;
     -webkit-box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.1);
@@ -1040,17 +1024,17 @@ h4 {
   }
 }
 
-/* .header-hero::before {
+.header-hero::before {
   position: absolute;
   content: '';
   top: 0;
   left: 0;
   width: 100%;
-  height: 89%;
+  height: 100%;
   background: -webkit-gradient(linear, left top, right top, from(#292d36), color-stop(50%, rgba(69, 87, 128, 0.6)), to(#292d36));
   background: linear-gradient(to right, #292d36 0%, rgba(69, 87, 128, 0.6) 50%, #292d36 100%);
   opacity: 0.6;
-} */
+}
 
 .header-hero-content {
   position: relative;
@@ -1650,12 +1634,112 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
 
 
 video{
-  width: 100%; 
+  width: 100%;
 }
 
-.landingVideo{
-  width: 100%; 
-  background: -webkit-gradient(linear, left top, right top, from(#292d36), color-stop(50%, rgba(69, 87, 128, 0.6)), to(#292d36));
-background: linear-gradient(to right, #292d36 0%, rgba(69, 87, 128, 0.6) 50%, #292d36 100%);
-  opacity: 0.8;
+@media (max-width: 767px) {
+  .cardNone{
+    display: none;
+  }
+}
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 37px;
+    background: #fafafa;
+}
+.profile-img{
+    text-align: center;
+    
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+    border-radius: 50%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -32%;
+    width: 31%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #21252900;
+    border-radius: 50px;
+    cursor: pointer;
+    
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+.profileFather{
+    margin: 129px 0px 0px 0px;
+
 }

@@ -198,6 +198,9 @@ public class BalcamgymApplication {
 		workoutRepository.save(lesson4);
 		workoutRepository.save(lesson5);
 
+		//add workout to client
+
+
 
 		Subscription sub1 = new Subscription(SubscriptionTypes.BASIC,49,LocalDate.now(),LocalDate.now().plusMonths(1));
 

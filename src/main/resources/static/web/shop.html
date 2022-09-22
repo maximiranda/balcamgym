@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!--====== Line Icons CSS ======-->
+    <link rel="stylesheet" href="assets/css/LineIcons.2.0.css">
     <link rel="stylesheet" href="../web/assets/css/shop.css">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
-    
+
     <title>Shop - Balcam's</title>
 </head>
 
@@ -21,10 +23,13 @@
             <div class="lg:flex lg:items-center lg:justify-between">
                 <div class="flex items-center justify-between w-full">
                     <div class="text-xl font-semibold text-gray-700">
-                        <a class="flex flex-row justify-content-center align-items-center navbar-brand " href="index.html">
-                            <img class="pr-3" style="height: 70px;" src="assets/images/logo-Balcam-white.png" alt="Logo">
+                        <a class="flex flex-row justify-content-center align-items-center navbar-brand "
+                            href="index.html">
+                            <img class="pr-3" style="height: 70px;" src="assets/images/logo-Balcam-white.png"
+                                alt="Logo">
                             <div class="pt-2 d-flex flex-column justify-content-center align-items-center">
-                                <H4 class="h4Balcam text-2xl text-white">BALCAM<span class="text text-[#f1d24d]">'S</span></H4>
+                                <H4 class="h4Balcam text-2xl text-white">BALCAM<span
+                                        class="text text-[#f1d24d]">'S</span></H4>
                                 <h4 class="h4Balcam text-2xl text-white">GYM SHOP</h4>
                             </div>
                         </a>
@@ -77,18 +82,21 @@
                             <span class="absolute top-0 left-0 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
                         </div>
                     </button>
+                    <div >
+                        <a :href="'./profile.html?id='+clients.id"><i class="lni lni-user"></i></a>
+                    </div>
                 </div>
 
                 <!-- drawer component -->
                 <div id="drawer-right-example"
-                    class="fixed z-50 h-screen p-4 overflow-y-auto w-[550px] bg-gray-800 transition-transform right-0 top-0 translate-x-full"
+                    class="fixed z-50 h-screen p-4 overflow-y-auto w-[550px] bg-[#1e1e1e] transition-transform right-0 top-0 translate-x-full"
                     tabindex="-1" aria-labelledby="drawer-right-label" aria-hidden="true">
                     <div class="flex flex-col gap-5 mt-4 lg:mt-0">
                         <h2 class="text-center text-white text-xl uppercase">
                             Shopping cart
                         </h2>
-                        <h4 class="text-right text-white">
-                            Product list
+                        <h4 class="text-left ml-3 text-white">
+                            Product List
                         </h4>
                         <div class="flex flex-wrap gap-3">
                             <div v-for="product in cartProducts"
@@ -96,26 +104,30 @@
                                 <img :src="product.urlImg" class="pl-5 h-24 object-contain">
                                 <h3 class="text-white truncate w-[200px]">{{product.name}}</h3>
                                 <div
-                                    class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
+                                    class="flex justify-between items-center gap-2 px-1 py-2 border rounded">
                                     <ion-icon @click="reduceQuantity(product)"
-                                        class="cursor-pointer text-black text-2xl select-none " name="remove-outline">
+                                        class="cursor-pointer text-white text-2xl select-none " name="remove-outline">
                                     </ion-icon>
-                                    <p class="text-black text-xl truncate select-none">{{product.quantity}}</p>
+                                    <p class="text-white text-xl truncate select-none">{{product.quantity}}</p>
                                     <ion-icon v-if="product.stockAux > 0" @click="addCart(product)"
-                                        class="select-none cursor-pointer text-black text-2xl" name="add-outline">
+                                        class="select-none cursor-pointer text-white text-2xl" name="add-outline">
                                     </ion-icon>
-                                    <ion-icon v-else @click="noStockAllert" class="select-none cursor-pointer text-black text-2xl cursor-not-allowed" name="add-outline">
+                                    <ion-icon v-else @click="noStockAllert"
+                                        class="select-none cursor-pointer text-black text-2xl cursor-not-allowed"
+                                        name="add-outline">
                                     </ion-icon>
                                 </div>
-                                <ion-icon @click="deleteItem(product)"  class="text-xl text-white" name="close-outline"></ion-icon>
+                                <ion-icon @click="deleteItem(product)" class="text-xl text-white" name="close-outline">
+                                </ion-icon>
 
                             </div>
                         </div>
                         <div class="flex w-full items-center justify-between">
-                            <button class="w-[65%] bg-green-700 px-5 py-2 rounded text-white font-bold">
+                            <button class="w-[65%] bg-green-700 px-5 py-2 rounded text-white">
                                 <a href="./checkout.html">Continue checkout</a> 
                             </button>
-                            <button @click="cleanCart" class="w-[30%] flex justify-center gap-2 items-center bg-red-700 px-5 py-2 rounded text-white">
+                            <button @click="cleanCart"
+                                class="w-[30%] flex justify-center gap-2 items-center bg-red-700 px-5 py-2 rounded text-white">
                                 <ion-icon class="text-xl" name="trash-outline"></ion-icon>
                                 <p>Clear cart</p>
                             </button>
@@ -142,7 +154,8 @@
                                     <ion-icon @click="deleteItemCart(product)" class="text-black text-2xl"
                                         name="remove-outline"></ion-icon>
                                     <p class="text-black text-xl truncate">{{product.quantity}}</p>
-                                    <ion-icon @click="addCartAllert = !addCartAllert" @click="addCart(product)" class=" text-black text-2xl" name="add-outline">
+                                    <ion-icon @click="addCartAllert = !addCartAllert" @click="addCart(product)"
+                                        class=" text-black text-2xl" name="add-outline">
                                     </ion-icon>
                                 </div>
                             </div>
@@ -151,35 +164,41 @@
                 </div>
             </div>
         </div>
+
     </nav>
     <transition>
         <div v-if="noStock" class="z-40 sticky top-0 w-full text-white bg-red-500">
             <div class="container flex items-center justify-between px-6 py-4 mx-auto">
                 <div class="flex">
                     <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
-                        <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z">
+                        <path
+                            d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z">
                         </path>
                     </svg>
-        
+
                     <p class="mx-3">There is no stock available! - Try another product.</p>
                 </div>
-        
-                <button @click="noStock = !noStock" class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
+
+                <button @click="noStock = !noStock"
+                    class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                 </button>
             </div>
         </div>
     </transition>
     <transition class="relative sticky top-10 left-10">
-        <div v-if="addCartAllert" class="absolute top-10 left-10 flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <div v-if="addCartAllert"
+            class="absolute top-10 left-10 flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
             <div class="flex items-center justify-center w-12 bg-emerald-500">
                 <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+                    <path
+                        d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
                 </svg>
             </div>
-        
+
             <div class="px-4 py-2 -mx-3">
                 <div class="mx-3">
                     <span class="font-semibold text-emerald-500 dark:text-emerald-400">Success</span>
@@ -202,13 +221,8 @@
                             {{category}}
                         </h4>
                     </div>
-                    <hr v-if="subcategories.length > 0">
-                    <div>
-                        <h2 v-if="subcategories.length > 0" class="font-bold text-white text-2xl cursor-default">
-                            Subcategories
-                        </h2>
-                        <h5 v-for="subcat in subcategories" class="pt-3 text-white cursor-pointer">{{subcat}}</h5>
-                    </div>
+                    <hr >
+                    
                 </div>
                 <hr>
                 <div class="pt-5">
@@ -220,13 +234,15 @@
                     <h4 class="text-white text-xl">Up to: {{moneyFormat.format(inputRange)}}</h4>
                 </div>
                 <div>
-                    <h2 class="mt-4 pt-16 text-1xl text-[#f1d24d] font-bold"><a href="./index.html"><ion-icon  name="arrow-back-outline"></ion-icon>BACK TO LOGIN</a></h2>
+                    <h2 class="mt-4 pt-16 text-1xl text-[#f1d24d] font-bold"><a href="./index.html">
+                            <ion-icon name="arrow-back-outline"></ion-icon>BACK TO LOGIN
+                        </a></h2>
                 </div>
             </div>
-            
+
         </div>
         <!-- CATEGORIES ENDS  -->
-   
+
         <!-- PRODUCTS LIST  -->
         <div class="min-h-full w-[120vh]">
             <div class="p-5 flex flex-col">
@@ -235,22 +251,22 @@
                         Sale Off
                     </h2>
                     <div class="flex items-center justify-center gap-2 border p-2">
-                        <ion-icon class="text-2xl" name="search-outline"></ion-icon>
-                        <input @keyup="searchFilter" v-model="searchFilterInput" class="border-none focus:outline-none"
+                        <ion-icon class="text-2xl color" name="search-outline"></ion-icon>
+                        <input @keyup="searchFilter" v-model="searchFilterInput" class="border-none  focus:outline-none"
                             type="search" name="search" id="search" placeholder="What do you need?">
                     </div>
                 </div>
 
                 <div class="flex gap-10 lg:gap-10 flex-wrap pt-5">
                     <!-- CARDS-->
-                    
+
                     <div v-for="(product, i) in filteredProducts"
                         class="lg:border-0 border overflow-hidden rounded shadow flex flex-col gap-2 h-[300px] w-full lg:w-[290px] lg:h-[430px]">
                         <div class="relative flex items-center justify-center">
                             <div v-if="product.stock < 5" class=" absolute left-0 top-3 rounded-r bg-red-600 z-20">
                                 <p class="p-2 px-4 text-white uppercase bold">Few units left</p>
                             </div>
-                            
+
                             <img :src="product.urlImg"
                                 class="hover:rotate-0 lg:hover:rotate-12 object-cover h-48 lg:h-[210px] z-10 transition-all duration-150 hover:scale-100 lg:hover:scale-[1.4] relative lg:absolute"
                                 alt="product.name">
@@ -259,15 +275,16 @@
                                 alt="NIKE AIR">
                             <img v-else class="hidden lg:block object-cover" :src="productsBg[0]">
                         </div>
-                        
+
                         <div class="flex flex-col justify-between h-full lg:bg-white bg-[#1e1e1e]">
                             <a :href="'./productdetails.html?id='+product.id">
-                            <h2 class="truncate-shop text-xl font-medium text-white lg:text-gray-700 p-2">
-                                {{product.name}}</h2></a>
+                                <h2 class="truncate-shop text-xl font-medium text-white lg:text-gray-700 p-2">
+                                    {{product.name}}</h2>
+                            </a>
                             <div class="flex justify-between items-center p-3">
                                 <h3 class=" font-bold text-xl text-white lg:text-[#1e1e1e]">
                                     {{moneyFormat.format(product.price)}}</h3>
-                                <button :disabled="product.stockAux == 0"  @click="addCart(product)"
+                                <button :disabled="product.stockAux == 0" @click="addCart(product)"
                                     class="lg:text-white text-black bg-[#f1d24d] lg:hover:bg-[#f1d24d] transition-all duration-150 flex flex-row-reverse gap-2 jusfy-around items-center lg:bg-gray-900 px-2 py-1 rounded">
                                     <h4 class="">Add to cart</h4>
                                     <div class="relative transition-colors duration-300 transform ">
@@ -283,7 +300,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
             </div>
         </div>

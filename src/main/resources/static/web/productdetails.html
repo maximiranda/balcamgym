@@ -215,7 +215,7 @@
                     <h3 class="price">${{productId.price}}</h3>
                     <p>Stock: {{productId.stock}}</p>
 
-                    <div class="flex flex-wrap gap-3">
+                    <!-- <div class="flex flex-wrap gap-3">
                         <div v-for="productId in cartProducts"
                             class="flex justify-between items-center w-full border-b">
                             <img :src="product.urlImg" class="h-24 object-contain">
@@ -229,7 +229,7 @@
                                 </ion-icon>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <button @click="addCart(productId)"
                         class="text-white text-black bg-[#f1d24d] lg:hover:bg-[#f1d24d] transition-all duration-150 flex flex-row-reverse gap-2 jusfy-around items-center lg:bg-gray-900 px-2 py-1 rounded">
                         <h4 class="font-medium">Add to cart</h4>
@@ -253,7 +253,7 @@
        
         <hr>
 
-        <h2 class="text text-dark bg-[#f1d24d] mt-8">Our Best Selling Products</h2>
+        <h2 class="text bg-[#f1d24d] mt-8">Our Best Selling Products</h2>
 
         <div class="flex gap-10 lg:gap-10 flex-wrap justify-center pt-5 mb-5">
             <!-- CARDS-->
@@ -277,7 +277,7 @@
                 
                 <div class="flex flex-col justify-between h-full lg:bg-white bg-[#1e1e1e]">
                     <a :href="'./productdetails.html?id='+product.id">
-                    <h2 class="truncate-shop text-l font-medium text-black lg:text-gray-700 p-2">
+                    <h2 class="truncate-shop text-l font-medium lg:text-gray-700 p-2">
                         {{product.name}}</h2></a>
                     <div class="flex justify-between items-center p-3">
                         <h3 class=" font-bold text-xl text-orange lg:text-[#1e1e1e]">
