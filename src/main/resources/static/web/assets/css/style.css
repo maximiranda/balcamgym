@@ -147,8 +147,19 @@ p {
   height: 100%;
 }
 
-/*===== INDEX Style VIDEO presentation=====*/
 
+/*===== INDEX Style VIDEO presentation=====*/
+.landingVideo{
+  width: auto;
+}
+
+.videoText_container{
+  height: 600px;
+}
+
+.header-hero-content{
+  padding-top: 90px !important;
+}
 
 /*===== All Button Style =====*/
 .main-btn {
@@ -178,17 +189,53 @@ p {
 .yellow-color{
   color:#ffbf00
 }
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .main-btn {
     padding: 0 25px;
     height: 40px;
     line-height: 40px;
     font-size: 14px;
   }
+  .videoText_container{
+    height: 600px;
+  }
+  .header-hero-content{
+    padding-top: 120px !important;
+  }
+  
 }
 
+@media (min-width: 1024px) {
+  .courses_area{
+    padding-top: 100px;
+  }
 
+  .movements{
+    top: -500px !important;
+  }
+}
 
+@media (min-width: 1280px) {
+  .landingVideo{
+    height: 680px;
+  }
+}
+
+@media (min-width: 1440px) {
+.videoText_container{
+  width: 100%;
+}
+  .courses_area{
+    padding-top: 0px;
+  }
+  .landingVideo{
+    width: auto;
+    height: 802px;
+  }
+  .movements{
+    top: -660px !important;
+  } 
+}
 .main-btn:hover {
   background-color: rgba(246, 151, 35, 0.959);
   color: #fff;
@@ -697,7 +744,6 @@ h4 {
     
   }
   .lni{
-    transform: translate(17rem, 0px);
     font-size: 25px;
     cursor: pointer;
   }
@@ -1391,6 +1437,7 @@ h4 {
   visibility: hidden;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
+  
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -1540,6 +1587,10 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
   resize: none;
 }
 
+@media (max-width:767px){
+
+}
+
 /*===========================
       11.FOOTER css 
 ===========================*/
@@ -1591,7 +1642,7 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
   margin-left: 15px;
 }
 
-.footer_social .social li a {
+/* .footer_social .social li a {
   background-color: rgba(255, 255, 255, 0.1);
   width: 35px;
   height: 35px;
@@ -1602,7 +1653,7 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
   border-radius: 50%;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
-}
+} */
 
 .footer_social .social li a:hover {
   background: #ffbf00;

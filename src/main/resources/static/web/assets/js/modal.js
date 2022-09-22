@@ -148,8 +148,11 @@ new Vue({
                         this.purchaseAlertSucces = true
                         this.success = true
                         setTimeout( () => {
-                            this.purchaseAlertSucces = false})
-                        }, 5000)
+                            this.cleanCart()
+                            this.purchaseAlertSucces = false
+                            window.location.href = "./shop.html"
+                        }, 3000)
+                        })
                     })
                 .catch(r => {
                     console.log(r)
