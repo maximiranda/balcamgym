@@ -68,7 +68,7 @@ createApp({
                 console.log(this.clients)
                 this.clientId = this.clients.find(client => client.id == id)
                 console.log(this.clientId)
-                this.subscriptionTrue = this.clients.filter(client => client.clientSubscription == false)
+                this.subscriptionTrue = this.clients.filter(client => client.clientSubscription == true)
                 console.log(this.subscriptionTrue)
             }).catch(error => error)
         },

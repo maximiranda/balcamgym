@@ -15,7 +15,7 @@ private long id;
 
     private Set<WorkoutDTO> workouts;
 
-    private boolean clientSubscription = false;
+    private boolean clientSubscription;
 
     public ClientDTO(Client client) {
         this.id = client.getId();
