@@ -89,14 +89,14 @@
 
                 <!-- drawer component -->
                 <div id="drawer-right-example"
-                    class="fixed z-50 h-screen p-4 overflow-y-auto w-[550px] bg-gray-800 transition-transform right-0 top-0 translate-x-full"
+                    class="fixed z-50 h-screen p-4 overflow-y-auto w-[550px] bg-[#1e1e1e] transition-transform right-0 top-0 translate-x-full"
                     tabindex="-1" aria-labelledby="drawer-right-label" aria-hidden="true">
                     <div class="flex flex-col gap-5 mt-4 lg:mt-0">
                         <h2 class="text-center text-white text-xl uppercase">
                             Shopping cart
                         </h2>
-                        <h4 class="text-right text-white">
-                            Product list
+                        <h4 class="text-left ml-3 text-white">
+                            Product List
                         </h4>
                         <div class="flex flex-wrap gap-3">
                             <div v-for="product in cartProducts"
@@ -104,13 +104,13 @@
                                 <img :src="product.urlImg" class="pl-5 h-24 object-contain">
                                 <h3 class="text-white truncate w-[200px]">{{product.name}}</h3>
                                 <div
-                                    class="bg-yellow-400  flex justify-between items-center gap-2 px-1 py-2 border rounded">
+                                    class="flex justify-between items-center gap-2 px-1 py-2 border rounded">
                                     <ion-icon @click="reduceQuantity(product)"
-                                        class="cursor-pointer text-black text-2xl select-none " name="remove-outline">
+                                        class="cursor-pointer text-white text-2xl select-none " name="remove-outline">
                                     </ion-icon>
-                                    <p class="text-black text-xl truncate select-none">{{product.quantity}}</p>
+                                    <p class="text-white text-xl truncate select-none">{{product.quantity}}</p>
                                     <ion-icon v-if="product.stockAux > 0" @click="addCart(product)"
-                                        class="select-none cursor-pointer text-black text-2xl" name="add-outline">
+                                        class="select-none cursor-pointer text-white text-2xl" name="add-outline">
                                     </ion-icon>
                                     <ion-icon v-else @click="noStockAllert"
                                         class="select-none cursor-pointer text-black text-2xl cursor-not-allowed"
@@ -123,8 +123,8 @@
                             </div>
                         </div>
                         <div class="flex w-full items-center justify-between">
-                            <button class="w-[65%] bg-green-700 px-5 py-2 rounded text-white font-bold">
-                                <a href="./checkout.html">Continue checkout</a>
+                            <button class="w-[65%] bg-green-700 px-5 py-2 rounded text-white">
+                                <a href="./checkout.html">Continue checkout</a> 
                             </button>
                             <button @click="cleanCart"
                                 class="w-[30%] flex justify-center gap-2 items-center bg-red-700 px-5 py-2 rounded text-white">
@@ -221,6 +221,8 @@
                             {{category}}
                         </h4>
                     </div>
+                    <hr >
+                    
                 </div>
                 <hr>
                 <div class="pt-5">
@@ -249,8 +251,8 @@
                         Sale Off
                     </h2>
                     <div class="flex items-center justify-center gap-2 border p-2">
-                        <ion-icon class="text-2xl" name="search-outline"></ion-icon>
-                        <input @keyup="searchFilter" v-model="searchFilterInput" class="border-none focus:outline-none"
+                        <ion-icon class="text-2xl color" name="search-outline"></ion-icon>
+                        <input @keyup="searchFilter" v-model="searchFilterInput" class="border-none  focus:outline-none"
                             type="search" name="search" id="search" placeholder="What do you need?">
                     </div>
                 </div>
