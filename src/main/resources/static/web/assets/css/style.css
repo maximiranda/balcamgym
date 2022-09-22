@@ -38,6 +38,7 @@ img {
   max-width: 100%;
 }
 
+
 a:focus,
 input:focus,
 textarea:focus,
@@ -203,6 +204,11 @@ p {
 
 .section_title p {
   margin-top: 15px;
+}
+
+.movements{
+  position: absolute;
+  top: -500px;
 }
 
 .section_title.section_title_2 .title,
@@ -730,7 +736,7 @@ h4 {
 .navbar-toggler .toggler-icon {
   width: 30px;
   height: 2px;
-  background-color: #222;
+  background-color: white;
   display: block;
   margin: 5px 0;
   position: relative;
@@ -760,7 +766,7 @@ h4 {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: rgb(34, 33, 33);
     z-index: 9;
     -webkit-box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.1);
@@ -1028,17 +1034,17 @@ h4 {
   }
 }
 
-.header-hero::before {
+/* .header-hero::before {
   position: absolute;
   content: '';
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 89%;
   background: -webkit-gradient(linear, left top, right top, from(#292d36), color-stop(50%, rgba(69, 87, 128, 0.6)), to(#292d36));
   background: linear-gradient(to right, #292d36 0%, rgba(69, 87, 128, 0.6) 50%, #292d36 100%);
   opacity: 0.6;
-}
+} */
 
 .header-hero-content {
   position: relative;
@@ -1638,5 +1644,12 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
 
 
 video{
-  width: 100%;
+  width: 100%; 
+}
+
+.landingVideo{
+  width: 100%; 
+  background: -webkit-gradient(linear, left top, right top, from(#292d36), color-stop(50%, rgba(69, 87, 128, 0.6)), to(#292d36));
+  background: linear-gradient(to right, #292d36 0%, rgba(69, 87, 128, 0.6) 50%, #292d36 100%);
+  opacity: 0.6;
 }
