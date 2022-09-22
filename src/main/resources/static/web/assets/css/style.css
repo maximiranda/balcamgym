@@ -730,7 +730,6 @@ h4 {
     
   }
   .lni{
-    transform: translate(17rem, 0px);
     font-size: 25px;
     cursor: pointer;
   }
@@ -1424,6 +1423,7 @@ h4 {
   visibility: hidden;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
+  
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -1573,6 +1573,10 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
   resize: none;
 }
 
+@media (max-width:767px){
+
+}
+
 /*===========================
       11.FOOTER css 
 ===========================*/
@@ -1624,7 +1628,7 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
   margin-left: 15px;
 }
 
-.footer_social .social li a {
+/* .footer_social .social li a {
   background-color: rgba(255, 255, 255, 0.1);
   width: 35px;
   height: 35px;
@@ -1635,7 +1639,7 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
   border-radius: 50%;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
-}
+} */
 
 .footer_social .social li a:hover {
   background: #ffbf00;

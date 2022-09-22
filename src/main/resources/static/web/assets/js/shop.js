@@ -18,7 +18,6 @@ createApp({
       suplements: ["Proteins", "Creatines", "BCAA"],
       clothes: ["Men", "Women"],
       checkedCategory: "",
-      subcategories: [],
       inputRange: 0,
       searchFilterInput: "",
       isOpen: false,
@@ -33,6 +32,8 @@ createApp({
       subtotal: 0,
       shippingEstimate: 7,
       taxEstimate: 0.21,
+      isLoading : false,
+      success : false,
     };
   },
   created() {
@@ -61,20 +62,20 @@ createApp({
     } else {
       this.shippingEstimate = shippingEstimate;
     }
+
   },
   methods: {
     makePayment() {
-      axios
-        .post("https://hubbersbank.herokuapp.com/api/transactions/payment", {
-          cardNumber: "5223 2602 9373 6997",
-          cardCvv: "125",
-          amount: "1",
-          thruDate: "2027-09-20",
-          cardHolder: "Melba Laflor",
-          accountNumber: "VIN001",
-          description: "pago balcamgym",
-        })
-        .then((r) => console.log(r));
+      // axios.post("https://hubbersbank.herokuapp.com/api/transactions/payment", {
+      //     cardNumber: "5223 2602 9373 6997",
+      //     cardCvv: "125",
+      //     amount: "1",
+      //     thruDate: "2027-09-20",
+      //     cardHolder: "Melba Laflor",
+      //     accountNumber: "VIN001",
+      //     description: "pago balcamgym",
+      //   })
+      //   .then((r) => {});
     },
     deleteItem(product) {
       product.stockAux = product.stock;
@@ -184,8 +185,8 @@ createApp({
         .get("/api/products")
         .then((response) => {
           this.products = response.data;
-          console.log(this.products);
           this.filteredProducts = this.products;
+          this.featureds = this.products.filter(product => product.stock < 5)
         })
         .catch((error) => error);
 
