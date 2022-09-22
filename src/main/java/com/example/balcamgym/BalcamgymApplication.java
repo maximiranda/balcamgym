@@ -30,7 +30,7 @@ public class BalcamgymApplication {
 		imgFIleServices.init();
 		Client Admin = new Client("Admin","Admin","admin@balcamgym.com",passwordEncoder.encode("balcamgym"),true);
 
-		Client client = new Client("hola","hola","atorresmarambio@gmail.com",passwordEncoder.encode("hola123"),true);
+		Client client = new Client("hola","hola","atorresmarambio@gmail.com",passwordEncoder.encode("hola123"),false);
 		client.setVerification(true);
 		Client client1 = new Client("maxi","maxi","maximiranda.95@gmail.com",passwordEncoder.encode("maxi"),true);
 		client1.setVerification(true);
