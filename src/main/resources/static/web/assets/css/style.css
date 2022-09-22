@@ -1653,9 +1653,3 @@ video{
   width: 100%; 
 }
 
-.landingVideo{
-  width: 100%; 
-  background: -webkit-gradient(linear, left top, right top, from(#292d36), color-stop(50%, rgba(69, 87, 128, 0.6)), to(#292d36));
-  background: linear-gradient(to right, #292d36 0%, rgba(69, 87, 128, 0.6) 50%, #292d36 100%);
-  opacity: 0.6;
-}
