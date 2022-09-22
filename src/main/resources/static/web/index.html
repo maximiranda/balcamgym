@@ -33,7 +33,7 @@
 
 </head>
 
-<body id="app">
+<body>
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
@@ -107,17 +107,8 @@
                                     <li class="nav-item">
                                         <a class="page-scroll" href="./contact.html">Contact</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a :href="'./profile.html?id='+clients.id"><i class="lni lni-user"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a @click="logOut" href="./index.html"><i class="lni lni-power-switch"></i></a>
-                                    </li>
                                 </ul>
-
                             </div> <!-- navbar collapse -->
-
-
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -129,36 +120,31 @@
                 <video autoplay muted loop id="myVideo" class="landingVideo">
                     <source src="./assets/images/videos/landingVideo.mp4" type="video/mp4">
                 </video>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9">
-                            <div style="position:absolute; top:0; left:0;">
-                                <h3 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
-                                    Balcam's is the best option</h3>
-                                <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">This gym is the
-                                    best you can choose, if what you want is a real change in your physical appearance
-                                </p>
-                            </div>
-                            <div class="header-hero-content text-center">
+                <div class="header-hero-content text-center movements">
+                    <h3 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Balcam's is the
+                        best option</h3>
+                    <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">This gym is the best you can
+                        choose, if what you want is a real change in your physical appearance</p>
+                    <div class="header-hero-content text-center">
+                        <ul>
+                            <li><a href="./login.html" rel="nofollow" class="main-btn wow fadeInUp font-weight-bold"
+                                    data-wow-duration="1.3s" data-wow-delay="0.8s">Register FREE Now</a></li>
+                            <li><a href="./shop.html" class="main-btn main-btn-2 wow fadeInUp" data-wow-duration="1.3s"
+                                    data-wow-delay="1.2s">Shop NOW</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-                                <ul>
-                                    <li><a href="./login.html" rel="nofollow"
-                                            class="main-btn wow fadeInUp font-weight-bold" data-wow-duration="1.3s"
-                                            data-wow-delay="0.8s">Register FREE Now</a></li>
-                                    <li><a href="./shop.html" class="main-btn main-btn-2 wow fadeInUp"
-                                            data-wow-duration="1.3s" data-wow-delay="1.2s">Shop NOW</a></li>
-                                </ul>
-                            </div>
-                        </div>
+            </div>
 
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-9">
-                                    <!-- header hero content -->
-                                </div>
-                            </div> <!-- row -->
-                        </div> <!-- container -->
-                    </div> <!-- header hero -->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <!-- header hero content -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- header hero -->
     </header>
 
     <!--====== HEADER PART ENDS ======-->
@@ -427,7 +413,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" id="app">
                 <div class=" col-lg-3 col-sm-6" v-for="workouts in workouts">
                     <div class="single_schedule mt-30">
                         <div>
