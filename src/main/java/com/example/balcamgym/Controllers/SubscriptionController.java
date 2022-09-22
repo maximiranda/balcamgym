@@ -64,7 +64,7 @@ public class SubscriptionController {
         System.out.println("hecho!");
 
         PdfSubGenerator.createBillSusbcription(billSubscription);
-        senderEmail.sendMailWithAttchment(client.getEmail(),"Bill Subscription PDF","Susbcription type::"+billSubscription.getSubscription().getSubscriptionTypes(),"c:/temp/billSusbcription.pdf");
+        senderEmail.sendMailWithAttchment(client.getEmail(),"Bill Subscription PDF","Susbcription type::"+billSubscription.getSubscription().getSubscriptionTypes(),"/tmp/billSusbcription.pdf");
         return new ResponseEntity<>("Subscription added", HttpStatus.CREATED);
     }
 }

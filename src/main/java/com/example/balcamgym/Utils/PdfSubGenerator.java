@@ -31,7 +31,7 @@ public class PdfSubGenerator {
         try {
             Document document = new Document(PageSize.A4);
 
-            PdfWriter.getInstance(document, new FileOutputStream("c:/temp/billSusbcription.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("/tmp/billSusbcription.pdf"));
             //PdfWriter.getInstance(document, new FileOutputStream("pdf.pdf"));
 
             document.open();

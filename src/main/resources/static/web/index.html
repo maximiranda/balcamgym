@@ -29,11 +29,12 @@
     <link rel="stylesheet" href="assets/css/default.css">
 
     <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
-<body id="app">
+<body class="" id="app">
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
@@ -463,8 +464,12 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="pricing_btn">
-                            <a href="./login.html">Purchase Now</a>
+                        <div v-if="clients == ''" class="pricing_btn">
+                            <a  href="./login.html">Purchase Now</a>
+                        </div>
+                        <div v-else @click="openModal(29)" class="pricing_btn">
+                            <a >Purchase Now</a>
+
                         </div>
                     </div>
                 </div>
@@ -484,8 +489,12 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="pricing_btn pricing_btn_2">
-                            <a href="./login.html">Purchase Now</a>
+                        <div v-if="clients == ''" class="pricing_btn pricing_btn_2">
+                            <a  href="./login.html">Purchase Now</a>
+                        </div>
+                        <div v-else @click="openModal(49)" class="pricing_btn">
+                            <a >Purchase Now</a>
+
                         </div>
                     </div>
                 </div>
@@ -505,8 +514,12 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="pricing_btn">
-                            <a href="./login.html">Purchase Now</a>
+                        <div v-if="clients == ''" class="pricing_btn">
+                            <a  href="./login.html">Purchase Now</a>
+                        </div>
+                        <div v-else @click="openModal(99)" class="pricing_btn">
+                            <a >Purchase Now</a>
+
                         </div>
                     </div>
                 </div>
@@ -582,6 +595,60 @@
             </div> <!-- container -->
         </div> <!-- footer copyright -->
     </section>
+    <div class="modal" :class="{'d-block': isOpen}">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content ">
+
+                <div class="modal-body d-flex flex-wrap flex-row position-relative">
+                    <i class="bi bi-x close-modal " @click="isOpen=false"></i>
+                    <h1 class="w-100 text-center">Purchase Subscription</h1>
+                    <form class="form-modal mt-2" action="">
+                        <div class="mb-3">
+                            <label class="form-label" for="cardNumber">Card Number</label>
+                            <input v-model="cardNumber" class="form-control" id="cardNumber" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="cardHolder">Card Holder</label>
+                            <input v-model="cardHolder" class="form-control" id="cardHolder" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="cardExp">Card Expirate</label>
+                            <input v-model="cardExp" class="form-control" id="cardExp" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="cardCvv">CVV</label>
+                            <input v-model="cardCvv" class="form-control" id="CardCvv" type="text">
+                        </div>
+                    </form>
+                    <div class="pl-5 mt-2">
+                        <div class="border p-5 d-flex flex-column gap-5">
+                            <h2 class="text-bold">Order Sumary</h2>
+                            <hr>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-row justify-content-between align-items-center m-3">
+                                    <p class="p-2">Subtotal</p>
+                                    <p>{{moneyFormat.format(subtotal)}}</p>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center m-3 border-b">
+                                    <p class="p-2">Tax Estimate</p>
+                                    <p>{{moneyFormat.format(subtotal * taxEstimate)}}</p>
+                                </div>
+                                <div class="w-100 d-flex justify-content-between align-items-center m-3">
+                                    <h3 class="fw-bold">Order Total: </h3>
+                                    <h3 class="fw-bold">{{moneyFormat.format(subtotal * (1 + taxEstimate))}}
+                                    </h3>
+                                </div>
+                                <button @click="subscriptionPayment" class="btn btn-primary">Purchase</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <!--====== FOOTER PART ENDS ======-->
 
@@ -621,6 +688,7 @@
 
     <!--====== Slick js ======-->
     <script src="assets/js/slick.min.js"></script>
+    
 
     <!--====== Ajax Contact js ======-->
     <script src="assets/js/ajax-contact.js"></script>

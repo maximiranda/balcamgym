@@ -203,9 +203,11 @@ public class BalcamgymApplication {
 
 
 
-		Subscription sub1 = new Subscription(SubscriptionTypes.BASIC,49,LocalDate.now(),LocalDate.now().plusMonths(1));
-
-		BillSubscription bils1 = new BillSubscription(client,sub1);
+		Subscription sub1 = new Subscription(SubscriptionTypes.BASIC,29,LocalDate.now(),LocalDate.now().plusMonths(1));
+		Subscription sub2 = new Subscription(SubscriptionTypes.STANDAR,49,LocalDate.now(),LocalDate.now().plusMonths(1));
+		Subscription sub3 = new Subscription(SubscriptionTypes.PREMIUM,99,LocalDate.now(),LocalDate.now().plusMonths(1));
+		Bill bill = new Bill(client1, 20.0, "000-087-543");
+		BillSubscription billSubscription = new BillSubscription(client,sub1);
 
 		clientRepository.save(Admin);
 		clientRepository.save(client);
@@ -217,8 +219,12 @@ public class BalcamgymApplication {
 
 
 		subscriptionRepository.save(sub1);
-		billSubscriptionRepository.save(bils1);
-
+		subscriptionRepository.save(sub2);
+		subscriptionRepository.save(sub3);
+		billSubscriptionRepository.save(billSubscription);
+		billRepository.save(bill);
+		client1.setBillSubscription(billSubscription);
+		clientRepository.save(client1);
 
 	};
 	}

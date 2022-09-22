@@ -8,9 +8,16 @@ const app = Vue.createApp({
       name: '',
       fromDate: [],
       fromTime: '',
-      clients: [],
+      clients: "",
       clientId: [],
-      
+      isOpen: false,
+      moneyFormat: new Intl.NumberFormat("en-US", {style: "currency", currency: "USD",}),
+      subtotal: 0,
+      taxEstimate: 0.21,
+      cardNumber: "",
+      cardHolder: "",
+      cardExp: "",
+      cardCvv: "",
     };
   },
 
@@ -34,11 +41,8 @@ const app = Vue.createApp({
                 console.log(this.clients)
                 this.clientId = this.clients.find(clients => clients.id == id)
                 console.log(this.clientId)
-              
-                
-                
+
             }).catch(error => error)
-      
   },
 
   methods: {
@@ -61,6 +65,16 @@ const app = Vue.createApp({
         .post("/api/logout")
         .then((response) => console.log("signed out!!!"));
     },
+    subscriptionPayment(){
+      axios.post("/api/subscriptions", "id=49" + "&paymentAuthorization=true", {headers: {"Content-Type":"application/x-www-form-urlencoded"}})
+      .then(response => {console.log(response)})
+      .catch(error =>{alert(error.response.data)})
+    },
+    openModal(number){
+
+      this.subtotal= number
+      this.isOpen=true
+    }
   }
 
 }).mount("#app");
