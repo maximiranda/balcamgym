@@ -11,26 +11,33 @@
     <link rel="stylesheet" href="../web/assets/css/shop.css">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     
-    <title>Shop- Balcam's</title>
+    <title>Shop - Balcam's</title>
 </head>
 
-<body id="app">
+<body id="app" class="bg-body">
     <!-- NAV -->
-    <nav class="mi-h-[10vh] lg:min-h-[15vh] relative bg-[#1E1E1E] shadow-lg ">
+    <nav class="mi-h-[7vh] lg:min-h-[7vh] relative bg-[#1E1E1E] shadow-lg ">
         <div class="container px-6 py-6 mx-auto">
             <div class="lg:flex lg:items-center lg:justify-between">
                 <div class="flex items-center justify-between w-full">
                     <div class="text-xl font-semibold text-gray-700">
-                        <a class="text-2xl font-bold block transition-colors duration-300 transform text-white lg:text-3xl hover:text-gray-300"
+                        <a class="flex flex-row justify-content-center align-items-center navbar-brand " href="index.html">
+                            <img class="pr-3" style="height: 70px;" src="assets/images/logo-Balcam-white.png" alt="Logo">
+                            <div class="pt-2 d-flex flex-column justify-content-center align-items-center">
+                                <H4 class="h4Balcam text-2xl text-white">BALCAM<span class="text text-[#f1d24d]">'S</span></H4>
+                                <h4 class="h4Balcam text-2xl text-white">GYM SHOP</h4>
+                            </div>
+                        </a>
+                        <!-- <a class="text-2xl font-bold block transition-colors duration-300 transform text-white lg:text-3xl hover:text-gray-300"
                             href="./index.html">
                             BALCAM '<span class="text-yellow-400">S</span>
                             <br>
                             <span class="text-center font-thin text-sm" href="./index.html" >Home</span>
-                        </a>
+                        </a> -->
                     </div>
 
                     <div class="pt-2 hidden lg:flex flex-col items-center justify-center">
-                        <h1 class="text-3xl font-bold text-white">SHOP</h1>
+                        <h1 class="text-2xl font-bold text-white ">BALCAM'S SHOP</h1>
                         <h3 class="text-xl text-white font-thin pt-2">Welcome to the shop of your best gym, we have what
                             you
                             are looking for!</h3>
@@ -185,11 +192,11 @@
         <!-- CATEGORIES  -->
         <div class="h-full w-[30vh] hidden lg:flex">
             <div class="p-5">
-                <div class=" flex flex-col gap-5 ">
-                    <h2 class="font-bold text-3xl cursor-default">
+                <div class=" flex flex-col gap-5 mt-2 text-5xl ">
+                    <h2 class="font-bold text-white text-3xl cursor-default">
                         Categories
                     </h2>
-                    <div v-for="category in categories" class="cursor-pointer">
+                    <div v-for="category in categories" class="cursor-pointer text-white">
                         <h4 @click="selectFilter(category)" :class="checkedCategory == category ? 'font-bold' : ''"
                             class="text-xl">
                             {{category}}
@@ -197,29 +204,34 @@
                     </div>
                     <hr v-if="subcategories.length > 0">
                     <div>
-                        <h2 v-if="subcategories.length > 0" class="font-bold text-2xl cursor-default">
+                        <h2 v-if="subcategories.length > 0" class="font-bold text-white text-2xl cursor-default">
                             Subcategories
                         </h2>
-                        <h5 v-for="subcat in subcategories" class="pt-3 cursor-pointer">{{subcat}}</h5>
+                        <h5 v-for="subcat in subcategories" class="pt-3 text-white cursor-pointer">{{subcat}}</h5>
                     </div>
                 </div>
                 <hr>
                 <div class="pt-5">
-                    <h2 class="font-bold text-2xl cursor-default">
+                    <h2 class="font-bold text-2xl text-white cursor-default">
                         Price
                     </h2>
                     <input @input="rangePriceFilter(inputRange)" value="100" max="300" v-model="inputRange" type="range"
                         name="priceRange" id="priceRange">
-                    <h4 class="text-red-600 text-xl font-bold">Up to: {{moneyFormat.format(inputRange)}}</h4>
+                    <h4 class="text-white text-xl">Up to: {{moneyFormat.format(inputRange)}}</h4>
+                </div>
+                <div>
+                    <h2 class="mt-4 pt-16 text-1xl text-[#f1d24d] font-bold"><a href="./index.html"><ion-icon  name="arrow-back-outline"></ion-icon>BACK TO LOGIN</a></h2>
                 </div>
             </div>
+            
         </div>
         <!-- CATEGORIES ENDS  -->
+   
         <!-- PRODUCTS LIST  -->
         <div class="min-h-full w-[120vh]">
             <div class="p-5 flex flex-col">
                 <div class="flex justify-between items-center w-full lg:w-[87%]">
-                    <h2 class="font-bold text-4xl cursor-default ">
+                    <h2 class="font-bold text-white text-4xl cursor-default ">
                         Sale Off
                     </h2>
                     <div class="flex items-center justify-center gap-2 border p-2">
@@ -257,7 +269,7 @@
                                     {{moneyFormat.format(product.price)}}</h3>
                                 <button :disabled="product.stockAux == 0"  @click="addCart(product)"
                                     class="lg:text-white text-black bg-[#f1d24d] lg:hover:bg-[#f1d24d] transition-all duration-150 flex flex-row-reverse gap-2 jusfy-around items-center lg:bg-gray-900 px-2 py-1 rounded">
-                                    <h4 class="font-medium">Add to cart</h4>
+                                    <h4 class="">Add to cart</h4>
                                     <div class="relative transition-colors duration-300 transform ">
                                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">

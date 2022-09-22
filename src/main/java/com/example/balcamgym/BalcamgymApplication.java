@@ -78,7 +78,7 @@ public class BalcamgymApplication {
 		Product womenClothes1 = new Product("Ot-Ew Women's Seamless Sports Leggings","85% Polyester, 15% Spandex, Pull On closure. ideal to be comfortable while doing" +
 				"sports. Color: blue","/web/assets/images/products/9.jpg",ProductCategory.CLOTHES,14.99,11,true);
 
-		Product womenClothes2 = new Product("Womens gym top white fresh","100% Cotton, Imported, No Closure closure, Machine Wash, 8.5 oz. polyester fleece" +
+		Product womenClothes2 = new Product("Womens gym top black top one fresh","100% Cotton, Imported, No Closure closure, Machine Wash, 8.5 oz. polyester fleece" +
 				"is high in cotton, high in comfort. Sueded fleece is sanded to make it incredibly soft,"+
 				"inside and out","/web/assets/images/products/10.png",ProductCategory.CLOTHES,12.15,7,true);
 

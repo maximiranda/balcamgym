@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
 body{
-    background-image: url(/assets/images/fondologin.jpg);
+    background-image: url(/assets/images/fondologin.jpg) !important;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;

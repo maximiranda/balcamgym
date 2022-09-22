@@ -1,8 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap");
 
 body {
-    font-family: "Poppins", sans-serif;
-    color: #444444;
+    font-family: "Lato", sans-serif;
+}
+
+h1, h2, h3, h4{
+    font-family: "Lato", sans-serif !important;
+}
+
+h4{
+    font-family: "Lato", sans-serif !important;
+    font-size: 30px !important;
 }
 
 .truncate-shop {
@@ -12,6 +20,7 @@ body {
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
+
 
 .v-enter-active,
 .v-leave-active {
@@ -23,16 +32,21 @@ body {
     opacity: 0;
 }
 
+h4 {
+    font-size: 21px !important;
+    padding-top: 2.8px;
+  }
+
 .containers{
     margin-top: 33px;
-    padding: 65px 8px 87px 22px;
+    padding: 25px 60px 25px 25px;
     border: 1px solid #ccc;
     border-radius: 40px;
     max-width: 70rem;
 }
 
 .col-md-7 h2{
-    color:#555;
+    color:rgb(0, 0, 0);
     font-size: 30px;
     font-weight: bold;
     margin: 0px 0px 23px 0px;
@@ -43,7 +57,7 @@ body {
     margin: 0px 0px 23px 0px;
 }
 .price{
-    color: #FE980F;
+    color: #555;
     font-size: 33px;
     font-weight: bold;
     padding: 1px 0px 17px 0px;
@@ -66,7 +80,7 @@ input{
 .productImage{
     background-color: #FAFAFA;
     border-radius: 20px;
-    
+
 }
 
 
@@ -74,7 +88,7 @@ input{
     color: #555;
     font-size: 40px;
     font-weight: bold;
-    margin: 34px 0px 5px 0px;
+    margin: 0px 0px 0px 0px;
     text-align: center;
 }
 
