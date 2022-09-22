@@ -11,6 +11,8 @@ public class SubscriptionDTO {
     private SubscriptionTypes subscriptionTypes;
     private double amount;
 
+    private LocalDate fromDate, toDate;
+
 
     public SubscriptionDTO(){}
 
@@ -18,6 +20,8 @@ public class SubscriptionDTO {
         this.id = subscription.getId();
         this.subscriptionTypes = subscription.getSubscriptionTypes();
         this.amount = subscription.getAmount();
+        this.fromDate = subscription.getFromDate();
+        this.toDate = subscription.getToDate();
     }
 
     public long getId() {
@@ -30,5 +34,13 @@ public class SubscriptionDTO {
 
     public double getAmount() {
         return amount;
+    }
+
+    public LocalDate getFromDate() {
+        return fromDate;
+    }
+
+    public LocalDate getToDate() {
+        return toDate;
     }
 }
