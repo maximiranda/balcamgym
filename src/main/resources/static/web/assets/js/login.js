@@ -1,3 +1,7 @@
+let urlParams = new URLSearchParams(window.location.search);
+let confirm = urlParams.get("confirm");
+
+
 const { createApp } = Vue
 
 createApp({
@@ -9,11 +13,16 @@ createApp({
             password : "",
             age : 0,
             isOpen: false,
-            
+            isLoading : false,
+            showAlert : false
         }
     },
     created() {
-
+        if(confirm){
+            showAlert = true
+        }else{
+            showAlert = false
+        }
     },
     methods: {
         logIn(){
@@ -23,9 +32,11 @@ createApp({
             })
         },
         register(){
+            this.isLoading = true
             axios.post("/api/clients", "firstName=" + this.firstName + "&lastName=" + this.lastName + "&email=" + this.email + "&password=" + this.password, {headers : {'Content-Type' : 'application/x-www-form-urlencoded'}}) 
             .then(response =>{
                 this.isOpen=true
+
             })
             },
     },
