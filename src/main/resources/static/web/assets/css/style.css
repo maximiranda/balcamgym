@@ -133,8 +133,19 @@ p {
   height: 100%;
 }
 
-/*===== INDEX Style VIDEO presentation=====*/
 
+/*===== INDEX Style VIDEO presentation=====*/
+.landingVideo{
+  width: auto;
+}
+
+.videoText_container{
+  height: 600px;
+}
+
+.header-hero-content{
+  padding-top: 90px !important;
+}
 
 /*===== All Button Style =====*/
 .main-btn {
@@ -164,17 +175,53 @@ p {
 .yellow-color{
   color:#ffbf00
 }
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .main-btn {
     padding: 0 25px;
     height: 40px;
     line-height: 40px;
     font-size: 14px;
   }
+  .videoText_container{
+    height: 600px;
+  }
+  .header-hero-content{
+    padding-top: 120px !important;
+  }
+  
 }
 
+@media (min-width: 1024px) {
+  .courses_area{
+    padding-top: 100px;
+  }
 
+  .movements{
+    top: -500px !important;
+  }
+}
 
+@media (min-width: 1280px) {
+  .landingVideo{
+    height: 680px;
+  }
+}
+
+@media (min-width: 1440px) {
+.videoText_container{
+  width: 100%;
+}
+  .courses_area{
+    padding-top: 0px;
+  }
+  .landingVideo{
+    width: auto;
+    height: 802px;
+  }
+  .movements{
+    top: -660px !important;
+  } 
+}
 .main-btn:hover {
   background-color: rgba(246, 151, 35, 0.959);
   color: #fff;
