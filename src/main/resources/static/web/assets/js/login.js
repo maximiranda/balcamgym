@@ -7,9 +7,9 @@ createApp({
             lastName : "",
             email : "",
             password : "",
-            age : 0,
-            isOpen: false,
-            
+            birthDate : "",
+            isOpen : false,
+            error : false,
         }
     },
     created() {
@@ -25,7 +25,9 @@ createApp({
         register(){
             axios.post("/api/clients", "firstName=" + this.firstName + "&lastName=" + this.lastName + "&email=" + this.email + "&password=" + this.password, {headers : {'Content-Type' : 'application/x-www-form-urlencoded'}}) 
             .then(response =>{
-                this.isOpen=true
+                this.isOpen = true
+            }).catch(error => {
+                this.error = error.response.data
             })
             },
     },
