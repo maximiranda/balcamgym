@@ -33,6 +33,9 @@ createApp({
             axios.post("/api/login", "email=" + this.email + "&password=" + this.password, {headers : {'Content-Type' : 'application/x-www-form-urlencoded'}})
             .then(response => {
                 window.location.href = "/web/index.html"
+            }).catch(error => {
+                this.error = true
+                console.log(this.error)
             })
         },
         register(){

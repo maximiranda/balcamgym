@@ -74,10 +74,13 @@
 													placeholder="Your Password" id="logpass" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-lock-alt"></i>
 											</div>
+											<h3 v-if="error" class="text-sm text-red-600">Wrong username or password </h3>
 											<button @click="logIn" class="btn mt-4">Submit</button>
-											<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your
-													password?</a></p>
+											<p class="mb-0 mt-4 text-center">
+												<a href="#0" class="link">Forgot your password?</a>
+											</p>
 										</div>
+										
 									</div>
 								</div>
 								<div class="card-back">
@@ -116,6 +119,7 @@
 												</div>
 												<p v-else>submit</p>												
 											</button>
+											
 										</div>
 									</div>
 								</div>
