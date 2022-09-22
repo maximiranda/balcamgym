@@ -41,14 +41,14 @@
 								<div class="card-front">
 									<div class="center-wrap">
 										<div class="section text-center">
-											<h4 class="mb-4 pb-3">Log In</h4>
+											<h4 class="mb-4 pb-3 text-2xl font-semibold">Log In</h4>
 											<div class="relative form-group">
-												<input v-model="email" type="email" name="logemail" class="pl-[35px] form-style bg-gray-900"
+												<input v-model="email" type="email" name="logemail" class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your Email" id="logemail" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-at"></i>
 											</div>
 											<div class="relative form-group mt-2">
-												<input @keyup.enter="logIn" v-model="password" type="password" name="logpass" class="pl-[35px] bg-gray-900 form-style"
+												<input @keyup.enter="logIn" v-model="password" type="password" name="logpass" class="pl-[35px] rounded bg-gray-900 form-style"
 													placeholder="Your Password" id="logpass" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-lock-alt"></i>
 											</div>
@@ -61,28 +61,28 @@
 								<div class="card-back">
 									<div class="center-wrap">
 										<div class="relative section text-center">
-											<h4 class="pb-2 text-1xl">Sign Up</h4>
+											<h4 class="pb-3 text-2xl font-semibold">Sign Up</h4>
 											<div class="form-group">
-												<input v-model="firstName" type="text" name="firstName" class="pl-[35px] form-style bg-gray-900"
+												<input v-model="firstName" type="text" name="firstName" class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your first name" id="logname" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-user"></i>
 											</div>
 											<div class="relative form-group">
-												<input v-model="lastName" type="text" name="lastName" class="pl-[35px] form-style bg-gray-900"
+												<input v-model="lastName" type="text" name="lastName" class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your last Name" id="logname" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-user"></i>
 											</div>
 											<div class="relative form-group mt-2">
-												<input v-model="email" type="email" name="logemail" class="pl-[35px] form-style bg-gray-900"
+												<input v-model="email" type="email" name="logemail" class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your Email" id="logemail" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-at"></i>
 											</div>
 											<div class="relative form-group mt-2">
-												<input v-model="password" type="password" name="logpass" class="pl-[35px] form-style bg-gray-900"
+												<input v-model="password" type="password" name="logpass" class="pl-[35px] rounded form-style bg-gray-900"
 													placeholder="Your Password" id="logpass" autocomplete="off">
 												<i class="absolute left-0 input-icon uil uil-lock-alt"></i>
 											</div>
-											<button @click="register" class="btn mt-3">submit</button>
+											<button @click="register" class="btn">submit</button>
 										</div>
 									</div>
 								</div>
