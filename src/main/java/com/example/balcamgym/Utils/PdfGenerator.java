@@ -3,6 +3,7 @@ package com.example.balcamgym.Utils;
 
 import com.example.balcamgym.DTO.BillDTO;
 
+import com.example.balcamgym.Models.Client;
 import com.example.balcamgym.Models.Product;
 import com.example.balcamgym.Services.ProductServices;
 import com.itextpdf.text.*;
@@ -22,16 +23,16 @@ public class PdfGenerator {
 
 
 
-    public static void createBill (List<Long> ids, BillDTO billDTO,ProductServices productServices){
+    public static void createBill (List<Long> ids, BillDTO billDTO, Client client, ProductServices productServices){
         Font titleFont = new Font(Font.FontFamily.HELVETICA,18);
         Font subFont = new Font(Font.FontFamily.HELVETICA,12);
         Font headersFont = new Font(Font.FontFamily.HELVETICA,14);
 
         try {
             Document document = new Document(PageSize.A4);
-            String route = (System.getProperty("user.home") + "/downloads/");
-            PdfWriter.getInstance(document, new FileOutputStream(route  + "BALCAM_BILL.pdf"));
 
+            PdfWriter.getInstance(document, new FileOutputStream("c:/temp/bill.pdf"));
+            //PdfWriter.getInstance(document, new FileOutputStream("pdf.pdf"));
 
             document.open();
             document.setMargins(1,1,1,1);
@@ -40,7 +41,7 @@ public class PdfGenerator {
 
 
 
-            Paragraph titleClient = new Paragraph( billDTO.getClient().getFirstName()+" "+ billDTO.getClient().getLastName(),titleFont);
+            Paragraph titleClient = new Paragraph( client.getFirstName()+" "+ client.getLastName(),titleFont);
             titleClient.setSpacingAfter(3);
             titleClient.setAlignment(Element.ALIGN_CENTER);
             titleClient.setSpacingBefore(-2);
