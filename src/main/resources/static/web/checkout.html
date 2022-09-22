@@ -20,10 +20,13 @@
             <div class="lg:flex lg:items-center lg:justify-between">
                 <div class="flex items-center justify-between w-full">
                     <div class="text-xl font-semibold text-gray-700">
-                        <a class="flex flex-row justify-content-center align-items-center navbar-brand " href="index.html">
-                            <img class="pr-3" style="height: 70px;" src="assets/images/logo-Balcam-white.png" alt="Logo">
+                        <a class="flex flex-row justify-content-center align-items-center navbar-brand "
+                            href="index.html">
+                            <img class="pr-3" style="height: 70px;" src="assets/images/logo-Balcam-white.png"
+                                alt="Logo">
                             <div class="pt-2 d-flex flex-column justify-content-center align-items-center">
-                                <H4 class="h4Balcam text-2xl text-white">BALCAM<span class="text text-[#f1d24d]">'S</span></H4>
+                                <H4 class="h4Balcam text-2xl text-white">BALCAM<span
+                                        class="text text-[#f1d24d]">'S</span></H4>
                                 <h4 class="h4Balcam text-2xl text-white">GYM SHOP</h4>
                             </div>
                         </a>
@@ -103,18 +106,22 @@
                                     <ion-icon v-if="product.stockAux > 0" @click="addCart(product)"
                                         class="select-none cursor-pointer text-black text-2xl" name="add-outline">
                                     </ion-icon>
-                                    <ion-icon v-else @click="noStockAllert" class="select-none cursor-pointer text-black text-2xl cursor-not-allowed" name="add-outline">
+                                    <ion-icon v-else @click="noStockAllert"
+                                        class="select-none cursor-pointer text-black text-2xl cursor-not-allowed"
+                                        name="add-outline">
                                     </ion-icon>
                                 </div>
-                                <ion-icon @click="deleteItem(product)"  class="text-xl text-white" name="close-outline"></ion-icon>
+                                <ion-icon @click="deleteItem(product)" class="text-xl text-white" name="close-outline">
+                                </ion-icon>
 
                             </div>
                         </div>
                         <div class="flex w-full items-center justify-between">
                             <button class="w-[65%] bg-green-700 px-5 py-2 rounded text-white font-bold">
-                                <a href="./checkout.html">Continue checkout</a> 
+                                <a href="./checkout.html">Continue checkout</a>
                             </button>
-                            <button @click="cleanCart" class="w-[30%] flex justify-center gap-2 items-center bg-red-700 px-5 py-2 rounded text-white">
+                            <button @click="cleanCart"
+                                class="w-[30%] flex justify-center gap-2 items-center bg-red-700 px-5 py-2 rounded text-white">
                                 <ion-icon class="text-xl" name="trash-outline"></ion-icon>
                                 <p>Clear cart</p>
                             </button>
@@ -141,7 +148,8 @@
                                     <ion-icon @click="deleteItemCart(product)" class="text-black text-2xl"
                                         name="remove-outline"></ion-icon>
                                     <p class="text-black text-xl truncate">{{product.quantity}}</p>
-                                    <ion-icon @click="addCartAllert = !addCartAllert" @click="addCart(product)" class=" text-black text-2xl" name="add-outline">
+                                    <ion-icon @click="addCartAllert = !addCartAllert" @click="addCart(product)"
+                                        class=" text-black text-2xl" name="add-outline">
                                     </ion-icon>
                                 </div>
                             </div>
@@ -152,22 +160,25 @@
         </div>
     </nav>
 
-    <div id="app" class="overflow-y-hidden" @click="outClick"> 
+    <div id="app" class="overflow-y-hidden" @click="outClick">
         <transition>
             <div v-if="purchaseAlertSucces" class="z-50 absolute top-0 w-full text-white bg-emerald-500">
                 <div class="container flex items-center justify-between px-6 py-4 mx-auto">
                     <div class="flex">
                         <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
-                            <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z">
+                            <path
+                                d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z">
                             </path>
                         </svg>
-            
+
                         <p class="mx-3">You finished the tasks.</p>
                     </div>
-            
-                    <button @click="purchaseAlertSucces = !purchaseAlertSucces" class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
+
+                    <button @click="purchaseAlertSucces = !purchaseAlertSucces"
+                        class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </button>
                 </div>
@@ -176,22 +187,26 @@
                 <div class="container flex items-center justify-between px-6 py-4 mx-auto">
                     <div class="flex">
                         <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
-                            <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z">
+                            <path
+                                d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z">
                             </path>
                         </svg>
-            
+
                         <p class="mx-3">{{purchaseAlertError}}.</p>
                     </div>
-            
-                    <button @click="purchaseAlertError = !purchaseAlertError" class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
+
+                    <button @click="purchaseAlertError = !purchaseAlertError"
+                        class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </button>
                 </div>
             </div>
         </transition>
-        <section v-if="cartProducts.length > 0" class="bg-white relative flex flex-col gap-5 justify-center lg:flex-row w-full ">
+        <section v-if="cartProducts.length > 0"
+            class="bg-white relative flex flex-col gap-5 justify-center lg:flex-row w-full ">
             <div :class="{'h-[87vh]':modal}" class="gap-5 flex flex-col ">
                 <div :class="{'hidden': modal}" v-for="product in cartProducts"
                     class="flex flex-row justify-around items-center w-[800px] h-[350px] border m-5">
@@ -249,12 +264,15 @@
                         </div>
                         <div class="flex justify-between items-center m-3">
                             <h3 class="font-bold">Order Total: </h3>
-                            <h3 class="font-bold">{{moneyFormat.format(subtotal * (1 + taxEstimate) + shippingEstimate)}}
+                            <h3 class="font-bold">{{moneyFormat.format(subtotal * (1 + taxEstimate) +
+                                shippingEstimate)}}
                             </h3>
                         </div>
                     </div>
-                    <a v-if="client == ''"  href="./login.html"><button class="w-full bg-sky-500 rounded shadow text-white font-bold py-2">Checkout </button></a>
-                    <button v-else @click="modal = !modal" class="w-full bg-sky-500 rounded shadow text-white font-bold py-2">
+                    <a v-if="client == ''" href="./login.html"><button
+                            class="w-full bg-sky-500 rounded shadow text-white font-bold py-2">Checkout </button></a>
+                    <button v-else @click="modal = !modal"
+                        class="w-full bg-sky-500 rounded shadow text-white font-bold py-2">
                         Checkout
                     </button>
                 </div>
@@ -263,12 +281,14 @@
 
         <section v-else class="relative flex items-center w-full h-[60vh] justify-center lg:flex-row">
             <h2 class="text-2xl text-black font-medium cursor-default">You don't have any products yet! - <a
-                    href="./shop.html" class="cursor-pointer underline font-bold text-yellow-600">Go to shop now!</a></h2>
+                    href="./shop.html" class="cursor-pointer underline font-bold text-yellow-600">Go to shop now!</a>
+            </h2>
         </section>
         <transition>
-            <div v-if="modal"  class="h-full w-full top-0 absolute bg-gray-900/50 flex justify-center items-center">
-                <div id="modal" class="absolute top-[6%]  flex flex-col items-center justify-around lg:flex-row h-full w-full lg:h-[800px] lg:w-[1200px] bg-white rounded shadow">
-                    <div >
+            <div v-if="modal" class="h-full w-full top-0 absolute bg-gray-900/50 flex justify-center items-center">
+                <div id="modal"
+                    class="absolute top-[6%]  flex flex-col items-center justify-around lg:flex-row h-full w-full lg:h-[800px] lg:w-[1200px] bg-white rounded shadow">
+                    <div>
                         <div class="card-form">
                             <div class="card-list">
                                 <div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
@@ -309,7 +329,7 @@
                                                         </transition>
                                                     </span>
                                                 </template>
-        
+
                                                 <template v-else>
                                                     <span v-for="(n, $index) in otherCardMask" :key="$index">
                                                         <transition name="slide-fade-up">
@@ -347,7 +367,8 @@
                                                     <label for="cardMonth" class="card-item__dateTitle">Expires</label>
                                                     <label for="cardMonth" class="card-item__dateItem">
                                                         <transition name="slide-fade-up">
-                                                            <span v-if="cardMonth" v-bind:key="cardMonth">{{cardMonth}}</span>
+                                                            <span v-if="cardMonth"
+                                                                v-bind:key="cardMonth">{{cardMonth}}</span>
                                                             <span v-else key="2">MM</span>
                                                         </transition>
                                                     </label>
@@ -375,7 +396,7 @@
                                                 <span v-for="(n, $index) in cardCvv" :key="$index">
                                                     *
                                                 </span>
-        
+
                                             </div>
                                             <div class="card-item__type">
                                                 <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
@@ -388,14 +409,15 @@
                             <div class="card-form__inner">
                                 <div class="card-input">
                                     <label for="cardNumber" class="card-input__label">Card Number</label>
-                                    <input type="text" id="cardNumber" class="card-input__input" v-mask="generateCardNumberMask"
-                                        v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber"
-                                        autocomplete="off">
+                                    <input type="text" id="cardNumber" class="card-input__input"
+                                        v-mask="generateCardNumberMask" v-model="cardNumber" v-on:focus="focusInput"
+                                        v-on:blur="blurInput" data-ref="cardNumber" autocomplete="off">
                                 </div>
                                 <div class="card-input">
                                     <label for="cardName" class="card-input__label">Card Holders</label>
                                     <input type="text" id="cardName" class="card-input__input" v-model="cardName"
-                                        v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off">
+                                        v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName"
+                                        autocomplete="off">
                                 </div>
                                 <div class="card-form__row">
                                     <div class="card-form__col">
@@ -427,9 +449,17 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                                 <button @click="makePayment" class="card-form__button">
-                                    Submit
+                                    <span v-if="isLoading">
+                                        <div class="flex justify-center items-center">
+                                            <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+                                                role="status">
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <ion-icon v-if="success" class="text-2xl font-bold" name="checkmark-outline"></ion-icon>
+                                    <p v-if="!isLoading && !purchaseAlertSucces">Submit</p>
                                 </button>
                             </div>
                         </div>
@@ -452,18 +482,20 @@
                         </div>
                         <div class="text-xl flex justify-between items-center m-3">
                             <h3 class="font-bold">Order Total: </h3>
-                            <h3 class="text-green-700 font-bold">{{moneyFormat.format(subtotal * (1 + taxEstimate) + shippingEstimate)}}
+                            <h3 class="text-green-700 font-bold">{{moneyFormat.format(subtotal * (1 + taxEstimate) +
+                                shippingEstimate)}}
                             </h3>
                         </div>
-                        <ion-icon class=" absolute top-10 right-10 text-black text-4xl cursor-pointer" @click="modal = !modal" name="close-outline"></ion-icon>
-    
+                        <ion-icon class=" absolute top-10 right-10 text-black text-4xl cursor-pointer"
+                            @click="modal = !modal" name="close-outline"></ion-icon>
+
                     </div>
                 </div>
             </div>
         </transition>
     </div>
 
-    
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

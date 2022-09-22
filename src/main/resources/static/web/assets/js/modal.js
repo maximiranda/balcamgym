@@ -39,6 +39,8 @@ new Vue({
             subtotal: 0,
             shippingEstimate: 7,
             taxEstimate: 0.21,
+            isLoading : false,
+            success : false
         };
     },
     created() {
@@ -130,6 +132,7 @@ new Vue({
             }
         },
         makePayment() {
+            this.isLoading = true
             if(!(this.cardName == "" || this.cardCvv == "" || this.cardYear == "" || this.cardMonth == "" || this.cardNumber == "")){
                 axios.post('https://maxbank-homebanking.herokuapp.com/api/pays', {
                     "cardNumber": this.cardNumber,
@@ -143,6 +146,7 @@ new Vue({
                     axios.post("/api/purchase", "paymentAuthorization=true" + "&ids=" + ids, {headers: {"Content-Type":"application/x-www-form-urlencoded"}})
                     .then(r => {
                         this.purchaseAlertSucces = true
+                        this.success = true
                         setTimeout( () => {
                             this.purchaseAlertSucces = false})
                         }, 5000)
