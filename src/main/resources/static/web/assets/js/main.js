@@ -18,6 +18,8 @@ const app = Vue.createApp({
       cardHolder: "",
       cardExp: "",
       cardCvv: "",
+      showAlertDanger : false,
+      showSuccessAlert : false,
     };
   },
 
@@ -29,10 +31,9 @@ const app = Vue.createApp({
         console.log(this.workouts);
         this.fromDates = this.workouts.map((workout) => workout.fromDate.substring(0, 3));
         console.log(this.fromDates);
-        
       })
       .catch(function (error) {
-        console.log(error);
+
       });
       axios.get("/api/clients/current")
             .then(response => {
@@ -41,7 +42,6 @@ const app = Vue.createApp({
                 console.log(this.clients)
                 this.clientId = this.clients.find(clients => clients.id == id)
                 console.log(this.clientId)
-
             }).catch(error => error)
   },
 
@@ -67,8 +67,8 @@ const app = Vue.createApp({
     },
     subscriptionPayment(){
       axios.post("/api/subscriptions", "id=49" + "&paymentAuthorization=true", {headers: {"Content-Type":"application/x-www-form-urlencoded"}})
-      .then(response => {console.log(response)})
-      .catch(error =>{alert(error.response.data)})
+      .then(response => {})
+      .catch(error =>{})
     },
     openModal(number){
 
@@ -78,8 +78,18 @@ const app = Vue.createApp({
     selectWorkout(id){
       console.log(id)
       axios.post("/api/workouts","id=" +id,  {headers: {"Content-Type":"application/x-www-form-urlencoded"}})
-      .then(r=>{console.log(response.data)})
-      .catch(e=>{alert(e.response.status)})
+      .then(r=>{
+        this.showSuccessAlert = true;
+        setTimeout(()=>{
+          this.showSuccessAlert = false;
+        }, 3000)
+      })
+      .catch(e=>{
+        this.showAlertDanger = true
+        setTimeout(()=>{
+          this.showAlertDanger = false
+        }, 3000)
+      })
     }
   }
 

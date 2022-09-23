@@ -31,10 +31,9 @@
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 
-<body class="" id="app">
+<body id="app">
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
@@ -119,9 +118,35 @@
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
+            </div>
+            <div v-if="showAlertDanger" class="alert-danger-alan d-flex bg-danger justify-content-around align-items-center">
+                <div class="d-flex justify-content-center gap-5 w-50 align-items-center pr-105">
+                    <svg viewBox="0 0 40 40" class="tamaño-icono-alerta">
+                        <path
+                            d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z">
+                        </path>
+                    </svg>
+                    <span>You reached the limit of Lessons of your subscription. <span class="text-decoration-underline">Upgrade here!</span></p>
+                </div>
+                <div @click="showAlertDanger = !showAlertDanger">
+                    <i class="bi-x-lg bi "></i>
+                </div>
+            </div>
+            <div v-if="showSuccessAlert" class="alert-success-alan bg-success d-flex justify-content-around align-items-center">
+                <div class="d-flex justify-content-center gap-5 w-50 align-items-center pr-105">
+                    <svg viewBox="0 0 40 40" class="tamaño-icono-alerta">
+                        <path
+                            d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z">
+                        </path>
+                    </svg>
+                    <span>You have beeen inscripted successfully. <span class="text-decoration-underline">Go to memberships!</span></p>
+                </div>
+                <div @click="showSuccessAlert = !showSuccessAlert">
+                    <i class="bi-x-lg bi "></i>
+                </div>
             </div> <!-- container -->
         </div> <!-- navbar area -->
-
+        
         <div id="home" class="header-hero bg_cover align-items-center">
             <div class="videoText_container">
                 <video autoplay muted loop id="myVideo" class="landingVideo">
@@ -478,7 +503,7 @@
                         <div v-if="clients == ''" class="pricing_btn">
                             <a  href="./login.html">Purchase Now</a>
                         </div>
-                        <div v-else @click="openModal(29)" class="pricing_btn">
+                        <div v-else @click="openModal(29)" role="button" class="pricing_btn">
                             <a >Purchase Now</a>
 
                         </div>
@@ -503,7 +528,7 @@
                         <div v-if="clients == ''" class="pricing_btn pricing_btn_2">
                             <a  href="./login.html">Purchase Now</a>
                         </div>
-                        <div v-else @click="openModal(49)" class="pricing_btn">
+                        <div v-else @click="openModal(49)" role="button" class="pricing_btn">
                             <a >Purchase Now</a>
 
                         </div>
@@ -525,10 +550,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <div v-if="clients == ''" class="pricing_btn">
+                        <div v-if="clients == ''"  class="pricing_btn">
                             <a  href="./login.html">Purchase Now</a>
                         </div>
-                        <div v-else @click="openModal(99)" class="pricing_btn">
+                        <div v-else @click="openModal(99)" role="button" class="pricing_btn">
                             <a >Purchase Now</a>
 
                         </div>

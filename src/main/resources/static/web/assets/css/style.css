@@ -1649,6 +1649,28 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
   margin-left: 15px;
 }
 
+.alert-danger-alan{
+  width: 100vw;
+  height: 5vh;
+  position: sticky;
+  top:0;
+  z-index: 10;
+  color: white;
+}
+.alert-success-alan{
+  width: 100vw;
+  height: 5vh;
+  position: sticky;
+  top:0;
+  z-index: 10;
+  color: white;
+}
+.tamaño-icono-alerta{
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: white;
+}
+
 /* .footer_social .social li a {
   background-color: rgba(255, 255, 255, 0.1);
   width: 35px;
