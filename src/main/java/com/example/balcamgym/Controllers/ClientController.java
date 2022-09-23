@@ -43,7 +43,7 @@ public class ClientController {
         }
         Client client = new Client(firstName, lastName, email, passwordEncoder.encode(password), false);
         clientServices.saveClient(client);
-        emailSenderService.sendEmail(client.getEmail(),"Activacion de cuenta","http://localhost:8080/api/client/activation/" + client.getId());
+        emailSenderService.sendEmail(client.getEmail(),"Activacion de cuenta","https://balcamsgym.herokuapp.com/api/client/activation/" + client.getId());
         return new ResponseEntity<>("Create", HttpStatus.CREATED);
     }
     @GetMapping("/client/activation/{id}")
