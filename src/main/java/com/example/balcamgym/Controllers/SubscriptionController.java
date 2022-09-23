@@ -56,6 +56,9 @@ public class SubscriptionController {
         if (subscription == null){
             return new ResponseEntity<>("sdasdas", HttpStatus.FORBIDDEN);
         }
+        if (client.getBillSubscription() != null){
+            return new ResponseEntity<>("You already hava a subscription", HttpStatus.FORBIDDEN);
+        }
         BillSubscription billSubscription = new BillSubscription(client, subscription);
         client.setClientSubscription(true);
         client.setBillSubscription(billSubscription);

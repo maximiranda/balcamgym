@@ -74,6 +74,12 @@ const app = Vue.createApp({
 
       this.subtotal= number
       this.isOpen=true
+    },
+    selectWorkout(id){
+      console.log(id)
+      axios.post("/api/workouts","id=" +id,  {headers: {"Content-Type":"application/x-www-form-urlencoded"}})
+      .then(r=>{console.log(response.data)})
+      .catch(e=>{alert(e.response.status)})
     }
   }
 

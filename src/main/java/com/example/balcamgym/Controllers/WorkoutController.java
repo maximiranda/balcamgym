@@ -31,25 +31,27 @@ public class WorkoutController {
     }
 
     @PostMapping("/workouts")
-    public ResponseEntity<Object> addWorkout(Authentication authentication,@RequestParam List<Long> ids){
+    public ResponseEntity<Object> addWorkout(Authentication authentication,@RequestParam Long id){
         Client client = clientServices.findByEmail(authentication.getName());
         if (client == null){
             return new ResponseEntity<>("", HttpStatus.FORBIDDEN);
 
         }
-        for (Long id: ids){
-            if (client.getWorkouts().size() >= 1 && client.getBillSubscription().getSubscription().getSubscriptionTypes() == SubscriptionTypes.BASIC ){
-                return new ResponseEntity<>("m", HttpStatus.FORBIDDEN);
-            }
-            if (client.getWorkouts().size() >= 3 && client.getBillSubscription().getSubscription().getSubscriptionTypes() == SubscriptionTypes.STANDAR ){
-                return new ResponseEntity<>("a", HttpStatus.FORBIDDEN);
-            }
-            Workout workout = workoutServices.getWorkoutById(id);
-            client.addWorkouts(workout);
-            workout.addClients(client);
-            workoutServices.saveWorkout(workout);
-            clientServices.saveClient(client);
+        if (client.getBillSubscription() == null){
+            return new ResponseEntity<>("Not have a subscription", HttpStatus.FORBIDDEN);
+
         }
+        if (client.getWorkouts().size() >= 1 && client.getBillSubscription().getSubscription().getSubscriptionTypes() == SubscriptionTypes.BASIC ){
+            return new ResponseEntity<>("Many workouts for your subscription", HttpStatus.FORBIDDEN);
+        }
+        if (client.getWorkouts().size() >= 3 && client.getBillSubscription().getSubscription().getSubscriptionTypes() == SubscriptionTypes.STANDAR ){
+            return new ResponseEntity<>("Many workouts for your subscription", HttpStatus.FORBIDDEN);
+        }
+        Workout workout = workoutServices.getWorkoutById(id);
+        client.addWorkouts(workout);
+        workout.addClients(client);
+        workoutServices.saveWorkout(workout);
+        clientServices.saveClient(client);
         return new ResponseEntity<>("inscribed", HttpStatus.CREATED);
     }
 }

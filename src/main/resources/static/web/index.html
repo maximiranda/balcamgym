@@ -416,14 +416,26 @@
                 </div>
             </div>
             <div class="row justify-content-center" >
-                <div class=" col-lg-3 col-sm-6" v-for="workouts in workouts">
-                    <div class="single_schedule mt-30">
+                <div class=" col-lg-3 col-sm-6" v-for="workout in workouts">
+                    
+                    <div v-if="clients== ''" role="button" class="position-relative single_schedule mt-30">
                         <div>
-                            <p class="number">{{limitText(workouts.fromDate)}}.</p>
+                            <p class="number">{{limitText(workout.fromDate)}}.</p>
                         </div>
-                        <span class="time">{{workouts.fromTime}}</span>
+                        <a href="/web/login.html">
+                            <span class="link1"></span>
+                        </a>
+                        <span class="time">{{workout.fromTime}}</span>
                         <h4 class="title"><a href="javascript:void(0)">{{workouts.name}}</a></h4>
-                        <p>{{workouts.coachName}}</p>
+                        <p>{{workout.coachName}}</p>
+                    </div>
+                    <div role="button" v-else @click="selectWorkout(workout.id)" class="single_schedule mt-30">
+                        <div>
+                            <p class="number">{{limitText(workout.fromDate)}}.</p>
+                        </div>
+                        <span class="time">{{workout.fromTime}}</span>
+                        <h4 class="title"><a href="javascript:void(0)">{{workouts.name}}</a></h4>
+                        <p>{{workout.coachName}}</p>
                     </div>
                 </div>
 
