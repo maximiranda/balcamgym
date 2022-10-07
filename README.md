@@ -3,6 +3,8 @@
 
 https://balcamsgym.herokuapp.com/web/index.html
 
+Team project.
+
 Balcam's GYM is an online GYM application and e-Commerce.
 
 
@@ -27,6 +29,10 @@ Balcam's GYM is an online GYM application and e-Commerce.
 ## Authors
 
 - [@maximiranda](https://www.github.com/maximiranda)
+- [@AlejandroTorresM](https://github.com/AlejandroTorresM)
+- [@MBAguado](https://github.com/MBAguado)
+- [@CandelariaChalub](https://github.com/CandelariaChalub)
+- [@leancal](https://github.com/leancal)
 
 ## License
 
