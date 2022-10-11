@@ -33,6 +33,7 @@ Balcam's GYM is an online GYM application and e-Commerce.
 - [@MBAguado](https://github.com/MBAguado)
 - [@CandelariaChalub](https://github.com/CandelariaChalub)
 - [@leancal](https://github.com/leancal)
+- [@derrha](https://github.com/derrha)
 
 ## License
 
